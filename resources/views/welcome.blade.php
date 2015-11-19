@@ -17,8 +17,7 @@
         <link rel="stylesheet" href="{{ asset('bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/iCheck/skins/flat/_all.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/DataTables/media/css/jquery.dataTables.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('bower_components/ui-select-master/dist/select.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('bower_components/select2/dist/css/select2.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bower_components/ui-select/dist/select.min.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/css/dataTables.bootstrap.css') }}">
         <!-- CSS App -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -45,6 +44,7 @@
                         <li class="active"><a href="#">{{trans('app.homepage')}}</a></li>
                         <li><a href="#about">{{trans('app.about')}}</a></li>
                         <li><a href="#contact">{{trans('app.contact')}}</a></li>
+                        @include('_navi18n')
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
@@ -60,30 +60,67 @@
     <!-- Page Content -->
     <div class="container" style="margin-top: 10px;">
         <!-- Search Box -->
-        <div class="col-sm-4">
-            <div class="panel fresh-color panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{trans('app.searchbox_title')}}</h3>
-                </div>
-                <div class="panel-body">
-
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel fresh-color panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{trans('app.searchbox_title')}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <label>{{trans('app.speciality')}}</label>
+                        <ui-select ng-model="selectedCategory">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in (categories | filter: $select.search) track by item.id">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                        <label>{{trans('app.province')}}</label>
+                        <ui-select ng-model="selectedProvince">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in (provinces | filter: $select.search) track by item.id">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                        <label>{{trans('app.city')}}</label>
+                        <ui-select ng-model="selectedCity">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in (cities | filter: $select.search) track by item.id">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                        <label>{{trans('app.church')}}</label>
+                        <ui-select ng-model="selectedChurch">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in (churches | filter: $select.search) track by item.id">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                        {!! Button::primary(trans('app.searchbox_btn'))->asLinkTo( url('search') ) !!}
+                    </div>
                 </div>
             </div>
+            <header class="jumbotron hero-spacer col-sm-8" style="background: #22A7F0; color: snow">
+                <h1>
+                    <i class="app-logo fa fa-search fa-2x color-white"></i>
+                    {{ trans('welcome.jumbotron.title') }}
+                </h1>
+                <p class="hidden-xs" id="inspire">{{ trans('welcome.jumbotron.description') }}</p>
+                <div class="row">
+                    <span class="btn-group">
+                        {!! Button::primary(trans('welcome.jumbotron.btn.begin'))->asLinkTo( url('auth/register') ) !!}
+                        {!! Button::normal(trans('welcome.jumbotron.btn.login'))->asLinkTo( url('auth/login') ) !!}
+                    </span>
+                </div>
+            </header>
         </div>
-        <header class="jumbotron hero-spacer col-sm-8" style="background: #22A7F0; color: snow">
-            <h1>
-                <i class="app-logo fa fa-search fa-2x color-white"></i>
-                {{ trans('welcome.jumbotron.title') }}
-            </h1>
-            <p class="hidden-xs" id="inspire">{{ trans('welcome.jumbotron.description') }}</p>
-            <div class="row">
-                <span class="btn-group">
-                    {!! Button::primary(trans('welcome.jumbotron.btn.begin'))->asLinkTo( url('auth/register') ) !!}
-                    {!! Button::normal(trans('welcome.jumbotron.btn.login'))->asLinkTo( url('auth/login') ) !!}
-                </span>
-            </div>
-        </header>
-
         <!-- Page Features -->
         <div class="row">
 
@@ -149,10 +186,23 @@
 
         <!-- Javascript Libs -->
         <script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+        <!--
+          IE8 support, see AngularJS Internet Explorer Compatibility http://docs.angularjs.org/guide/ie
+          For Firefox 3.6, you will also need to include jQuery and ECMAScript 5 shim
+        -->
+        <!--[if lt IE 9]>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+        <script>
+            document.createElement('ui-select');
+            document.createElement('ui-select-match');
+            document.createElement('ui-select-choices');
+        </script>
+        <![endif]-->
         <script type="text/javascript" src="{{ asset('bower_components/angularjs/angular.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/angularjs/angular-resource.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/angularjs/angular-sanitize.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bower_components/ui-select-master/dist/select.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bower_components/ui-select/dist/select.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/findaproApp.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/controllers/welcome.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>

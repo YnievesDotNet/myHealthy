@@ -1,4 +1,4 @@
-.flat-blue {
+  .flat-blue {
   background-color: #F9F9F9;
   /* small screen */ }
   .flat-blue a {
@@ -36,7 +36,7 @@
       color: #FFF; }
     .flat-blue .navbar .navbar-nav .dropdown-menu {
       background-color: #F9F9F9;
-      border-color: #3E4651; }
+      border-color: #fff; }
       .flat-blue .navbar .navbar-nav .dropdown-menu .title {
         background-color: #FFF; }
         .flat-blue .navbar .navbar-nav .dropdown-menu .title .badge {
@@ -145,6 +145,7 @@
     .flat-blue .card.card-info .card-header .title {
       color: #FFF; }
   .flat-blue .panel.panel-default {
+    margin-bottom: 0px;
     border: 1px solid #EAEAEA; }
     .flat-blue .panel.panel-default .panel-heading {
       border-bottom: 1px solid #EAEAEA;

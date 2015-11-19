@@ -10,7 +10,7 @@ return array (
   array (
     'btn' => [ 'begin' => 'Let\'s begin', 'login' => 'Login' ],
     'description' => 'The booking app for successful professionals.',
-    'title' => 'timegrid.io',
+    'title' => 'Find a Pro',
   ),
   // Defined in file /home/alariva/xb3/xbooking/resources/views/welcome.blade.php
   //==================================== Translations ====================================//

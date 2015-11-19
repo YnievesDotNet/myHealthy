@@ -22,7 +22,12 @@ return array (
     'contact' => 'Contactenos',
     'description' => 'El cat&aacute;logo integral donde usted pueda localizar a los profesionales en las materias que usted necesite!!',
     'more' => 'Leer m&aacute;s',
+    'speciality' => 'Especialidad',
+    'province' => 'Provincia',
+    'city' => 'Ciudad',
+    'church' => 'Parroquia',
     'searchbox_title' => 'Busque a su profesional aqu&iacute;, es GRATIS!',
+    'searchbox_btn' => 'Buscar!',
     'nav' => array (
         'manual' => 'Manual de usuario',
         'login' => 'Iniciar Sesión',

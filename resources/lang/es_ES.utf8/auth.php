@@ -1,20 +1,12 @@
 <?php
-/*************************************************************************
- Generated via "php artisan localization:missing" at 2015/07/29 12:57:57 
-*************************************************************************/
-
 return array (
-  //==================================== Translations ====================================//
-  'btn' => 
-  array (
-    'already_registered' => '¿ Ya estás registrado ? Iniciá sesión',
-    'forgot' => '¿ Has olvidado tu contraseña ? Blanqueala aquí',
-    'not_registered' => '¿ Aún no tenés usuario ? Registrate acá',
+  'btn' => array (
+    'already_registered' => '¿Ya estás registrado? Inicie su sesión',
+    'forgot' => '¿Has olvidado tu contraseña? Reseteala aquí',
+    'not_registered' => '¿Aún no tienes usuario? Registrate aquí',
   ),
-  'login' => 
-  array (
-    'alert' => 
-    array (
+  'login' => array (
+    'alert' => array (
       'message' => '¿Puedo ayudarte?',
       'whoops' => 'Whoops!',
     ),
@@ -25,10 +17,8 @@ return array (
     'remember_me' => 'Recordarme',
     'title' => 'Inicio de Sesión',
   ),
-  'register' => 
-  array (
-    'btn' => 
-    array (
+  'register' => array (
+    'btn' => array (
       'submit' => 'Registrame',
     ),
     'email' => 'Tu Email',
@@ -36,22 +26,18 @@ return array (
     'need_help' => '¿Necesitas ayuda?',
     'password' => 'Una Contraseña',
     'password_confirmation' => 'La misma contraseña',
-    'title' => '¡Hola! Vamos a crear un perfil en timegrid.io',
-    'msg' => 
-    array (
+    'title' => '¡Hola! Vamos a crear un perfil en Find a Pro',
+    'msg' => array (
       'errors' => 'Errores',
     ),
   ),
-  'reset' => 
-  array (
-    'btn' => 
-    array (
-      'reset' => 'Blanquear contraseña',
-      'send_link' => 'Enviame el link de blanqueo',
+  'reset' => array (
+    'btn' => array (
+      'reset' => 'Resetear contraseña',
+      'send_link' => 'Enviame el link de reseteo',
     ),
-    'title' => 'Blanqueo de contraseña',
+    'title' => 'Reseteo de contraseña',
   ),
-  //================================== Obsolete strings ==================================//
   'failed' => 'No reconocemos estos datos. ¿Olvidaste tu contraseña?',
-  'throttle' => 'Demasiados intentos! Por favor intentá nuevamente dentro de :seconds segundos.',
+  'throttle' => 'Demasiados intentos! Por favor intentalo nuevamente dentro de :seconds segundos.',
 );

@@ -17,8 +17,15 @@ class CategoriesController extends Controller
      */
     public function index(Request $request)
     {
+//        $categories = Category::where('name', 'like', '%'.$request->q.'%')
+//            ->orWhere('slug', 'like', '%'.$request->q.'%')
+//            ->get();
         $categories = Category::all();
-        return compact('categories');
+        foreach ($categories as $category) {
+            $category->name = trans("app.business.category.$category->slug");
+        }
+        $selectedCategory = $categories->first();
+        return compact('categories', 'selectedCategory');
     }
 
     /**
