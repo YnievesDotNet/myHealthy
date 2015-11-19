@@ -1,0 +1,82 @@
+<?php
+return array (
+    'dateformat' => array (
+        'datetimepicker' => 'DD/MM/YYYY',
+        'carbon' => 'd/m/Y',
+    ),
+    'general' => array (
+        'btn' => array (
+            'create' => 'Crear',
+            'read' => 'Leer',
+            'update' => 'Actualizar',
+            'delete' => 'Eliminar',
+            'confirm_deletion' => '¿Eliminar?',
+        ),
+    ),
+    'label' => array (
+        'select_timezone' => 'Zona horaria',
+    ),
+    'name' => 'Find a Pro',
+    'homepage' => 'Inicio',
+    'about' => 'Acerca de',
+    'contact' => 'Contactenos',
+    'description' => 'El cat&aacute;logo integral donde usted pueda localizar a los profesionales en las materias que usted necesite!!',
+    'more' => 'Leer m&aacute;s',
+    'searchbox_title' => 'Busque a su profesional aqu&iacute;, es GRATIS!',
+    'nav' => array (
+        'manual' => 'Manual de usuario',
+        'login' => 'Iniciar Sesión',
+        'logout' => 'Salir',
+        'manager' => array (
+            'business' => array (
+                'list' => 'Listar',
+                'menu' => 'Mis Profesionales',
+                'register' => 'Registrar Profesional',
+            ),
+        ),
+        'register' => 'Registrarme',
+        'user' => array (
+            'business' => array (
+                'menu' => 'Profesionales',
+                'my_appointments' => 'Mis turnos',
+                'my_suscriptions' => 'Favoritos',
+                'selector' => 'Buscar',
+                'home' => 'Inicio',
+            ),
+        ),
+        'wizard' => 'Asistente',
+        'home' => 'Inicio',
+    ),
+    'notifications' => array (
+        'title' => 'Recientemente',
+    ),
+    'search' => 'Buscar',
+    'business' => array (
+        'category' => array (
+            'doctor' => 'Medico',
+            'garage' => 'Taller de mecanica',
+            'photography' => 'Fotografia',
+        ),
+    ),
+    'filter' => 'Filtrar',
+    'gender' => array (
+        'F' => 'Femenino',
+        'M' => 'Masculino',
+    ),
+    'home' => array (
+        'btn' => array (
+            'actions' => 'Acciones',
+        ),
+    ),
+    'welcome' => array (
+        'btn' => array (
+            'enter' => 'Entrar',
+        ),
+        'description' => 'Entrar al sistema',
+        'title' => 'Bienvenido!',
+    ),
+    'footer' => array (
+        'demo' => 'Recuerde que esta en version DEBUG.',
+        'local' => 'Corriendo en ambiente local.',
+    ),
+);
