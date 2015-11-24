@@ -1,37 +1,25 @@
-<a href="http://www.timegrid.io/">
-    <img src="http://i.imgur.com/905Lv7L.png" alt="timegrid.io logo"
-         title="timegrid.io" align="right" />
-</a>
-
-timegrid
+Find a Pro
 ============
 
-[![Join the chat at https://gitter.im/alariva/timegridDevelopment](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/alariva/timegridDevelopment?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![ES User Manual](https://readthedocs.org/projects/manual-de-usuario-de-timegridio/badge/?version=latest&style=flat-square)](http://manual-de-usuario-de-timegridio.readthedocs.org/es/latest/?badge=latest)
-[![Version Stage](https://img.shields.io/badge/dev--beta-3.4.x-orange.svg?style=flat-square)](http://demo.timegrid.io/)
-[![License](https://img.shields.io/:license-AGPL--3.0-blue.svg?style=flat-square)](http://www.gnu.org/licenses/agpl-3.0.txt)
-
-Timegrid is a web application for online reservation of services for business.
-
-It is currently in **beta** stage willing to add some missing functions in the short terms.
+Find a Pro is a web application for online reservation of services for professionals freelances.
 
 It is made under the **Laravel 5** framework for **PHP**.
 
-![Screenshot](http://i.imgur.com/aiG7jlx.png)
+This App have Client Apps for Android, iOS, and is under build version for Windows Phone and Blackberry OS.
 
 ## Live Demo
 
-You can try the *beta stage* working [live demo](http://demo.timegrid.io/)
+You can try the *back stage* working [live demo](http://findapro.ynieves.net/)
 
 ## Features
 
 These are the current features so far:
 
   * User SignUp process (with email notification)
-  * Business registration
-  * Business Contacts registration
-  * Business Services registration
-  * Business Services Availability management (basic)
+  * Professional registration
+  * Professional Contacts registration
+  * Professional Services registration
+  * Professional Services Availability management (basic)
   * Service Reservation (with email notification)
   * Search engine (basic)
 
@@ -51,13 +39,13 @@ To be available soon.
 <a name="step1"></a>
 ### Step 1: Get the code - Clone the repository
 
-    $ git clone https://github.com/alariva/timegrid.git
+    $ git clone https://github.com/ynievesdotnet/findapro.git
     
-If you want to stand on the latest beta-stable version:
+If you want to stand on the latest version:
 
-    $ cd timegrid
+    $ cd findapro
 
-    $ git checkout tags/v3.4.1-beta
+    $ git checkout tags/v1.0
 
 -----
 <a name="step2"></a>
@@ -79,7 +67,7 @@ After that, copy .env.example and rename it as .env and put connection and chang
 
 **Change** the storage path in **.env** file to a writeable location
 
-    STORAGE_PATH=/home/username/timegrid/storage
+    STORAGE_PATH=/var/www/storage
 
 Migrate database schema
 
@@ -105,15 +93,13 @@ You can now register as new user and login.
 
 ## Contributing
 
-Thank you for considering contributing to Timegrid.
+Thank you for considering contributing to Find a Pro.
 
 Please see CONTRIBUTING doc for further details.
 You are welcome to join the core development team and enhance the development process apart from just code :)
 
-[Join the Trello board for development roadmap](https://trello.com/b/VNFqnxhc/timegrid-io-dev)
-
-[Join the Slack for technical discussion](https://timegrid.slack.com/home)
-
 ### License
 
-Timegrid is open-sourced software licensed under the [AGPL](http://www.gnu.org/licenses/agpl-3.0-standalone.html)
+Find a Pro is open-sourced software licensed under the [AGPL](http://www.gnu.org/licenses/agpl-3.0-standalone.html).
+
+Based in [Timegrid](https://github.com/alariva/timegrid.git) Software for Bussines

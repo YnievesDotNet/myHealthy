@@ -1,4 +1,4 @@
-# Timegrid Contribution Guide
+# Find A Pro Contribution Guide
 
 Thank you for considering contributing to Timegrid.
 
