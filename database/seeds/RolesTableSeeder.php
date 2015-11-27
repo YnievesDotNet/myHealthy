@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Kodeine\Acl\Models\Eloquent\Role;
 
 class RolesTableSeeder extends Seeder
 {
@@ -12,9 +11,11 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        Role::updateOrCreate(['slug' => 'root'],         ['name' => 'Root',         'description' => 'System administration only']);
-        Role::updateOrCreate(['slug' => 'manager'],      ['name' => 'Manager',      'description' => 'Business manager']);
-        Role::updateOrCreate(['slug' => 'collaborator'], ['name' => 'Collaborator', 'description' => 'Business manager with restricted access']);
-        Role::updateOrCreate(['slug' => 'user'],         ['name' => 'User',         'description' => 'Business customer/user']);
+        $now = new DateTime();
+        $now = $now->format('c');
+        \DB::table('roles')->insert(array('slug' => 'root', 'name' => 'Root', 'description' => 'System administration only', 'created_at' => $now, 'updated_at' => $now));
+        \DB::table('roles')->insert(array('slug' => 'manager', 'name' => 'Manager', 'description' => 'Business manager', 'created_at' => $now, 'updated_at' => $now));
+        \DB::table('roles')->insert(array('slug' => 'collaborator', 'name' => 'Collaborator', 'description' => 'Business manager with restricted access', 'created_at' => $now, 'updated_at' => $now));
+        \DB::table('roles')->insert(array('slug' => 'user', 'name' => 'User', 'description' => 'Business customer/user', 'created_at' => $now, 'updated_at' => $now));
     }
 }

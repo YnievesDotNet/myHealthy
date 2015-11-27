@@ -42,6 +42,5 @@
 @if(!\Auth::user()->hasBusiness())
     @section('footer_scripts')
     @parent
-    {!! TidioChat::js() !!}
     @endsection
 @endif

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Category;
 
 class CategoriesSeeder extends Seeder
 {
@@ -12,8 +11,10 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-        Category::updateOrCreate(['slug' => 'garage'], ['strategy' => 'dateslot', 'name' => 'Garage',  'description' => 'Vehicle repair and services']);
-        Category::updateOrCreate(['slug' => 'doctor'], ['strategy' => 'dateslot', 'name' => 'Doctor',  'description' => 'Clinical Doctor']);
-        Category::updateOrCreate(['slug' => 'photography'], ['strategy' => 'dateslot', 'name' => 'Photographer',  'description' => 'Photographer']);
+        $now = new DateTime();
+        $now = $now->format('c');
+        \DB::table('categories')->insert(array('slug' => 'garage', 'strategy' => 'dateslot', 'name' => 'Garage',  'description' => 'Vehicle repair and services', 'created_at' => $now, 'updated_at' => $now, 'deleted_at' => NULL));
+        \DB::table('categories')->insert(array('slug' => 'doctor', 'strategy' => 'dateslot', 'name' => 'Doctor',  'description' => 'Clinical Doctor', 'created_at' => $now, 'updated_at' => $now, 'deleted_at' => NULL));
+        \DB::table('categories')->insert(array('slug' => 'photography', 'strategy' => 'dateslot', 'name' => 'Photographer',  'description' => 'Photographer', 'created_at' => $now, 'updated_at' => $now, 'deleted_at' => NULL));
     }
 }

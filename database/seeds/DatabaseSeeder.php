@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,18 +11,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-
-        $this->call('NotifynderCategoriesSeeder');
-        $this->command->info('Seeded the Notifynder Categories!');
-
-        $this->call('CategoriesSeeder');
-        $this->command->info('Seeded the Param Categories!');
-
-        $this->call('CountriesSeeder');
-        $this->command->info('Seeded the Param Countries!');
-
-        $this->call('RolesTableSeeder');
-        $this->command->info('Seeded the Param Roles!');
+        $notifynder = new NotifynderCategoriesSeeder;
+        $notifynder->run();
+        $categories = new CategoriesSeeder;
+        $categories->run();
+        $countries = new CountriesTableSeeder;
+        $countries->run();
+        $location = new LocationTableSeeder();
+        $location->run();
+        $roles = new RolesTableSeeder;
+        $roles->run();
+        $languajes = new LanguajesTableSeeder();
+        $languajes->run();
     }
 }

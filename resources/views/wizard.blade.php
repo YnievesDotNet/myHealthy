@@ -30,5 +30,4 @@
 
 @section('footer_scripts')
 @parent
-{!! TidioChat::js() !!}
 @endsection

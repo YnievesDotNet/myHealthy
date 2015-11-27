@@ -162,7 +162,6 @@ return [
         'Potsky\LaravelLocalizationHelpers\LaravelLocalizationHelpersServiceProviderLaravel5',
 
         'Propaganistas\LaravelPhone\LaravelPhoneServiceProvider',
-        'Webpatser\Countries\CountriesServiceProvider',
 
         'Stevebauman\Location\LocationServiceProvider',
         'Torann\GeoIP\GeoIPServiceProvider',
@@ -172,8 +171,6 @@ return [
         'Anhskohbo\NoCaptcha\NoCaptchaServiceProvider',
         'Caffeinated\Widgets\WidgetsServiceProvider',
         'Ipunkt\LaravelAnalytics\AnalyticsServiceProvider',
-
-        'alariva\tidiochat\TidioChatServiceProvider',
 
         Laravel\Socialite\SocialiteServiceProvider::class,
     ],
@@ -259,7 +256,6 @@ return [
 
         'Notifynder' => 'Fenos\Notifynder\Facades\Notifynder',
         'Flash'    => 'Laracasts\Flash\Flash',
-        'Countries' => 'Webpatser\Countries\CountriesFacade',
 
         'Location' => 'Stevebauman\Location\Facades\Location',
         'GeoIP' => 'Torann\GeoIP\GeoIPFacade',
@@ -268,8 +264,6 @@ return [
         'Gravatar' => 'Creativeorange\Gravatar\Facades\Gravatar',
         'Widget' => 'Caffeinated\Widgets\Facades\Widget',
         'Analytics' => 'Ipunkt\LaravelAnalytics\AnalyticsFacade',
-
-        'TidioChat'    => 'alariva\tidiochat\TidioChatFacade',
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],

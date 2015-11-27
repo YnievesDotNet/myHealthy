@@ -40,8 +40,6 @@
             </div>
             @include('flash::message')
         </div>
-
-
         <!-- Javascript Libs -->
         <script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
         <!--
