@@ -5,13 +5,21 @@ angular.module('findaproApp').controller('welcomeController', function($scope, $
             $scope.categories = data.categories;
             $scope.selectedCategory = data.selectedCategory;
         });
-        $scope.provinces = [{"id":1,"slug":"dc","name":"Capital"}];
-        $scope.selectedProvince = {"id":1,"slug":"dc","name":"Capital"};
-        $scope.cities = [{"id":1,"slug":"quito","name":"Quito"}];
-        $scope.selectedCity = {"id":1,"slug":"quito","name":"Quito"};
-        $scope.churches = [{"id":1,"slug":"primera","name":"Primera"}];
-        $scope.selectedChurch = {"id":1,"slug":"primera","name":"Primera"};
-
+        $http.get('/api/countries').
+        success(function(data, status, headers, config) {
+            $scope.countries= data.countries;
+            $scope.selectedCountry = data.selectedCountry;
+        });
+        $http.get('/api/regions').
+        success(function(data, status, headers, config) {
+            $scope.regions = data.regions;
+            $scope.selectedRegion = data.selectedRegion;
+        });
+        $http.get('/api/locations').
+        success(function(data, status, headers, config) {
+            $scope.locations = data.locations;
+            $scope.selectedLocation = data.selectedLocation;
+        });
     }
     $scope.init();
 });

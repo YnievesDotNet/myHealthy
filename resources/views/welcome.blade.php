@@ -76,30 +76,30 @@
                                 <span ng-bind="item.name"></span>
                             </ui-select-choices>
                         </ui-select>
-                        <label>{{trans('app.province')}}</label>
-                        <ui-select ng-model="selectedProvince">
+                        <label>{{trans('app.country')}}</label>
+                        <ui-select ng-model="selectedCountry">
                             <ui-select-match>
                                 <span ng-bind="$select.selected.name"></span>
                             </ui-select-match>
-                            <ui-select-choices repeat="item in (provinces | filter: $select.search) track by item.id">
+                            <ui-select-choices repeat="item in (countries | filter: $select.search) track by item.id">
                                 <span ng-bind="item.name"></span>
                             </ui-select-choices>
                         </ui-select>
-                        <label>{{trans('app.city')}}</label>
-                        <ui-select ng-model="selectedCity">
+                        <label>{{trans('app.region')}}</label>
+                        <ui-select ng-model="selectedRegion">
                             <ui-select-match>
                                 <span ng-bind="$select.selected.name"></span>
                             </ui-select-match>
-                            <ui-select-choices repeat="item in (cities | filter: $select.search) track by item.id">
+                            <ui-select-choices repeat="item in (regions | filter: $select.search) track by item.id">
                                 <span ng-bind="item.name"></span>
                             </ui-select-choices>
                         </ui-select>
-                        <label>{{trans('app.church')}}</label>
-                        <ui-select ng-model="selectedChurch">
+                        <label>{{trans('app.location')}}</label>
+                        <ui-select ng-model="selectedLocation">
                             <ui-select-match>
                                 <span ng-bind="$select.selected.name"></span>
                             </ui-select-match>
-                            <ui-select-choices repeat="item in (churches | filter: $select.search) track by item.id">
+                            <ui-select-choices repeat="item in (locations | filter: $select.search) track by item.id">
                                 <span ng-bind="item.name"></span>
                             </ui-select-choices>
                         </ui-select>

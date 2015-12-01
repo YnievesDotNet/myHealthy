@@ -4,19 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Location extends Model
+class Region extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'locations';
+    protected $table = 'regions';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['id_country', 'id_region', 'id_location', 'languaje_id', 'name', 'lat', 'long', 'active'];
+    protected $fillable = ['id_country', 'languaje_id', 'id_region', 'name', 'lat', 'long', 'active'];
 }

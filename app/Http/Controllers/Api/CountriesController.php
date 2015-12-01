@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Category;
+use App\Country;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
+use App\Languaje;
 
-class CategoriesController extends Controller
+class CountriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,12 +22,11 @@ class CategoriesController extends Controller
 //        $categories = Category::where('name', 'like', '%'.$request->q.'%')
 //            ->orWhere('slug', 'like', '%'.$request->q.'%')
 //            ->get();
-        $categories = Category::all();
-        foreach ($categories as $category) {
-            $category->name = trans("app.business.category.$category->slug");
-        }
-        $selectedCategory = $categories->first();
-        return compact('categories', 'selectedCategory');
+        $lang = Languaje::where('code', '=', App::getLocale())->first();
+        $countries = Country::where('languaje_id', '=', $lang->id)
+            ->where('active', '=', 1)->get();
+        $selectedCountry = $countries->first();
+        return compact('countries', 'selectedCountry');
     }
 
     /**

@@ -14,15 +14,17 @@ class DatabaseSeeder extends Seeder
         ini_set('max_execution_time', 600);
         $notifynder = new NotifynderCategoriesSeeder;
         $notifynder->run();
+        $languajes = new LanguajesTableSeeder;
+        $languajes->run();
         $categories = new CategoriesSeeder;
         $categories->run();
         $countries = new CountriesTableSeeder;
         $countries->run();
-        $location = new LocationTableSeeder();
+        $region = new RegionTableSeeder;
+        $region->run();
+        $location = new LocationTableSeeder;
         $location->run();
         $roles = new RolesTableSeeder;
         $roles->run();
-        $languajes = new LanguajesTableSeeder();
-        $languajes->run();
     }
 }

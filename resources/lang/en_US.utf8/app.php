@@ -23,9 +23,9 @@ return array (
     'description' => 'El cat&aacute;logo integral donde usted pueda localizar a los profesionales en las materias que usted necesite!!',
     'more' => 'Read more',
     'speciality' => 'Speciality',
-    'province' => 'State',
-    'city' => 'City',
-    'church' => 'Parish Church',
+    'country' => 'Country',
+    'region' => 'Region',
+    'location' => 'Location',
     'searchbox_title' => 'Search your professional here, is FREE!',
     'searchbox_btn' => 'Search!',
     'nav' => array (

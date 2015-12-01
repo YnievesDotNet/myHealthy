@@ -10,6 +10,9 @@
 |
 */
 Route::get('api/categories', ['middleware' => ['guest'], 'as' => 'api.categories', 'uses' => 'Api\CategoriesController@index']);
+Route::get('api/countries', ['middleware' => ['guest'], 'as' => 'api.countries', 'uses' => 'Api\CountriesController@index']);
+Route::get('api/regions', ['middleware' => ['guest'], 'as' => 'api.regions', 'uses' => 'Api\RegionsController@index']);
+Route::get('api/locations', ['middleware' => ['guest'], 'as' => 'api.locations', 'uses' => 'Api\LocationsController@index']);
 Route::get('installer', function () {
     Artisan::call('migrate:refresh', [
             '--seed' => true

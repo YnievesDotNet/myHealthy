@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLocationsTable extends Migration
+class CreateRegionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,10 @@ class CreateLocationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('locations', function (Blueprint $table) {
+        Schema::create('regions', function (Blueprint $table) {
             $table->increments('id')->index();
-            $table->integer('id_country');
             $table->integer('id_region');
-            $table->integer('id_location');
+            $table->integer('id_country');
             $table->integer('languaje_id');
             $table->string('name')->nullable();
             $table->string('lat', 255)->nullable();
@@ -33,6 +32,6 @@ class CreateLocationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('locations');
+        Schema::drop('regions');
     }
 }
