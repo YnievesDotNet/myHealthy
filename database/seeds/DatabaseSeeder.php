@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        ini_set('max_execution_time', 600);
         $notifynder = new NotifynderCategoriesSeeder;
         $notifynder->run();
         $categories = new CategoriesSeeder;

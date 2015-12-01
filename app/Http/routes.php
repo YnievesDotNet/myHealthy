@@ -10,6 +10,12 @@
 |
 */
 Route::get('api/categories', ['middleware' => ['guest'], 'as' => 'api.categories', 'uses' => 'Api\CategoriesController@index']);
+Route::get('installer', function () {
+    Artisan::call('migrate:refresh', [
+            '--seed' => true
+            ]);
+    echo "<pre>".Artisan::output()."</pre>";
+});
 Route::group(['prefix' => 'api', 'middleware' => ['auth']], function () {
 
     Route::controller('booking', 'BookingController', [
