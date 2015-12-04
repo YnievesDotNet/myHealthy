@@ -19,79 +19,15 @@ class CountriesController extends Controller
      */
     public function index(Request $request)
     {
-//        $categories = Category::where('name', 'like', '%'.$request->q.'%')
-//            ->orWhere('slug', 'like', '%'.$request->q.'%')
-//            ->get();
         $lang = Languaje::where('code', '=', App::getLocale())->first();
-        $countries = Country::where('languaje_id', '=', $lang->id)
-            ->where('active', '=', 1)->get();
-        $selectedCountry = $countries->first();
-        return compact('countries', 'selectedCountry');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $countries = Country::where('active', '=', 1)
+            ->where('languaje_id', '=', $lang->id)
+            ->whereRaw("lower(name) like '%" . $request->q . "%'")
+            ->take(10)
+            ->get();
+        foreach ($countries as $country) {
+            $country->name = html_entity_decode($country->name);
+        }
+        return response()->json(['countries' => $countries]);
     }
 }

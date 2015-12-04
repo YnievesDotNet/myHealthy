@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="{{ asset('bower_components/DataTables/media/css/jquery.dataTables.min.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/ui-select/dist/select.min.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/css/dataTables.bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('bower_components/selectize.js/dist/css/selectize.bootstrap3.css') }}">
         <!-- CSS App -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/themes.css') }}">
@@ -67,43 +68,31 @@
                         <h3 class="panel-title">{{trans('app.searchbox_title')}}</h3>
                     </div>
                     <div class="panel-body">
-                        <label>{{trans('app.speciality')}}</label>
-                        <ui-select ng-model="selectedCategory">
-                            <ui-select-match>
-                                <span ng-bind="$select.selected.name"></span>
-                            </ui-select-match>
-                            <ui-select-choices repeat="item in (categories | filter: $select.search) track by item.id">
-                                <span ng-bind="item.name"></span>
-                            </ui-select-choices>
-                        </ui-select>
-                        <label>{{trans('app.country')}}</label>
-                        <ui-select ng-model="selectedCountry">
-                            <ui-select-match>
-                                <span ng-bind="$select.selected.name"></span>
-                            </ui-select-match>
-                            <ui-select-choices repeat="item in (countries | filter: $select.search) track by item.id">
-                                <span ng-bind="item.name"></span>
-                            </ui-select-choices>
-                        </ui-select>
-                        <label>{{trans('app.region')}}</label>
-                        <ui-select ng-model="selectedRegion">
-                            <ui-select-match>
-                                <span ng-bind="$select.selected.name"></span>
-                            </ui-select-match>
-                            <ui-select-choices repeat="item in (regions | filter: $select.search) track by item.id">
-                                <span ng-bind="item.name"></span>
-                            </ui-select-choices>
-                        </ui-select>
-                        <label>{{trans('app.location')}}</label>
-                        <ui-select ng-model="selectedLocation">
-                            <ui-select-match>
-                                <span ng-bind="$select.selected.name"></span>
-                            </ui-select-match>
-                            <ui-select-choices repeat="item in (locations | filter: $select.search) track by item.id">
-                                <span ng-bind="item.name"></span>
-                            </ui-select-choices>
-                        </ui-select>
-                        {!! Button::primary(trans('app.searchbox_btn'))->asLinkTo( url('search') ) !!}
+                        <form>
+                            <label>{{trans('app.speciality')}}</label>
+                            <ui-select ng-model="selectedCategory">
+                                <ui-select-match>
+                                    <span ng-bind="$select.selected.name"></span>
+                                </ui-select-match>
+                                <ui-select-choices repeat="item in (categories | filter: $select.search) track by item.id">
+                                    <span ng-bind="item.name"></span>
+                                </ui-select-choices>
+                            </ui-select>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label>{{trans('app.country')}}</label>
+                                    <select id="select-country" placeholder="{{trans('app.country')}}..."></select>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{trans('app.region')}}</label>
+                                    <select id="select-region" placeholder="{{trans('app.region')}}..."></select>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{trans('app.location')}}</label>
+                                    <select id="select-location" placeholder="{{trans('app.location')}}..."></select>
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -179,7 +168,9 @@
                     </div>
                 </div>
             </div>
-
+        </div>
+        <div id="copyright">
+            <span class="label">Copyright &copy; YnievesDotNet 2007-<?php echo date('Y');?></span>
         </div>
     </div>
         <!-- /.row -->
@@ -203,6 +194,8 @@
         <script type="text/javascript" src="{{ asset('bower_components/angularjs/angular-resource.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/angularjs/angular-sanitize.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/ui-select/dist/select.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bower_components/selectize.js/dist/js/standalone/selectize.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bower_components/zelect/zelect.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/findaproApp.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/controllers/welcome.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>

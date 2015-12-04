@@ -562,3 +562,23 @@
   border: 2px solid #FFF; }
 .flat-blue.landing-page .app-content-a {
   background-color: #EAEAEA; }
+#copyright {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: right;
+  border-top: 1px solid rgba(80,80,80,0.1);
+  background: rgba(255,255,255,0.95);
+  padding: 5px 15px;
+  z-index: 9999;
+  font-weight: normal;
+  font-size: 13px;
+  -moz-box-shadow: 0 -1px 40px 40px rgba(255,255,255,0.6);
+  -webkit-box-shadow: 0 -1px 40px 40px rgba(255,255,255,0.6);
+  box-shadow: 0 -1px 40px 40px rgba(255,255,255,0.6);
+}
+#copyright .label {
+  margin-right: 10px;
+  color: #0c0c0c;
+}
