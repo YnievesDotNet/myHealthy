@@ -20,12 +20,21 @@ class RegionsController extends Controller
     public function index(Request $request)
     {
         $lang = Languaje::where('code', '=', App::getLocale())->first();
-        $regions = Region::where('languaje_id', '=', $lang->id)
-            ->where('id_country', '=', $request->q)
-            ->where('active', '=', 1)->get();
-        foreach ($regions as $region) {
-            $region->name = html_entity_decode($region->name);
+        if(isset($request->q)) {
+            $regions = Region::where('languaje_id', '=', $lang->id)
+                ->where('id_country', '=', $request->q)
+                ->where('active', '=', 1)->get();
+            foreach ($regions as $region) {
+                $region->name = html_entity_decode($region->name);
+            }
+            return compact('regions');
+        };
+        if(isset($request->id)){
+            $regions = Region::where('active', '=', 1)
+                ->where('languaje_id', '=', $lang->id)
+                ->where('id_region', '=', $request->id)
+                ->first();
+            return response()->json($regions);
         }
-        return compact('regions');
     }
 }

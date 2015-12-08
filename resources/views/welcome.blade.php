@@ -68,35 +68,30 @@
                         <h3 class="panel-title">{{trans('app.searchbox_title')}}</h3>
                     </div>
                     <div class="panel-body">
-                        <form>
-                            <label>{{trans('app.speciality')}}</label>
-                            <ui-select ng-model="selectedCategory">
-                                <ui-select-match>
-                                    <span ng-bind="$select.selected.name"></span>
-                                </ui-select-match>
-                                <ui-select-choices repeat="item in (categories | filter: $select.search) track by item.id">
-                                    <span ng-bind="item.name"></span>
-                                </ui-select-choices>
-                            </ui-select>
-                            <fieldset>
-                                <div class="form-group">
-                                    <label>{{trans('app.country')}}</label>
-                                    <select id="select-country" placeholder="{{trans('app.country')}}..."></select>
-                                </div>
-                                <div class="form-group">
-                                    <label>{{trans('app.region')}}</label>
-                                    <select id="select-region" placeholder="{{trans('app.region')}}..."></select>
-                                </div>
-                                <div class="form-group">
-                                    <label>{{trans('app.location')}}</label>
-                                    <select id="select-location" placeholder="{{trans('app.location')}}..."></select>
-                                </div>
-                            </fieldset>
+                        <form method="post" action="{{ url('/search')  }}">
+                            <div class="form-group">
+                                <label>{{trans('app.speciality')}}</label>
+                                <select id="select-category" name="category" placeholder="{{trans('app.speciality')}}..."></select>
+                            </div>
+                            <div class="form-group">
+                                <label>{{trans('app.country')}}</label>
+                                <select id="select-country" name="country" placeholder="{{trans('app.country')}}..."></select>
+                            </div>
+                            <div class="form-group">
+                                <label>{{trans('app.region')}}</label>
+                                <select id="select-region" name="region" placeholder="{{trans('app.region')}}..."></select>
+                            </div>
+                            <div class="form-group">
+                                <label>{{trans('app.location')}}</label>
+                                <select id="select-location" name="location" placeholder="{{trans('app.location')}}..."></select>
+                            </div>
+                            <input class="btn btn-primary col-sm-12" type="submit" value="Buscar">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         </form>
                     </div>
                 </div>
             </div>
-            <header class="jumbotron hero-spacer col-sm-8" style="background: #22A7F0; color: snow">
+            <header id="map" class="jumbotron hero-spacer col-sm-8" style="background: #22A7F0; color: snow; height: 420px;">
                 <h1>
                     <i class="app-logo fa fa-search fa-2x color-white"></i>
                     {{ trans('welcome.jumbotron.title') }}
@@ -196,6 +191,9 @@
         <script type="text/javascript" src="{{ asset('bower_components/ui-select/dist/select.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/selectize.js/dist/js/standalone/selectize.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/zelect/zelect.js') }}"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <!-- <script type="text/javascript" src="{{ asset('bower_components/gmaps/maps.api.false.es.js') }}"></script> -->
+        <script type="text/javascript" src="{{ asset('bower_components/gmaps/gmaps.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/findaproApp.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/controllers/welcome.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>

@@ -19,6 +19,7 @@ Route::get('installer', function () {
             ]);
     echo "<pre>".Artisan::output()."</pre>";
 });
+Route::get('api/categories', ['middleware' => ['guest'], 'as' => 'api.categories', 'uses' => 'Api\CategoriesController@index']);
 Route::group(['prefix' => 'api', 'middleware' => ['auth']], function () {
 
     Route::controller('booking', 'BookingController', [
@@ -112,6 +113,7 @@ Route::get('social/login/{provider}', 'Auth\OAuthController@handleProviderCallba
 Route::get('home', ['as' => 'home', 'uses' => 'User\WizardController@getHome']);
 
 Route::get('/', 'WelcomeController@index');
+Route::post('/search', 'SearchController@index');
 
 Route::get('{business_slug}', function ($business_slug) {
     if ($business_slug->isEmpty()) {
