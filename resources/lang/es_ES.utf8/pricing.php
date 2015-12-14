@@ -1,38 +1,43 @@
 <?php
-/*************************************************************************
- Generated via "php artisan localization:missing" at 2015/07/29 12:57:57 
-*************************************************************************/
-
 return array (
-  //==================================== Translations ====================================//
-  'currency_price' => '&euro; 10',
-  'free' => 'GRATIS',
-  'month' => 'mes',
-  'plan' => 
-  array (
-    'feature' => 
+    'free' => 'GRATIS',
+    'month' => 'mes',
+    'plan' =>
     array (
-      'appointments' => 'turnos por mes',
-      'contacts' => 'contactos en agenda',
-      'email_alerts' => 'alertas por email',
-      'reports' => 'reportes gráficos',
-      'services' => 'servicios registrables',
+        'feature' => array (
+            'appointments' => 'turnos por mes',
+            'contacts' => 'contactos en agenda',
+            'email_alerts' => 'alertas por email',
+            'reports' => 'reportes gráficos',
+            'services' => 'servicios registrables',
+        ),
+        'free' => array (
+            'hint' => 'Ideal para profesionales independientes',
+            'name' => 'Free',
+            'fee' => '(Gratis)',
+            'submit' => 'Empezar',
+        ),
+        'basics' => array (
+            'hint' => 'Ideal para negocios en crecimiento',
+            'currency_price' => '$ 10',
+            'name' => 'Basics',
+            'submit' => 'Contratar',
+            'fee' => '(Abono mensual)',
+        ),
+        'business' => array (
+            'hint' => 'Ideal para negocios en crecimiento',
+            'currency_price' => '$ 30',
+            'name' => 'Business',
+            'submit' => 'Contratar',
+            'fee' => '(Abono mensual)',
+        ),
+        'extreme' => array (
+            'hint' => 'Ideal para negocios en crecimiento',
+            'currency_price' => '$ 50',
+            'name' => 'Extreme',
+            'submit' => 'Contratar',
+            'fee' => '(Abono mensual)',
+        ),
     ),
-    'free' => 
-    array (
-      'hint' => 'Ideal para profesionales independientes',
-      'name' => 'Free',
-      'fee' => '(Gratis)',
-      'submit' => 'Empezar',
-    ),
-    'starter' => 
-    array (
-      'hint' => 'Ideal para negocios en crecimiento',
-      'name' => 'Starter',
-      'submit' => 'Contratar',
-      'fee' => '(Abono mensual)',
-    ),
-  ),
-  'unlimited' => 'ilimitados|ilimitadas',
-  //================================== Obsolete strings ==================================//
+    'unlimited' => 'ilimitados|ilimitadas',
 );

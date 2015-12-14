@@ -191,8 +191,8 @@
         <script type="text/javascript" src="{{ asset('bower_components/ui-select/dist/select.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/selectize.js/dist/js/standalone/selectize.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/zelect/zelect.js') }}"></script>
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <!-- <script type="text/javascript" src="{{ asset('bower_components/gmaps/maps.api.false.es.js') }}"></script> -->
+        <!-- <script src="http://maps.google.com/maps/api/js?sensor=true"></script> -->
+        <script type="text/javascript" src="{{ asset('bower_components/gmaps/maps.api.false.es.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/gmaps/gmaps.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/findaproApp.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/controllers/welcome.js') }}"></script>
