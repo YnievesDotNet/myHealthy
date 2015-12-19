@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Business;
 use Log;
 
-class BusinessAgendaController extends Controller
+class BusinessScheduleController extends Controller
 {
     /**
      * get Index
@@ -16,7 +16,7 @@ class BusinessAgendaController extends Controller
      */
     public function getIndex(Business $business)
     {
-        Log::info("BusinessAgendaController: getIndex: businessId:{$business->id}");
+        Log::info("BusinessScheduleController: getIndex: businessId:{$business->id}");
 
         $appointments = $business->bookings()->with('contact')->with('business')->with('service')->unserved()->orderBy('start_at')->get();
         return view('manager.businesses.appointments.'.$business->strategy.'.index', compact('business', 'appointments'));

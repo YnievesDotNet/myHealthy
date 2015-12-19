@@ -173,6 +173,8 @@ return [
         Ipunkt\LaravelAnalytics\AnalyticsServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
+
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
     ],
 
     /*
@@ -265,6 +267,8 @@ return [
         'Analytics' => Ipunkt\LaravelAnalytics\AnalyticsFacade::class,
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
     ],
 
 ];

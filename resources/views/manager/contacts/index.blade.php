@@ -82,9 +82,8 @@
 @endsection
 
 @section('content')
-    {!! Button::withIcon(Icon::plus())->normal(trans('manager.businesses.contacts.btn.create'))->asLinkTo( route('manager.business.contact.create', $business) )->block() !!}
     {!! $business->contacts()->paginate(300)->render() !!}
-    <div class="panel panel-primary filterable">
+    <div class="panel panel-default filterable">
         <div class="panel-heading">
             <h3 class="panel-title">{{ trans('manager.contacts.title') }}</h3>
 
@@ -122,6 +121,6 @@
             </tbody>
         </table>
     </div>
-    {!! Button::withIcon(Icon::plus())->primary(trans('manager.businesses.contacts.btn.create'))->asLinkTo( route('manager.business.contact.create', $business) )->large()->block() !!}
-    {!! Button::withIcon(Icon::upload())->primary(trans('manager.businesses.contacts.btn.import'))->asLinkTo( route('manager.business.contact.import', $business) )->small()->block() !!}
+    {!! Button::withIcon(Icon::plus())->primary(trans('manager.businesses.contacts.btn.create'))->asLinkTo( route('manager.business.contact.create', $business) )->small()->block() !!}
+    {!! Button::withIcon(Icon::upload())->success(trans('manager.businesses.contacts.btn.import'))->asLinkTo( route('manager.business.contact.import', $business) )->small()->block() !!}
 @endsection

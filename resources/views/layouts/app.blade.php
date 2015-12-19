@@ -22,16 +22,18 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/select2/dist/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css/dataTables.bootstrap.css') }}">
     <!-- CSS App -->
+    @yield('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/themes.css') }}">
-    @yield('css')
-    @yield('headscripts')
             <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/notify.js/notify.min.js') }}"></script>
+    @yield('headscripts')
 </head>
 <body class="flat-blue">
 <div class="app-container">
@@ -42,16 +44,16 @@
                     <button type="button" class="navbar-expand-toggle">
                         <i class="fa fa-bars icon"></i>
                     </button>
-                    <ol class="breadcrumb navbar-breadcrumb">
-                        <li class="active">BreadCrumb</li>
-                    </ol>
                     <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
                         <i class="fa fa-th icon"></i>
                     </button>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    @include('user/_navmenu')
-                    @include('_navi18n')
+                    @if (!empty(Auth::user()))
+                        @include('manager._navmenu')
+                    @endif
+                    @include('partials._navmenu')
+                    @include('partials._navi18n')
                     @if (Auth::guest())
                         <li><a href="{{ url('/auth/login') }}">{{ trans('app.nav.login') }}</a></li>
                         <li><a href="{{ url('/auth/register') }}">{{ trans('app.nav.register') }}</a></li>
@@ -128,13 +130,13 @@
         </div>
         <div class="container-fluid">
             <div class="side-body padding-top">
+                {!! Breadcrumbs::render() !!}
                 @yield('content')
             </div>
         </div>
     </div>
     @include('partials._footer')
             <!-- Javascript Libs -->
-    <script type="text/javascript" src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery.tooltipster.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bower_components/chartjs/Chart.min.js') }}"></script>

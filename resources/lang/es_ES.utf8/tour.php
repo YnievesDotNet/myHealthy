@@ -17,7 +17,7 @@ return array (
   //==================================== Translations ====================================//
   'dashboard' => 
   array (
-    'agenda' => 
+    'schedule' =>
     array (
       'content' => 'Aquí se presentan todos los turnos pendientes en forma de lista.',
       'title' => 'Agenda',

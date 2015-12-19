@@ -58,9 +58,9 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    @include('user/_navmenu')
+                    @include('partials._navmenu')
 
-                    @include('_navi18n')
+                    @include('partials._navi18n')
 
                     @if (Auth::guest())
                         <li><a href="{{ url('/auth/login') }}">{{ trans('app.nav.login') }}</a></li>

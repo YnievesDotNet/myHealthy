@@ -44,7 +44,7 @@ class BusinessServiceController extends Controller
     public function store(Business $business, Request $request)
     {
         Log::info("BusinessServiceController: store: businessId:{$business->id}");
-        $service = Service::firstOrNew($request->except('_token'));
+        $service = Service::firstOrNew($request->except('_token', '_wysihtml5_mode'));
         $service->business()->associate($business->id);
         $service->save();
         Log::info("BusinessServiceController: create: businessId:{$business->id} serviceId:{$service->id}");

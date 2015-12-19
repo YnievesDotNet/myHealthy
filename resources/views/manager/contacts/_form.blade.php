@@ -111,7 +111,7 @@
             $('option[value="F"]').data("icon", "ion-female");
 
             $("#mobile-input").intlTelInput({
-                preferredCountries: ["ar", "es", "us"],
+                preferredCountries: ["cu", "us"],
                 defaultCountry: "auto",
                 geoIpLookup: function (callback) {
                     $.get('http://ipinfo.io', function () {

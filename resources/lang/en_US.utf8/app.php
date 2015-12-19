@@ -16,6 +16,7 @@ return array (
     'label' => array (
         'select_timezone' => 'TimeZone',
     ),
+    'me' => 'My',
     'name' => 'Find a Pro',
     'homepage' => 'Home',
     'about' => 'About',

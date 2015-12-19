@@ -2,9 +2,18 @@
     @if (Session::has('flash_notification.overlay'))
         @include('flash::modal', ['modalClass' => 'flash-modal', 'title' => Session::get('flash_notification.title'), 'body' => Session::get('flash_notification.message')])
     @else
-        <div class="alert alert-{{ Session::get('flash_notification.level') }} fresh-color" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            {{ Session::get('flash_notification.message') }}
-        </div>
+        <script>
+            $.notify("{!! Session::get('flash_notification.message')  !!}",{
+                autoHideDelay: 6000,
+                showAnimation: 'slideDown',
+                showDuration: 500,
+                hideAnimation: 'slideUp',
+                hideDuration: 300,
+                className: '{{ Session::get('flash_notification.level') }} alert-{{ Session::get('flash_notification.level') }} alert fresh-color',
+                clickToHide: true,
+                arrowShow: false,
+                autoHide: true,
+            });
+        </script>
     @endif
 @endif

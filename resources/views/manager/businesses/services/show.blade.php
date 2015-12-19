@@ -2,18 +2,17 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
-
+        <div class="col-md-12 toppad">
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">{{ $service->name }}</h3>
                 </div>
-
                 <div class="panel-body">
-                    <p>{{ $service->description }}</p>
+                    <div class="col-md-8">{!! $service->description !!}</div>
+                    <div class="col-md-4" style="background-color: #973634; color: white; border-radius: 5px;">{!! $service->prerequisites !!}</div>
                 </div>
-
                 <div class="panel-footer">
+                    {!! Button::primary()->withIcon(Icon::edit())->withAttributes(['type' => 'button', 'data-toggle' => 'tooltip', 'data-original-title' => trans('app.btn.edit')])->asLinkTo( route('manager.business.service.edit', [$service->business, $service]) ) !!}
                     {!! Button::danger()->withIcon(Icon::trash())->withAttributes(['type' => 'button', 'data-toggle' => 'tooltip', 'data-original-title' => trans('manager.service.btn.delete'), 'data-method'=>'DELETE', 'data-confirm'=>'Delete?'])->asLinkTo( route('manager.business.service.destroy', [$service->business, $service]) ) !!}
                 </div>
             </div>

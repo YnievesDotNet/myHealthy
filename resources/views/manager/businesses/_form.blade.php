@@ -108,7 +108,7 @@
             $('selectpicker').addClass('dropupAuto');
             $('selectpicker').selectpicker({size: 1});
             $("#phone-input").intlTelInput({
-                preferredCountries: ["ar", "es", "us"],
+                preferredCountries: ["cu", "us"],
                 defaultCountry: "auto",
                 geoIpLookup: function (callback) {
                     $.get('http://ipinfo.io', function () {

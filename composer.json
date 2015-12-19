@@ -35,6 +35,7 @@
 		"caffeinated/widgets": "~2.0",
 		"watson/rememberable": "^1.0",
 		"ipunkt/laravel-analytics": "~1.1",
+        "lavary/laravel-menu": "dev-master",
 		"laravel/socialite": "^2.0",
 		"ynievesdotnet/fourstream": "*",
 		"cornford/googlmapper": "2.*",

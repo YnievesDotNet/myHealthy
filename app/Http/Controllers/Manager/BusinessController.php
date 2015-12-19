@@ -28,7 +28,7 @@ class BusinessController extends Controller
     {
         Log::info('Manager\BusinessController: index');
         $businesses = \Auth::user()->businesses;
-        if ($businesses->count()==1) {
+        if ($businesses->count() == 1) {
             Log::info('Manager\BusinessController: index: Only one business to show');
             $business = $businesses->first();
             return Redirect::route('manager.business.show', $business);
@@ -48,8 +48,10 @@ class BusinessController extends Controller
         Flash::success(trans('manager.businesses.msg.create.success', ['plan' => trans("pricing.plan.$plan.name")]));
         $location = GeoIP::getLocation();
         $timezone = $location['timezone'];
-        Log::info("Manager\BusinessController: create: timezone:$timezone location:".serialize($location));
-        $categories = Category::lists('slug', 'id')->transform(function ($item, $key) { return trans('app.business.category.'.$item); });
+        Log::info("Manager\BusinessController: create: timezone:$timezone location:" . serialize($location));
+        $categories = Category::lists('slug', 'id')->transform(function ($item, $key) {
+            return trans('app.business.category.' . $item);
+        });
         return view('manager.businesses.create', compact('timezone', 'categories', 'plan'));
     }
 
@@ -76,11 +78,11 @@ class BusinessController extends Controller
 
             $business_name = $business->name;
             Notifynder::category('user.registeredBusiness')
-                       ->from('App\User', \Auth::user()->id)
-                       ->to('App\Business', $business->id)
-                       ->url('http://localhost')
-                       ->extra(compact('business_name'))
-                       ->send();
+                ->from('App\User', \Auth::user()->id)
+                ->to('App\Business', $business->id)
+                ->url('http://localhost')
+                ->extra(compact('business_name'))
+                ->send();
 
             Flash::success(trans('manager.businesses.msg.store.success'));
             return Redirect::route('manager.business.service.create', $business);
@@ -101,8 +103,8 @@ class BusinessController extends Controller
     /**
      * show Business
      *
-     * @param  Business            $business Business to show
-     * @param  BusinessFormRequest $request  Business form Request
+     * @param  Business $business Business to show
+     * @param  BusinessFormRequest $request Business form Request
      * @return Response                      Rendered view for Business show
      */
     public function show(Business $business, BusinessFormRequest $request)
@@ -118,8 +120,8 @@ class BusinessController extends Controller
     /**
      * edit Business
      *
-     * @param  Business            $business Business to edit
-     * @param  BusinessFormRequest $request  Business form Request
+     * @param  Business $business Business to edit
+     * @param  BusinessFormRequest $request Business form Request
      * @return Response                      Rendered view of Business edit form
      */
     public function edit(Business $business, BusinessFormRequest $request)
@@ -127,17 +129,19 @@ class BusinessController extends Controller
         Log::info("Manager\BusinessController: edit: businessId:{$business->id}");
         $location = GeoIP::getLocation();
         $timezone = in_array($business->timezone, \DateTimeZone::listIdentifiers()) ? $business->timezone : $timezone = $location['timezone'];
-        $categories = Category::lists('slug', 'id')->transform(function ($item, $key) { return trans('app.business.category.'.$item); });
+        $categories = Category::lists('slug', 'id')->transform(function ($item, $key) {
+            return trans('app.business.category.' . $item);
+        });
         $category = $business->category_id;
-        Log::info("Manager\BusinessController: edit: businessId:{$business->id} timezone:$timezone category:$category location:".serialize($location));
+        Log::info("Manager\BusinessController: edit: businessId:{$business->id} timezone:$timezone category:$category location:" . serialize($location));
         return view('manager.businesses.edit', compact('business', 'category', 'categories', 'timezone'));
     }
 
     /**
      * update Business
      *
-     * @param  Business            $business Business to update
-     * @param  BusinessFormRequest $request  Business form Request
+     * @param  Business $business Business to update
+     * @param  BusinessFormRequest $request Business form Request
      * @return Response                      Redirect
      */
     public function update(Business $business, BusinessFormRequest $request)
@@ -161,8 +165,8 @@ class BusinessController extends Controller
     /**
      * destroy Business
      *
-     * @param  Business            $business Business to destroy
-     * @param  BusinessFormRequest $request  Business form Request
+     * @param  Business $business Business to destroy
+     * @param  BusinessFormRequest $request Business form Request
      * @return Response                      Redirect to Businesses index
      */
     public function destroy(Business $business, BusinessFormRequest $request)
@@ -181,8 +185,8 @@ class BusinessController extends Controller
     /**
      * get Preferences
      *
-     * @param  Business                       $business Business to edit preferences
-     * @param  BusinessPreferencesFormRequest $request  Request
+     * @param  Business $business Business to edit preferences
+     * @param  BusinessPreferencesFormRequest $request Request
      * @return Response                                 Rendered settings form
      */
     public function getPreferences(Business $business, BusinessPreferencesFormRequest $request)
@@ -195,8 +199,8 @@ class BusinessController extends Controller
     /**
      * post Preferences
      *
-     * @param  Business                       $business Business to update preferences
-     * @param  BusinessPreferencesFormRequest $request  Request
+     * @param  Business $business Business to update preferences
+     * @param  BusinessPreferencesFormRequest $request Request
      * @return Response                                 Redirect
      */
     public function postPreferences(Business $business, BusinessPreferencesFormRequest $request)
@@ -206,7 +210,7 @@ class BusinessController extends Controller
         $parameters_keys = array_flip(array_keys($parameters));
         $preferences = $request->all();
         $preferences = array_intersect_key($preferences, $parameters_keys);
-        
+
         foreach ($preferences as $key => $value) {
             Log::info("Manager\BusinessController: postPreferences: businessId:{$business->id} key:$key value:$value type:{$parameters[$key]['type']}");
             $business->pref($key, $value, $parameters[$key]['type']);
@@ -214,11 +218,11 @@ class BusinessController extends Controller
 
         $business_name = $business->name;
         Notifynder::category('user.updatedBusinessPreferences')
-                   ->from('App\User', \Auth::user()->id)
-                   ->to('App\Business', $business->id)
-                   ->url('http://localhost')
-                   ->extra(compact('business_name'))
-                   ->send();
+            ->from('App\User', \Auth::user()->id)
+            ->to('App\Business', $business->id)
+            ->url('http://localhost')
+            ->extra(compact('business_name'))
+            ->send();
 
         Flash::success(trans('manager.businesses.msg.preferences.success'));
         return \Redirect::route('manager.business.show', $business);

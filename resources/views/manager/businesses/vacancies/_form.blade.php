@@ -7,12 +7,12 @@
     </tr>
     @foreach ($dates as $date => $vacancies)
         <tr>
-            <td title="{{ Carbon::parse($date)->formatLocalized('%A %d %B') }}">{{ $date }}</td>
+            <td title="{{ Carbon::parse($date)->formatLocalized('%d %B %A') }}">{{ $date }}</td>
             @foreach ($services as $service)
                 @if(count($vacancies) > 0 && array_key_exists($service->slug, $vacancies))
-                    <td> {!! Form::text("vacancy[$date][$service->id]", $vacancies[$service->slug]->capacity, array('class'=>'form-control', 'type' => 'numeric', 'step' => '1', 'placeholder'=> "$date {$service->name} ({$vacancies[$service->slug]->capacity})" )) !!} </td>
+                    <td> {!! Form::number("vacancy[$date][$service->id]", $vacancies[$service->slug]->capacity, array('class'=>'form-control', 'type' => 'numeric', 'step' => '1', 'placeholder'=> "$date {$service->name} ({$vacancies[$service->slug]->capacity})" )) !!} </td>
                 @else
-                    <td> {!! Form::text("vacancy[$date][$service->id]", null, array('class'=>'form-control', 'placeholder'=> "$date {$service->name}" )) !!} </td>
+                    <td> {!! Form::number("vacancy[$date][$service->id]", null, array('class'=>'form-control', 'placeholder'=> "$date {$service->name}" )) !!} </td>
                 @endif
             @endforeach
         </tr>

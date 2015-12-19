@@ -17,7 +17,7 @@ use Flash;
 use Event;
 use Log;
 
-class AgendaController extends Controller
+class ScheduleController extends Controller
 {
     /**
      * get Index
@@ -26,7 +26,7 @@ class AgendaController extends Controller
      */
     public function getIndex()
     {
-        Log::info('AgendaController: getIndex');
+        Log::info('ScheduleController: getIndex');
         $appointments = \Auth::user()->appointments()->orderBy('start_at')->get();
         return view('user.appointments.index', compact('appointments'));
     }
@@ -38,56 +38,56 @@ class AgendaController extends Controller
      */
     public function getBook(Business $business)
     {
-        Log::info('AgendaController: getBook');
+        Log::info('ScheduleController: getBook');
         $business = Business::findOrFail($business->id);
 
         Notifynder::category('user.checkingVacancies')
-                   ->from('App\User', \Auth::user()->id)
-                   ->to('App\Business', $business->id)
-                   ->url('http://localhost')
-                   ->send();
+            ->from('App\User', \Auth::user()->id)
+            ->to('App\Business', $business->id)
+            ->url('http://localhost')
+            ->send();
 
         if (!\Auth::user()->suscribedTo($business)) {
-            Log::info('AgendaController: getIndex: [ADVICE] User not suscribed to Business');
+            Log::info('ScheduleController: getIndex: [ADVICE] User not suscribed to Business');
             Flash::warning(trans('user.booking.msg.you_are_not_suscribed_to_business'));
             return Redirect::back();
         }
 
         $availability = Concierge::getVacancies($business, Carbon::now(), \Auth::user());
-        return view('user.appointments.'.$business->strategy.'.book', compact('business', 'availability'));
+        return view('user.appointments.' . $business->strategy . '.book', compact('business', 'availability'));
     }
 
     /**
      * poset Store
-     * 
+     *
      * @param  Request $request Input data of booking form
      * @return Response         Redirect to Appointments listing
      */
     public function postStore(Request $request)
     {
-        Log::info('AgendaController: postStore');
+        Log::info('ScheduleController: postStore');
         $issuer = \Auth::user();
         $businessId = $request->input('businessId');
 
-        // if (!$issuer->contacts) {
-        //     Flash::error(trans('user.booking.msg.you_are_not_suscribed_to_business'));
-        //     return Redirect::back();
-        // }
+        if (!$issuer->contacts) {
+            Flash::error(trans('user.booking.msg.you_are_not_suscribed_to_business'));
+            return Redirect::back();
+        }
 
         $data = $request->all();
         $business = Business::findOrFail($businessId);
-        $data['start_at'] = $request->input('_date').' '.$request->input('_time');
+        $data['start_at'] = $request->input('_date') . ' ' . $request->input('_time');
         $data['contact_id'] = $issuer->suscribedTo($business)->id;
         $booking = new BookingStrategy($business->strategy);
 
         $appointment = $booking->makeReservation($issuer, $business, $data);
         $appointmentPresenter = $appointment->getPresenter();
         if ($appointment->duplicates()) {
-            Log::info('AgendaController: postStore: [ADVICE] Appointment is duplicated ');
+            Log::info('ScheduleController: postStore: [ADVICE] Appointment is duplicated ');
             Flash::warning(trans('user.booking.msg.store.sorry_duplicated', ['code' => $appointmentPresenter->code()]));
         } else {
             $appointment->save();
-            Log::info('AgendaController: postStore: Appointment saved successfully ');
+            Log::info('ScheduleController: postStore: Appointment saved successfully ');
             Event::fire(new NewBooking($issuer, $appointment));
             Flash::success(trans('user.booking.msg.store.success', ['code' => $appointmentPresenter->code()]));
         }
@@ -100,13 +100,13 @@ class AgendaController extends Controller
      *
      * get Show
      *
-     * @param  Business    $business    Business of the desired Appointment
+     * @param  Business $business Business of the desired Appointment
      * @param  Appointment $appointment Appointment to show
      * @return Response                 Rendered view for desired Appointment
      */
     public function getShow(Business $business, Appointment $appointment)
     {
-        Log::info("AgendaController: getShow: businessId:{$business->id} appointmentId:{$appointment->id}");
-        return view('user.appointments.'.$business->strategy.'.show', compact('appointment'));
+        Log::info("ScheduleController: getShow: businessId:{$business->id} appointmentId:{$appointment->id}");
+        return view('user.appointments.' . $business->strategy . '.show', compact('appointment'));
     }
 }

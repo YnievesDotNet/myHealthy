@@ -45,7 +45,7 @@
                         <li class="active"><a href="#">{{trans('app.homepage')}}</a></li>
                         <li><a href="#about">{{trans('app.about')}}</a></li>
                         <li><a href="#contact">{{trans('app.contact')}}</a></li>
-                        @include('_navi18n')
+                        @include('partials._navi18n')
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
@@ -164,9 +164,7 @@
                 </div>
             </div>
         </div>
-        <div id="copyright">
-            <span class="label">Copyright &copy; YnievesDotNet 2007-<?php echo date('Y');?></span>
-        </div>
+        @include('partials._footer')
     </div>
         <!-- /.row -->
 
@@ -191,8 +189,8 @@
         <script type="text/javascript" src="{{ asset('bower_components/ui-select/dist/select.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/selectize.js/dist/js/standalone/selectize.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bower_components/zelect/zelect.js') }}"></script>
-        <!-- <script src="http://maps.google.com/maps/api/js?sensor=true"></script> -->
-        <script type="text/javascript" src="{{ asset('bower_components/gmaps/maps.api.false.es.js') }}"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <!-- <script type="text/javascript" src="{{ asset('bower_components/gmaps/maps.api.false.es.js') }}"></script> -->
         <script type="text/javascript" src="{{ asset('bower_components/gmaps/gmaps.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/findaproApp.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/controllers/welcome.js') }}"></script>

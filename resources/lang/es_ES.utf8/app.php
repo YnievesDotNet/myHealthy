@@ -1,21 +1,6 @@
 <?php
 return array (
-    'dateformat' => array (
-        'datetimepicker' => 'DD/MM/YYYY',
-        'carbon' => 'd/m/Y',
-    ),
-    'general' => array (
-        'btn' => array (
-            'create' => 'Crear',
-            'read' => 'Leer',
-            'update' => 'Actualizar',
-            'delete' => 'Eliminar',
-            'confirm_deletion' => '¿Eliminar?',
-        ),
-    ),
-    'label' => array (
-        'select_timezone' => 'Zona horaria',
-    ),
+    'me' => 'Mi',
     'name' => 'Find a Pro',
     'homepage' => 'Inicio',
     'about' => 'Acerca de',
@@ -28,6 +13,12 @@ return array (
     'location' => 'Localidad',
     'searchbox_title' => 'Busque a su profesional aqu&iacute;, es GRATIS!',
     'searchbox_btn' => 'Buscar!',
+    'btn' => array(
+        'create' => 'Crear',
+        'edit' => 'Editar',
+        'update' => 'Actualizar',
+        'delete' => 'Eliminar',
+    ),
     'nav' => array (
         'manual' => 'Manual de usuario',
         'login' => 'Iniciar Sesión',
@@ -35,8 +26,8 @@ return array (
         'manager' => array (
             'business' => array (
                 'list' => 'Listar',
-                'menu' => 'Mis Profesionales',
-                'register' => 'Registrar Profesional',
+                'menu' => 'Mis Negocios',
+                'register' => 'Registrar Negocio',
             ),
         ),
         'register' => 'Registrarme',
@@ -67,6 +58,22 @@ return array (
     'gender' => array (
         'F' => 'Femenino',
         'M' => 'Masculino',
+    ),
+    'dateformat' => array (
+        'datetimepicker' => 'DD/MM/YYYY',
+        'carbon' => 'd/m/Y',
+    ),
+    'general' => array (
+        'btn' => array (
+            'create' => 'Crear',
+            'read' => 'Leer',
+            'update' => 'Actualizar',
+            'delete' => 'Eliminar',
+            'confirm_deletion' => '¿Eliminar?',
+        ),
+    ),
+    'label' => array (
+        'select_timezone' => 'Zona horaria',
     ),
     'home' => array (
         'btn' => array (

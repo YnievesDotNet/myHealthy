@@ -17,7 +17,7 @@ return array (
   //==================================== Translations ====================================//
   'dashboard' => 
   array (
-    'agenda' => 
+    'schedule' =>
     array (
       'content' => 'See your appointments in schedule format.',
       'title' => 'Schedule',

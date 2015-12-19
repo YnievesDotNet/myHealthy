@@ -41,14 +41,14 @@ Route::group(['prefix' => 'api', 'middleware' => ['auth']], function () {
 });
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth']], function () {
     Route::group(['prefix' => 'booking'], function () {
-        Route::get('book/{business}',      ['as' => 'user.booking.book', 'uses' => 'AgendaController@getBook']);
-        Route::get('bookings',  ['as' => 'user.booking.list', 'uses' => 'AgendaController@getIndex']);
-        Route::get('show/{business}/{appointment}', ['as' => 'user.booking.show', 'uses' => 'AgendaController@getShow']);
-        Route::post('store',    ['as' => 'user.booking.store', 'uses' => 'AgendaController@postStore']);
+        Route::get('book/{business}',      ['as' => 'user.booking.book', 'uses' => 'ScheduleController@getBook']);
+        Route::get('bookings',  ['as' => 'user.booking.list', 'uses' => 'ScheduleController@getIndex']);
+        Route::get('show/{business}/{appointment}', ['as' => 'user.booking.show', 'uses' => 'ScheduleController@getShow']);
+        Route::post('store',    ['as' => 'user.booking.store', 'uses' => 'ScheduleController@postStore']);
     });
     Route::group(['prefix' => 'businesses'], function () {
         Route::get('home/{business}',        ['as' => 'user.businesses.home', 'uses' => 'BusinessController@getHome']);
-        #Route::get('select/{business_slug}', ['as' => 'user.businesses.select', 'uses' => 'BusinessController@getSelect']);
+        Route::get('select/{business_slug}', ['as' => 'user.businesses.select', 'uses' => 'BusinessController@getSelect']);
         Route::get('list',                   ['as' => 'user.businesses.list', 'uses' => 'BusinessController@getList']);
         Route::get('suscriptions',           ['as' => 'user.businesses.suscriptions', 'uses' => 'BusinessController@getSuscriptions']);
     });
@@ -60,11 +60,11 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth'
     Route::resource('business.contact', 'BusinessContactController');
 });
 Route::group(['prefix' => 'manager', 'namespace' => 'Manager', 'middleware'    => ['auth']], function () {
-    Route::controller('appointment', 'BusinessAgendaController', [
-        'postAction' => 'manager.business.agenda.action',
+    Route::controller('appointment', 'BusinessScheduleController', [
+        'postAction' => 'manager.business.schedule.action',
     ]);
-    Route::controller('agenda/{business}', 'BusinessAgendaController', [
-        'getIndex' => 'manager.business.agenda.index',
+    Route::controller('schedule/{business}', 'BusinessScheduleController', [
+        'getIndex' => 'manager.business.schedule.index',
     ]);
     Route::post('search', function () {
         $search = new App\SearchEngine(Request::input('criteria'));
@@ -109,5 +109,4 @@ Route::get('{business_slug}', function ($business_slug) {
     } else {
         return Redirect::route('user.businesses.home', $business_slug->first()->id);
     }
-})->where('business_slug', '[^_]+.*'); /* Underscore starter is reserved for debugging facilities */
-// Login a user with GitHub (or any provider).
+})->where('business_slug', '[^_]+.*');

@@ -12,7 +12,7 @@
             </div>
             <ul class="list-group">
                 <li class="list-group-item">
-                    {{ trans_choice('user.business.suscriptions_count', $business->suscriptionsCount) }}
+                    {{--{{ trans_choice('user.business.suscriptions_count', $business->suscriptionsCount) }}--}}
                 </li>
                 <li class="list-group-item">
                     {!! $business->getPresenter()->getIndustryIcon() !!}

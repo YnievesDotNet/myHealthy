@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0833d5a3ae05518e1b249f78d12f4675",
-    "content-hash": "b3081268632f439097e0e337734183c9",
+    "hash": "71a6d12db02eed26bd4d1dbfb2a971f0",
+    "content-hash": "a38c00bc6ad7d51352d42d0518f28b79",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -377,16 +377,16 @@
         },
         {
             "name": "cornford/googlmapper",
-            "version": "v2.2.5",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bradcornford/Googlmapper.git",
-                "reference": "90bb508fbaef663daf1c0fe34a543b2d7367f662"
+                "reference": "36f4f0eba18297a0b3a7b819f0d6ad75fc6ccb4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bradcornford/Googlmapper/zipball/90bb508fbaef663daf1c0fe34a543b2d7367f662",
-                "reference": "90bb508fbaef663daf1c0fe34a543b2d7367f662",
+                "url": "https://api.github.com/repos/bradcornford/Googlmapper/zipball/36f4f0eba18297a0b3a7b819f0d6ad75fc6ccb4b",
+                "reference": "36f4f0eba18297a0b3a7b819f0d6ad75fc6ccb4b",
                 "shasum": ""
             },
             "require": {
@@ -421,7 +421,7 @@
                 "maps",
                 "streetview"
             ],
-            "time": "2015-11-09 12:22:27"
+            "time": "2015-12-16 12:16:33"
         },
         {
             "name": "creativeorange/gravatar",
@@ -522,6 +522,55 @@
                 "utils"
             ],
             "time": "2015-07-23 00:54:12"
+        },
+        {
+            "name": "davejamesmiller/laravel-breadcrumbs",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davejamesmiller/laravel-breadcrumbs.git",
+                "reference": "5a5d5d1b1f5780359604f7fde11bbf810ff3e9e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davejamesmiller/laravel-breadcrumbs/zipball/5a5d5d1b1f5780359604f7fde11bbf810ff3e9e4",
+                "reference": "5a5d5d1b1f5780359604f7fde11bbf810ff3e9e4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.*",
+                "illuminate/view": "5.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "3.0.*",
+                "phpunit/phpunit": "4.*",
+                "satooshi/php-coveralls": "0.6.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DaveJamesMiller\\Breadcrumbs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT License"
+            ],
+            "authors": [
+                {
+                    "name": "Dave James Miller",
+                    "email": "dave@davejamesmiller.com",
+                    "homepage": "http://davejamesmiller.com/"
+                }
+            ],
+            "description": "A simple Laravel-style way to create breadcrumbs in Laravel 4+.",
+            "homepage": "https://github.com/davejamesmiller/laravel-breadcrumbs",
+            "keywords": [
+                "laravel"
+            ],
+            "time": "2015-02-08 21:44:39"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -782,16 +831,16 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "7.2.1",
+            "version": "7.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "d0bfaec05d1881f56bbb00e6e4c7004b49562eb9"
+                "reference": "8b64ea2ecd4080f9ce75cf688dda0c4afedb6b64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/d0bfaec05d1881f56bbb00e6e4c7004b49562eb9",
-                "reference": "d0bfaec05d1881f56bbb00e6e4c7004b49562eb9",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/8b64ea2ecd4080f9ce75cf688dda0c4afedb6b64",
+                "reference": "8b64ea2ecd4080f9ce75cf688dda0c4afedb6b64",
                 "shasum": ""
             },
             "require": {
@@ -841,7 +890,7 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2015-11-12 14:17:02"
+            "time": "2015-12-15 17:24:20"
         },
         {
             "name": "guzzle/guzzle",
@@ -1896,24 +1945,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kodeine/laravel-acl.git",
-                "reference": "b0caaaa2ec048a0d7d93d19f6b1d1269c1b1866e"
+                "reference": "38d36bd2b93b43f3910fe2878e18e834ba2ca222"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kodeine/laravel-acl/zipball/b0caaaa2ec048a0d7d93d19f6b1d1269c1b1866e",
-                "reference": "b0caaaa2ec048a0d7d93d19f6b1d1269c1b1866e",
+                "url": "https://api.github.com/repos/kodeine/laravel-acl/zipball/38d36bd2b93b43f3910fe2878e18e834ba2ca222",
+                "reference": "38d36bd2b93b43f3910fe2878e18e834ba2ca222",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "4.2.x|~5.0",
-                "illuminate/support": "4.2.x|~5.0",
-                "php": ">=5.4.0"
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.9"
             },
             "type": "library",
             "autoload": {
-                "classmap": [],
-                "psr-0": {
-                    "Kodeine\\Acl\\": "src/"
+                "psr-4": {
+                    "Kodeine\\Acl\\": "src/Kodeine/Acl"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1932,13 +1979,12 @@
                 "acl",
                 "auth",
                 "eloquent",
-                "kodeine",
                 "laravel",
                 "permissions",
                 "roles",
                 "security"
             ],
-            "time": "2015-10-08 15:11:25"
+            "time": "2015-12-06 20:17:38"
         },
         {
             "name": "laracasts/flash",
@@ -1985,16 +2031,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.26",
+            "version": "v5.1.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "be7fbb60376bd61f07e9c637473e5b2cf7eebe5c"
+                "reference": "b16f80878fd3603022d3c84593397cedd9af0bcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/be7fbb60376bd61f07e9c637473e5b2cf7eebe5c",
-                "reference": "be7fbb60376bd61f07e9c637473e5b2cf7eebe5c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b16f80878fd3603022d3c84593397cedd9af0bcf",
+                "reference": "b16f80878fd3603022d3c84593397cedd9af0bcf",
                 "shasum": ""
             },
             "require": {
@@ -2040,7 +2086,6 @@
                 "illuminate/events": "self.version",
                 "illuminate/exception": "self.version",
                 "illuminate/filesystem": "self.version",
-                "illuminate/foundation": "self.version",
                 "illuminate/hashing": "self.version",
                 "illuminate/http": "self.version",
                 "illuminate/log": "self.version",
@@ -2110,7 +2155,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-12-02 21:59:57"
+            "time": "2015-12-17 20:35:38"
         },
         {
             "name": "laravel/socialite",
@@ -2215,6 +2260,48 @@
                 }
             ],
             "time": "2015-11-28 08:27:09"
+        },
+        {
+            "name": "lavary/laravel-menu",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lavary/laravel-menu.git",
+                "reference": "de356daa9a76dd339397d806ef89d41aa6b434a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lavary/laravel-menu/zipball/de356daa9a76dd339397d806ef89d41aa6b434a0",
+                "reference": "de356daa9a76dd339397d806ef89d41aa6b434a0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.0",
+                "illuminate/view": ">=5.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Lavary\\Menu\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lavary",
+                    "email": "mrl.8081@gmail.com"
+                }
+            ],
+            "description": "A quick way to create menus in Laravel 5",
+            "homepage": "https://github.com/lavary/laravel-menu",
+            "keywords": [
+                "laravel"
+            ],
+            "time": "2015-11-12 04:39:25"
         },
         {
             "name": "league/flysystem",
@@ -2689,16 +2776,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.1",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32"
+                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a208865a5aeffc2dbbef2a5b3409887272d93f32",
-                "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/d762ee5b099a29044603cd4649851e81aa66cb47",
+                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47",
                 "shasum": ""
             },
             "require": {
@@ -2733,7 +2820,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-12-01 02:52:15"
+            "time": "2015-12-10 14:48:13"
         },
         {
             "name": "patricktalmadge/bootstrapper",
@@ -2835,16 +2922,16 @@
         },
         {
             "name": "propaganistas/laravel-phone",
-            "version": "2.4.0",
+            "version": "2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Propaganistas/Laravel-Phone.git",
-                "reference": "43b28096f88c0a3191a2cc123ca84da179e47fc7"
+                "reference": "0d28676b537d58a2ab1f34abd0f2a7ef428de42c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Propaganistas/Laravel-Phone/zipball/43b28096f88c0a3191a2cc123ca84da179e47fc7",
-                "reference": "43b28096f88c0a3191a2cc123ca84da179e47fc7",
+                "url": "https://api.github.com/repos/Propaganistas/Laravel-Phone/zipball/0d28676b537d58a2ab1f34abd0f2a7ef428de42c",
+                "reference": "0d28676b537d58a2ab1f34abd0f2a7ef428de42c",
                 "shasum": ""
             },
             "require": {
@@ -2882,7 +2969,7 @@
                 "phone",
                 "validation"
             ],
-            "time": "2015-09-15 14:24:09"
+            "time": "2015-12-16 08:55:10"
         },
         {
             "name": "psr/http-message",
@@ -4754,16 +4841,16 @@
         },
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "v83",
+            "version": "v89",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "71f0f07375eed9f0e8417d290192e9331cbbb4cd"
+                "reference": "dabeac9552e7c6cc9422117fa57497b3155ac24f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/71f0f07375eed9f0e8417d290192e9331cbbb4cd",
-                "reference": "71f0f07375eed9f0e8417d290192e9331cbbb4cd",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/dabeac9552e7c6cc9422117fa57497b3155ac24f",
+                "reference": "dabeac9552e7c6cc9422117fa57497b3155ac24f",
                 "shasum": ""
             },
             "bin": [
@@ -4794,7 +4881,7 @@
                 "nginx",
                 "php"
             ],
-            "time": "2015-11-16 16:11:11"
+            "time": "2015-12-15 16:38:44"
         },
         {
             "name": "instaclick/php-webdriver",
@@ -4943,36 +5030,41 @@
         },
         {
             "name": "jms/serializer",
-            "version": "0.16.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "c8a171357ca92b6706e395c757f334902d430ea9"
+                "reference": "fe13a1f993ea3456e195b7820692f2eb2b6bbb48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/c8a171357ca92b6706e395c757f334902d430ea9",
-                "reference": "c8a171357ca92b6706e395c757f334902d430ea9",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/fe13a1f993ea3456e195b7820692f2eb2b6bbb48",
+                "reference": "fe13a1f993ea3456e195b7820692f2eb2b6bbb48",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "1.*",
+                "doctrine/instantiator": "~1.0.3",
                 "jms/metadata": "~1.1",
                 "jms/parser-lib": "1.*",
-                "php": ">=5.3.2",
+                "php": ">=5.4.0",
                 "phpcollection/phpcollection": "~0.1"
+            },
+            "conflict": {
+                "twig/twig": "<1.12"
             },
             "require-dev": {
                 "doctrine/orm": "~2.1",
                 "doctrine/phpcr-odm": "~1.0.1",
                 "jackalope/jackalope-doctrine-dbal": "1.0.*",
+                "phpunit/phpunit": "~4.0",
                 "propel/propel1": "~1.7",
                 "symfony/filesystem": "2.*",
                 "symfony/form": "~2.1",
                 "symfony/translation": "~2.0",
                 "symfony/validator": "~2.0",
                 "symfony/yaml": "2.*",
-                "twig/twig": ">=1.8,<2.0-dev"
+                "twig/twig": "~1.12|~2.0"
             },
             "suggest": {
                 "symfony/yaml": "Required if you'd like to serialize data to YAML format."
@@ -4980,7 +5072,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.15-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -4994,10 +5086,8 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
+                    "name": "Johannes M. Schmitt",
+                    "email": "schmittjoh@gmail.com"
                 }
             ],
             "description": "Library for (de-)serializing data of any complexity; supports XML, JSON, and YAML.",
@@ -5009,7 +5099,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2014-03-18 08:39:00"
+            "time": "2015-10-27 09:24:41"
         },
         {
             "name": "laracasts/generators",
@@ -5782,16 +5872,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.19",
+            "version": "4.8.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4"
+                "reference": "ea76b17bced0500a28098626b84eda12dbcf119c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b2caaf8947aba5e002d42126723e9d69795f32b4",
-                "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ea76b17bced0500a28098626b84eda12dbcf119c",
+                "reference": "ea76b17bced0500a28098626b84eda12dbcf119c",
                 "shasum": ""
             },
             "require": {
@@ -5850,7 +5940,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-11-30 08:18:59"
+            "time": "2015-12-12 07:45:58"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6006,39 +6096,40 @@
         },
         {
             "name": "scrutinizer/ocular",
-            "version": "1.1.1",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scrutinizer-ci/ocular.git",
-                "reference": "8e0a8c7f085bc4857bd52132833679dcfd504fc1"
+                "reference": "72dcffcd4fbafeff41bf51da349df33170f487e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scrutinizer-ci/ocular/zipball/8e0a8c7f085bc4857bd52132833679dcfd504fc1",
-                "reference": "8e0a8c7f085bc4857bd52132833679dcfd504fc1",
+                "url": "https://api.github.com/repos/scrutinizer-ci/ocular/zipball/72dcffcd4fbafeff41bf51da349df33170f487e5",
+                "reference": "72dcffcd4fbafeff41bf51da349df33170f487e5",
                 "shasum": ""
             },
             "require": {
                 "guzzle/guzzle": "~3.0",
-                "jms/serializer": "~0.13",
+                "jms/serializer": "^1.0.0",
                 "phpoption/phpoption": "~1.0",
-                "symfony/console": "~2.0",
-                "symfony/process": "~2.3"
+                "symfony/console": "~2.0|~3.0",
+                "symfony/process": "~2.3|~3.0"
             },
             "require-dev": {
-                "symfony/filesystem": "~2.0"
+                "phpunit/phpunit": "^4.8.0",
+                "symfony/filesystem": "~2.0|~3.0"
             },
             "bin": [
                 "bin/ocular"
             ],
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Scrutinizer\\Ocular\\": "src/"
+                "psr-4": {
+                    "Scrutinizer\\Ocular\\": "src/Scrutinizer/Ocular"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2014-04-12 20:46:35"
+            "time": "2015-12-16 14:33:15"
         },
         {
             "name": "sebastian/comparator",
@@ -6106,28 +6197,28 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.3.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "863df9687835c62aa423a22412d26fa2ebde3fd3"
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/863df9687835c62aa423a22412d26fa2ebde3fd3",
-                "reference": "863df9687835c62aa423a22412d26fa2ebde3fd3",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.2"
+                "phpunit/phpunit": "~4.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -6150,11 +6241,11 @@
                 }
             ],
             "description": "Diff implementation",
-            "homepage": "http://www.github.com/sebastianbergmann/diff",
+            "homepage": "https://github.com/sebastianbergmann/diff",
             "keywords": [
                 "diff"
             ],
-            "time": "2015-02-22 15:13:53"
+            "time": "2015-12-08 07:14:41"
         },
         {
             "name": "sebastian/environment",
@@ -6523,7 +6614,8 @@
     "stability-flags": {
         "kodeine/laravel-acl": 20,
         "webpatser/laravel-countries": 20,
-        "torann/geoip": 20
+        "torann/geoip": 20,
+        "lavary/laravel-menu": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
