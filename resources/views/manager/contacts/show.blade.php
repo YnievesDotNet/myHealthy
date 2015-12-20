@@ -37,7 +37,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12 toppad">
-            <div class="panel panel-default">
+            <div class="panel fresh-color panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">{{ $contact->fullname }}</h3>
                 </div>

@@ -83,7 +83,7 @@
 
 @section('content')
     {!! $business->contacts()->paginate(300)->render() !!}
-    <div class="panel panel-default filterable">
+    <div class="panel fresh-color panel-info filterable">
         <div class="panel-heading">
             <h3 class="panel-title">{{ trans('manager.contacts.title') }}</h3>
 

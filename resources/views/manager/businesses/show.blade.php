@@ -16,7 +16,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="panel fresh-color panel-success" id="dashboard">
+            <div class="panel fresh-color panel-info" id="dashboard">
                 <div class="panel-heading">
         <span class="btn-group">
             {!! Button::withIcon(Icon::cog())->normal()->withAttributes(['id' => 'btnPreferences', 'title' => trans('manager.business.btn.tooltip.preferences')])->asLinkTo( route('manager.business.preferences', $business) ) !!}

@@ -122,11 +122,11 @@ return array (
     array (
       'btn' => 
       array (
-        'create' => 'Registrar prestador',
-        'manage' => 'Mis prestadores',
-        'power_create' => 'Registrá tu comercio ahora',
+        'create' => 'Registrar negocio',
+        'manage' => 'Mis negocios',
+        'power_create' => 'Registra tu comercio ahora',
       ),
-      'title' => 'Prestadores disponibles',
+      'title' => 'Negocios disponibles',
     ),
     'suscriptions' => 
     array (

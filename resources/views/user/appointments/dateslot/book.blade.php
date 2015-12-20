@@ -4,7 +4,9 @@
     {!! Form::open(array('route' => 'user.booking.store', 'class' => 'form')) !!}
     {!! Form::hidden('businessId', $business->id, array('required') ) !!}
     <div class="row">
-        @include('user.appointments.dateslot._timetable', ['dates' => $availability])
+        <div class="col-md-12">
+            @include('user.appointments.dateslot._timetable', ['dates' => $availability])
+        </div>
     </div>
     <div id="extra" class="container hidden">
         {!! Form::hidden('_date', null,

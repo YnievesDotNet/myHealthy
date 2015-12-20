@@ -39,7 +39,8 @@
 		"laravel/socialite": "^2.0",
 		"ynievesdotnet/fourstream": "*",
 		"cornford/googlmapper": "2.*",
-		"genealabs/phpgmaps": "~0.3.0"
+		"genealabs/phpgmaps": "~0.3.0",
+		"doctrine/dbal": "^2.5"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

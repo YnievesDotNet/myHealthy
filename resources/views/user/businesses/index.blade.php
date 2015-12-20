@@ -2,32 +2,34 @@
 
 @section('content')
     <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">{{ trans('user.businesses.index.title') }}</div>
-            <div class="panel-body">
-                @foreach ($businesses as $business)
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="media">
-                                <div class="media-left media-top hidden-xs hidden-sm">
-                                    <a href="{{route('user.businesses.home', ['business' => $business->id])}}">{!! $business->getPresenter()->getFacebookImg('normal') !!}</a>
-                                </div>
-                                <div class="media-body">
-                                    <a href="{{route('user.businesses.home', ['business' => $business->id])}}">
-                                        <blockquote>{{ str_limit($business->name, 50) }}</blockquote>
-                                    </a>
+        <div class="col-md-12">
+            <div class="panel fresh-color panel-info">
+                <div class="panel-heading">{{ trans('user.businesses.index.title') }}</div>
+                <div class="panel-body">
+                    @foreach ($businesses as $business)
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="media">
+                                    <div class="media-left media-top hidden-xs hidden-sm">
+                                        <a href="{{route('user.businesses.home', ['business' => $business->id])}}">{!! $business->getPresenter()->getFacebookImg('normal') !!}</a>
+                                    </div>
+                                    <div class="media-body">
+                                        <a href="{{route('user.businesses.home', ['business' => $business->id])}}">
+                                            <blockquote>{{ str_limit($business->name, 50) }}</blockquote>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="panel-footer">
-                @if(\Auth::user()->hasBusiness())
-                    {!! Button::normal(trans('user.businesses.index.btn.manage'))->asLinkTo( route('manager.business.index') ) !!}
-                @else
-                    {!! Button::primary(trans('user.businesses.index.btn.create'))->asLinkTo( route('manager.business.create') ) !!}
-                @endif
+                    @endforeach
+                </div>
+                <div class="panel-footer">
+                    @if(\Auth::user()->hasBusiness())
+                        {!! Button::normal(trans('user.businesses.index.btn.manage'))->asLinkTo( route('manager.business.index') ) !!}
+                    @else
+                        {!! Button::primary(trans('user.businesses.index.btn.create'))->asLinkTo( route('manager.business.create') ) !!}
+                    @endif
+                </div>
             </div>
         </div>
     </div>

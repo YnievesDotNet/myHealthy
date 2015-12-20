@@ -1,5 +1,6 @@
 <?php
 return array (
+    'root' => 'Panel Administrativo',
     'me' => 'Mi',
     'name' => 'Find a Pro',
     'homepage' => 'Inicio',
@@ -35,7 +36,7 @@ return array (
             'business' => array (
                 'menu' => 'Profesionales',
                 'my_appointments' => 'Mis turnos',
-                'my_suscriptions' => 'Favoritos',
+                'my_subscriptions' => 'Favoritos',
                 'selector' => 'Buscar',
                 'home' => 'Inicio',
             ),

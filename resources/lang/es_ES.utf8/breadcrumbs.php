@@ -1,6 +1,9 @@
 <?php
 return array (
     'home' => 'Inicio',
+    'wizard'=> 'Asistente',
+    'pricing'=> 'Precios',
+    'businesses' => 'Negocios',
     'myBusinesses' => 'Mis negocios',
     'preferences' => 'Preferencias',
     'create' => 'Crear',
@@ -10,4 +13,7 @@ return array (
     'vacancies' => 'Disponibilidades',
     'schedule' => 'Agenda de Turnos',
     'contact' => 'Contactos',
+    'booking' => 'Reservar turno',
+    'appointments' => 'Mis turnos',
+    'dashboard' => 'Panel Administrativo',
 );

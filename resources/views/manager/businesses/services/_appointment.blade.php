@@ -1,5 +1,5 @@
 @foreach ($appointments as $appointment)
-    <div class="panel panel-default">
+    <div class="panel fresh-color panel-info">
         <!-- Default panel contents -->
         <div class="panel-heading">{!! Icon::hand_up() !!}
             &nbsp;{{ trans('appointments.status.'.$appointment->statusLabel) }}</div>

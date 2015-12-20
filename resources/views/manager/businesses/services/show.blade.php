@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12 toppad">
-            <div class="panel panel-info">
+            <div class="panel fresh-color panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">{{ $service->name }}</h3>
                 </div>

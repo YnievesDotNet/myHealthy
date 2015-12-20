@@ -50,7 +50,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth'
         Route::get('home/{business}',        ['as' => 'user.businesses.home', 'uses' => 'BusinessController@getHome']);
         Route::get('select/{business_slug}', ['as' => 'user.businesses.select', 'uses' => 'BusinessController@getSelect']);
         Route::get('list',                   ['as' => 'user.businesses.list', 'uses' => 'BusinessController@getList']);
-        Route::get('suscriptions',           ['as' => 'user.businesses.suscriptions', 'uses' => 'BusinessController@getSuscriptions']);
+        Route::get('subscriptions',          ['as' => 'user.businesses.subscriptions', 'uses' => 'BusinessController@getSubscriptions']);
     });
     Route::controller('wizard', 'WizardController', [
         'getWelcome' => 'wizard.welcome',
@@ -63,14 +63,14 @@ Route::group(['prefix' => 'manager', 'namespace' => 'Manager', 'middleware'    =
     Route::controller('appointment', 'BusinessScheduleController', [
         'postAction' => 'manager.business.schedule.action',
     ]);
-    Route::controller('schedule/{business}', 'BusinessScheduleController', [
-        'getIndex' => 'manager.business.schedule.index',
-    ]);
     Route::post('search', function () {
         $search = new App\SearchEngine(Request::input('criteria'));
         $search->setBusinessScope([Session::get('selected.business')->id])->run();
         return view('manager.search.index')->with(['results' => $search->results()]);
     });
+    Route::controller('business/{business}/schedule', 'BusinessScheduleController', [
+        'getIndex' => 'manager.business.schedule.index',
+    ]);
     Route::get('business/{business}/preferences',  ['as' => 'manager.business.preferences', 'uses' => 'BusinessController@getPreferences']);
     Route::post('business/{business}/preferences', ['as' => 'manager.business.preferences', 'uses' => 'BusinessController@postPreferences']);
     Route::resource('business', 'BusinessController');

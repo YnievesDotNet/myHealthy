@@ -28,10 +28,28 @@ Breadcrumbs::register('home', function ($breadcrumbs) {
     $breadcrumbs->push(trans('breadcrumbs.home'), route("home"));
 });
 
+// Home > Wizard > Pricing
+Breadcrumbs::register('wizard.welcome', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(trans('breadcrumbs.wizard'), route("wizard.welcome"));
+});
+
+// Home > Wizard > Pricing
+Breadcrumbs::register('wizard.pricing', function ($breadcrumbs) {
+    $breadcrumbs->parent('wizard.welcome');
+    $breadcrumbs->push(trans('breadcrumbs.pricing'), route("wizard.pricing"));
+});
+
 // Home > My business
 Breadcrumbs::register('manager.business.index', function ($breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push(trans('breadcrumbs.myBusinesses'), route('manager.business.index'));
+});
+
+// Home > My business > Create
+Breadcrumbs::register('manager.business.create', function ($breadcrumbs) {
+    $breadcrumbs->parent('manager.business.index');
+    $breadcrumbs->push(trans('breadcrumbs.create'), route('manager.business.create'));
 });
 
 // Home > My business > ID
@@ -110,4 +128,53 @@ Breadcrumbs::register('manager.business.contact.show', function ($breadcrumbs, $
 Breadcrumbs::register('manager.business.contact.edit', function ($breadcrumbs, $service) {
     $breadcrumbs->parent('manager.business.contact.index', $service);
     $breadcrumbs->push(trans('breadcrumbs.edit'), route('manager.business.contact.edit'));
+});
+
+// Home > Users > ID > Business
+Breadcrumbs::register('user.businesses.list', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(trans('breadcrumbs.businesses'), route('user.businesses.list'));
+});
+
+// Home > Users > ID > Business > ID
+Breadcrumbs::register('user.businesses.home', function ($breadcrumbs, $business) {
+    $breadcrumbs->parent('user.businesses.list');
+    $breadcrumbs->push($business->name, route('user.businesses.home', $business->id));
+});
+
+// Home > Users > ID > Contacts
+Breadcrumbs::register('user.business.contact', function ($breadcrumbs) {
+    $breadcrumbs->parent('user.business.list');
+    $breadcrumbs->push(trans('breadcrumbs.businesses'), route('user.business.contact'));
+});
+
+// Home > Users > ID > Contacts
+Breadcrumbs::register('user.business.contact.show', function ($breadcrumbs, $business, $contact) {
+    $breadcrumbs->parent('user.businesses.home', $business);
+    $breadcrumbs->push($contact->fullname, route('user.business.contact.show'));
+});
+
+// Home > Users > ID > Subscriptions
+Breadcrumbs::register('user.businesses.subscriptions', function ($breadcrumbs) {
+    $breadcrumbs->parent('user.businesses.list');
+    $breadcrumbs->push(trans('breadcrumbs.businesses'), route('user.businesses.subscriptions'));
+});
+
+// Home > Users > Appointments
+Breadcrumbs::register('user.booking.list', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(trans('breadcrumbs.appointments'), route('user.booking.list'));
+});
+
+// Home > Users > Booking
+Breadcrumbs::register('user.booking.book', function ($breadcrumbs, $business) {
+    $breadcrumbs->parent('user.businesses.home', $business);
+    $breadcrumbs->push(trans('breadcrumbs.booking'), route('user.booking.book'));
+});
+
+
+// Root > Dashboard
+Breadcrumbs::register('root.dashboard', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(trans('breadcrumbs.dashboard'), route('root.dashboard'));
 });

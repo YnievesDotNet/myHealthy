@@ -10,32 +10,34 @@
     {!! Form::hidden('business_id', Session::get('selected.business')->id, array('required', 'id' => 'business_id') ) !!}
 
     <div class="row">
-        <div class="form-group col-sm-4">
-            {!! Form::label( trans('user.appointments.form.date.label') ) !!}
-            {!! Form::date('_date', null,
-                array('required',
-                      'class'=>'form-control',
-                      'id'=>'date',
-                      'min'=> date('Y-m-d'),
-                      'placeholder'=> trans('user.appointments.form.date.label') )) !!}
-        </div>
-        <div class="form-group col-sm-4">
-            {!! Form::label( trans('user.appointments.form.time.label') ) !!}
-            {!! Form::input('time', '_time', null,
-                array('required',
-                      'class'=>'form-control',
-                      'id'=>'time',
-                      'step'=>'1800',
-                      'placeholder'=> trans('user.appointments.form.time.label') )) !!}
-        </div>
-        <div class="form-group col-sm-2">
-            {!! Form::label( trans('user.appointments.form.duration.label') ) !!}
-            {!! Form::text('duration', 0,
-                array('required',
-                      'readonly',
-                      'id'=>'duration',
-                      'class'=>'form-control',
-                      'placeholder'=> trans('user.appointments.form.duration.label') )) !!}
+        <div class="col-md-12">
+            <div class="form-group col-sm-4">
+                {!! Form::label( trans('user.appointments.form.date.label') ) !!}
+                {!! Form::date('_date', null,
+                    array('required',
+                          'class'=>'form-control',
+                          'id'=>'date',
+                          'min'=> date('Y-m-d'),
+                          'placeholder'=> trans('user.appointments.form.date.label') )) !!}
+            </div>
+            <div class="form-group col-sm-4">
+                {!! Form::label( trans('user.appointments.form.time.label') ) !!}
+                {!! Form::input('time', '_time', null,
+                    array('required',
+                          'class'=>'form-control',
+                          'id'=>'time',
+                          'step'=>'1800',
+                          'placeholder'=> trans('user.appointments.form.time.label') )) !!}
+            </div>
+            <div class="form-group col-sm-2">
+                {!! Form::label( trans('user.appointments.form.duration.label') ) !!}
+                {!! Form::text('duration', 0,
+                    array('required',
+                          'readonly',
+                          'id'=>'duration',
+                          'class'=>'form-control',
+                          'placeholder'=> trans('user.appointments.form.duration.label') )) !!}
+            </div>
         </div>
     </div>
     <div class="row">

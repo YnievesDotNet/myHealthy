@@ -70,10 +70,10 @@ class BusinessController extends Controller
      * @return Response Rendered view of the Contacts linked to the
      *                  requesting User
      */
-    public function getSuscriptions()
+    public function getSubscriptions()
     {
-        Log::info('BusinessController: getSuscriptions');
+        Log::info('BusinessController: getSubscriptions');
         $contacts = \Auth::user()->contacts;
-        return view('user.businesses.suscriptions', compact('contacts'));
+        return view('user.businesses.subscriptions', compact('contacts'));
     }
 }

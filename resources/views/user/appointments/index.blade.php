@@ -1,18 +1,21 @@
 @extends('layouts/app')
 
 @section('content')
-    <div class="col-md-4 col-md-offset-4">
-        {!! Form::open(['id' => 'postAppointmentStatus', 'method' => 'post', 'route' => ['api.booking.action']]) !!}
-        @foreach ($appointments as $appointment)
-            {!! Widget::AppointmentPanel(['appointment' => $appointment, 'user' => \Auth::user()]) !!}
-        @endforeach
-        {!! Form::close() !!}
+    <div class="row">
+        <div class="col-md-12">
+            {!! Form::open(['id' => 'postAppointmentStatus', 'method' => 'post', 'route' => ['api.booking.action']]) !!}
+            @foreach ($appointments as $appointment)
+                {!! Widget::AppointmentPanel(['appointment' => $appointment, 'user' => \Auth::user()]) !!}
+            @endforeach
+            {!! Form::close() !!}
+        </div>
     </div>
 @endsection
 
 @section('footer_scripts')
     @parent
     <script>
+        $('.panel').addClass('fresh-color');
         $(document).ready(function () {
             function prepareEvents() {
                 console.log('prepareEvents()');
@@ -46,6 +49,7 @@
                         prepareEvents();
                         console.log('AJAX Finish');
                         console.log(data);
+                        $('.panel').addClass('fresh-color');
                     });
                 });
             }
