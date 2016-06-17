@@ -8,7 +8,7 @@ class Preference extends Model
 
     public function preferenceable()
     {
-      return $this->morphTo();
+        return $this->morphTo();
     }
 
     public function __toString()
@@ -43,16 +43,16 @@ class Preference extends Model
     {
         switch ($this->type) {
             case 'string':
-                return (string) $this->value;
+                return (string)$this->value;
                 break;
             case 'bool':
-                return (bool) $this->value;
+                return (bool)$this->value;
                 break;
             case 'int':
-                return (int) $this->value;
+                return (int)$this->value;
                 break;
             case 'float':
-                return (float) $this->value;
+                return (float)$this->value;
                 break;
             case 'json':
                 return json_decode($this->value);

@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCountriesTable extends Migration {
+class CreateCountriesTable extends Migration
+{
 
     /**
      * Run the migrations.
@@ -12,8 +13,7 @@ class CreateCountriesTable extends Migration {
     public function up()
     {
         // Creates the users table
-        Schema::create('countries', function($table)
-        {
+        Schema::create('countries', function ($table) {
             $table->increments('id')->index();
             $table->integer('id_country');
             $table->integer('languaje_id');

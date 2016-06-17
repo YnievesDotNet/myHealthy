@@ -46,6 +46,7 @@
                     });
                 });
             }
+
             prepareEvents();
             $('#filter').keyup(function () {
                 var search = $(this).val();

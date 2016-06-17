@@ -16,7 +16,7 @@ trait Preferenceable
             return $value;
         }
         $default = \App\Preference::getDefault($this, $key);
-        return($pref = $this->preferences()->forKey($key)->first()) ? $pref->value() : $default->value();
+        return ($pref = $this->preferences()->forKey($key)->first()) ? $pref->value() : $default->value();
     }
 
     private function cast($value, $type)

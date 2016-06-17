@@ -2,7 +2,7 @@ log = require('util').log
 _ = require 'lodash'
 
 module.exports = (grunt) ->
-  # Load the required plugins
+# Load the required plugins
   require('./grunt/bower')(grunt)
   [
     "grunt-contrib-uglify"
@@ -25,7 +25,7 @@ module.exports = (grunt) ->
     'grunt-verbosity'
     'grunt-webpack'
     'grunt-angular-architecture-graph'
-    ].forEach (gruntLib) -> grunt.loadNpmTasks gruntLib
+  ].forEach (gruntLib) -> grunt.loadNpmTasks gruntLib
 
   #squishing this file done by moving grunt options out to its own file. This way we can focus on tasks!
   options = require('./grunt/options')(grunt)
@@ -40,7 +40,7 @@ module.exports = (grunt) ->
     allExamplesOpen[root] =
       path: pathValue
 
-#  console.log allExamplesOpen, true
+  #  console.log allExamplesOpen, true
 
   showOpenType = (toIterate = allExamplesOpen) ->
     _(toIterate).each (v, k) ->
@@ -84,7 +84,7 @@ module.exports = (grunt) ->
     "clean:dist", "jshint", "mkdir", "coffee", "concat:libs", "replace", "webpack", "concat", "uglify"
     "copy", "jasmine:spec", "graph"]
 
-  grunt.registerTask "build-street-view", ['clean:streetview','mkdir','coffee', 'concat:libs', 'replace',
+  grunt.registerTask "build-street-view", ['clean:streetview', 'mkdir', 'coffee', 'concat:libs', 'replace',
     'concat:streetview', 'concat:streetviewMapped', 'uglify:streetview', 'uglify:streetviewMapped']
 
   grunt.registerTask "buildAll", "mappAll"
@@ -95,10 +95,10 @@ module.exports = (grunt) ->
   grunt.registerTask 'graph', ['angular_architecture_graph']
 
   grunt.registerTask 'bump-@-preminor', ['changelog', 'bump-only:preminor', 'mappAll', 'bump-commit']
-  grunt.registerTask 'bump-@-prerelease', ['changelog','bump-only:prerelease', 'mappAll', 'bump-commit']
-  grunt.registerTask 'bump-@', ['changelog','bump-only', 'mappAll', 'bump-commit']
-  grunt.registerTask 'bump-@-minor', ['changelog','bump-only:minor', 'mappAll', 'bump-commit']
-  grunt.registerTask 'bump-@-major', ['changelog','bump-only:major', 'mappAll', 'bump-commit']
+  grunt.registerTask 'bump-@-prerelease', ['changelog', 'bump-only:prerelease', 'mappAll', 'bump-commit']
+  grunt.registerTask 'bump-@', ['changelog', 'bump-only', 'mappAll', 'bump-commit']
+  grunt.registerTask 'bump-@-minor', ['changelog', 'bump-only:minor', 'mappAll', 'bump-commit']
+  grunt.registerTask 'bump-@-major', ['changelog', 'bump-only:major', 'mappAll', 'bump-commit']
 
   exampleOpenTasks = []
 

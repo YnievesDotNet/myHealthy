@@ -13,7 +13,7 @@
  * Version: 1.3alpha.804
  * Build date: 8 December 2013
  */
-rangy.createModule("Serializer", ["WrappedSelection"], function(api, module) {
+rangy.createModule("Serializer", ["WrappedSelection"], function (api, module) {
     var UNDEF = "undefined";
 
     // encodeURIComponent and decodeURIComponent are required for cookie handling
@@ -22,7 +22,7 @@ rangy.createModule("Serializer", ["WrappedSelection"], function(api, module) {
     }
 
     // Checksum for checking whether range can be serialized
-    var crc32 = (function() {
+    var crc32 = (function () {
         function utf8encode(str) {
             var utf8CharCodes = [];
 
@@ -65,7 +65,7 @@ rangy.createModule("Serializer", ["WrappedSelection"], function(api, module) {
             return cachedCrcTable;
         }
 
-        return function(str) {
+        return function (str) {
             var utf8CharCodes = utf8encode(str), crc = -1, crcTable = getCrcTable();
             for (var i = 0, len = utf8CharCodes.length, y; i < len; ++i) {
                 y = (crc ^ utf8CharCodes[i]) & 0xFF;
@@ -143,7 +143,7 @@ rangy.createModule("Serializer", ["WrappedSelection"], function(api, module) {
                 node = node.childNodes[nodeIndex];
             } else {
                 throw module.createError("deserializePosition() failed: node " + dom.inspectNode(node) +
-                        " has no child with index " + nodeIndex + ", " + i);
+                    " has no child with index " + nodeIndex + ", " + i);
             }
         }
 
@@ -165,7 +165,7 @@ rangy.createModule("Serializer", ["WrappedSelection"], function(api, module) {
     }
 
     var deserializeRegex = /^([^,]+),([^,\{]+)(\{([^}]+)\})?$/;
-    
+
     function deserializeRange(serialized, rootNode, doc) {
         if (rootNode) {
             doc = doc || dom.getDocument(rootNode);
@@ -177,7 +177,7 @@ rangy.createModule("Serializer", ["WrappedSelection"], function(api, module) {
         var checksum = result[4], rootNodeChecksum = getElementChecksum(rootNode);
         if (checksum && checksum !== getElementChecksum(rootNode)) {
             throw module.createError("deserializeRange(): checksums of serialized range root node (" + checksum +
-                    ") and target root node (" + rootNodeChecksum + ") do not match");
+                ") and target root node (" + rootNodeChecksum + ") do not match");
         }
         var start = deserializePosition(result[1], rootNode, doc), end = deserializePosition(result[2], rootNode, doc);
         var range = api.createRange(doc);

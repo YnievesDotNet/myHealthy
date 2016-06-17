@@ -13,11 +13,15 @@ class BookingStrategy
     public function __construct($strategyId)
     {
         switch ($strategyId) {
-            case 'timeslot': $this->strategy = new BookingStrategyTimeslot(); break;
-            case 'dateslot': $this->strategy = new BookingStrategyDateslot(); break;
+            case 'timeslot':
+                $this->strategy = new BookingStrategyTimeslot();
+                break;
+            case 'dateslot':
+                $this->strategy = new BookingStrategyDateslot();
+                break;
             default:
                 Log::warning("BookingStrategy: __construct: Illegal strategy:{$this->strategy}");
-            break;
+                break;
         }
     }
 

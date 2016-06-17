@@ -1,7 +1,6 @@
 // Darkly 3.3.5
 // Bootswatch
 // -----------------------------------------------------
-
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic");
 
 // Navbar =====================================================================
@@ -245,10 +244,10 @@ textarea {
   }
 
   .disabled {
-    &>a,
-    &>a:hover,
-    &>a:focus,
-    &>span {
+    & > a,
+    & > a:hover,
+    & > a:focus,
+    & > span {
       background-color: @pagination-disabled-bg;
     }
   }
@@ -318,7 +317,7 @@ a.list-group-item {
     &.active {
       background-color: @state-warning-bg;
     }
-    
+
     &.active:hover,
     &.active:focus {
       background-color: darken(@state-warning-bg, 5%);
@@ -329,7 +328,7 @@ a.list-group-item {
     &.active {
       background-color: @state-danger-bg;
     }
-    
+
     &.active:hover,
     &.active:focus {
       background-color: darken(@state-danger-bg, 5%);

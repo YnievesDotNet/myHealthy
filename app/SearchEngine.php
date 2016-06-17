@@ -23,7 +23,9 @@ class SearchEngine
 
     public function __construct($criteria)
     {
-        $this->scope['businessesIds'] = \Auth::user()->businesses->transform(function($item, $key){ return $item->id; });
+        $this->scope['businessesIds'] = \Auth::user()->businesses->transform(function ($item, $key) {
+            return $item->id;
+        });
         $this->criteria = $criteria;
     }
 
@@ -51,23 +53,23 @@ class SearchEngine
 
     private function getServices($expression)
     {
-        $this->results['services'] = Service::whereIn('business_id', $this->scope['businessesIds'])->where('name', 'like', $expression.'%')->get();
+        $this->results['services'] = Service::whereIn('business_id', $this->scope['businessesIds'])->where('name', 'like', $expression . '%')->get();
     }
 
     private function getAppointments($expression)
     {
-        $this->results['appointments'] = Appointment::whereIn('business_id', $this->scope['businessesIds'])->where('hash', 'like', $expression.'%')->get();
+        $this->results['appointments'] = Appointment::whereIn('business_id', $this->scope['businessesIds'])->where('hash', 'like', $expression . '%')->get();
     }
 
     private function getContacts($expression)
     {
         $businesses = Business::whereIn('id', $this->scope['businessesIds'])->get();
         foreach ($businesses as $business) {
-            $collection = $business->contacts()->where(function($query) use($expression){
-                $query->where('lastname', 'like', $expression.'%')
-                      ->orWhere('firstname', 'like', $expression.'%')
-                      ->orWhere('nin', $expression)
-                      ->orWhere('mobile', 'like', '%'.$expression);
+            $collection = $business->contacts()->where(function ($query) use ($expression) {
+                $query->where('lastname', 'like', $expression . '%')
+                    ->orWhere('firstname', 'like', $expression . '%')
+                    ->orWhere('nin', $expression)
+                    ->orWhere('mobile', 'like', '%' . $expression);
             })->get();
             $this->results['contacts'] = $collection;
         }

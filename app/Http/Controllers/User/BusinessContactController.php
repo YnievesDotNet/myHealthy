@@ -20,9 +20,9 @@ class BusinessContactController extends Controller
     /**
      * create Contact
      *
-     * @param  Business            $business Business that holds the addressbook
+     * @param  Business $business Business that holds the addressbook
      *                                       for Contact
-     * @param  AlterContactRequest $request  Request for Altering Contact
+     * @param  AlterContactRequest $request Request for Altering Contact
      * @return Response                      Rendered form for Contact creation
      */
     public function create(Business $business, AlterContactRequest $request)
@@ -44,8 +44,8 @@ class BusinessContactController extends Controller
     /**
      * store Contact
      *
-     * @param  Business            $business Business that holds the Contact
-     * @param  AlterContactRequest $request  Alter Contact Request
+     * @param  Business $business Business that holds the Contact
+     * @param  AlterContactRequest $request Alter Contact Request
      * @return Response                      View for created Contact
      *                                       or Redirect
      */
@@ -55,11 +55,11 @@ class BusinessContactController extends Controller
 
         $business_name = $business->name;
         Notifynder::category('user.suscribedBusiness')
-                   ->from('App\User', \Auth::user()->id)
-                   ->to('App\Business', $business->id)
-                   ->url('http://localhost')
-                   ->extra(compact('business_name'))
-                   ->send();
+            ->from('App\User', \Auth::user()->id)
+            ->to('App\Business', $business->id)
+            ->url('http://localhost')
+            ->extra(compact('business_name'))
+            ->send();
 
         $existing_contacts = Contact::whereNull('user_id')->whereNotNull('email')->where('email', '<>', '')->where(['email' => $request->input('email')])->get();
 
@@ -89,9 +89,9 @@ class BusinessContactController extends Controller
     /**
      * show Contact
      *
-     * @param  Business           $business Business holding the Contact
-     * @param  Contact            $contact  Desired Contact to show
-     * @param  ViewContactRequest $request  Read access Request
+     * @param  Business $business Business holding the Contact
+     * @param  Contact $contact Desired Contact to show
+     * @param  ViewContactRequest $request Read access Request
      * @return Response                     Rendered view of Contact
      */
     public function show(Business $business, Contact $contact, ViewContactRequest $request)
@@ -103,9 +103,9 @@ class BusinessContactController extends Controller
     /**
      * edit Contact
      *
-     * @param  Business            $business Business holding the Contact
-     * @param  Contact             $contact  Contact for edit
-     * @param  AlterContactRequest $request  Alter Contact Request
+     * @param  Business $business Business holding the Contact
+     * @param  Contact $contact Contact for edit
+     * @param  AlterContactRequest $request Alter Contact Request
      * @return Response                      Rendered view of Contact edit form
      */
     public function edit(Business $business, Contact $contact, AlterContactRequest $request)
@@ -117,17 +117,17 @@ class BusinessContactController extends Controller
     /**
      * update Contact
      *
-     * @param  Business            $business Business holding the Contact
-     * @param  Contact             $contact  Contact to update
-     * @param  AlterContactRequest $request  Alter Contact Request
+     * @param  Business $business Business holding the Contact
+     * @param  Contact $contact Contact to update
+     * @param  AlterContactRequest $request Alter Contact Request
      * @return Response                      Redirect back to edited Contact
      */
     public function update(Business $business, Contact $contact, AlterContactRequest $request)
     {
         Log::info("BusinessContactController: update: businessId:{$business->id} contactId:{$contact->id}");
         $update = [
-            'mobile'          => $request->get('mobile'),
-            'mobile_country'  => $request->get('mobile_country')
+            'mobile' => $request->get('mobile'),
+            'mobile_country' => $request->get('mobile_country')
         ];
 
         /* Only allow filling empty fields, not modification */
@@ -152,9 +152,9 @@ class BusinessContactController extends Controller
      *
      * destroy Contact
      *
-     * @param  Business           $business Business holding the Contact
-     * @param  Contact            $contact  Contact to destroy
-     * @param  ContactFormRequest $request  Contact Form Request
+     * @param  Business $business Business holding the Contact
+     * @param  Contact $contact Contact to destroy
+     * @param  ContactFormRequest $request Contact Form Request
      * @return Response                     Redirect back to Business show
      */
     public function destroy(Business $business, Contact $contact, ContactFormRequest $request)

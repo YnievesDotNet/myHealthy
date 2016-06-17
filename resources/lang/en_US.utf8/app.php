@@ -1,11 +1,11 @@
 <?php
-return array (
-    'dateformat' => array (
+return array(
+    'dateformat' => array(
         'datetimepicker' => 'MM/DD/YYYY',
         'carbon' => 'm/d/Y',
     ),
-    'general' => array (
-        'btn' => array (
+    'general' => array(
+        'btn' => array(
             'create' => 'Create',
             'read' => 'Read',
             'update' => 'Update',
@@ -13,11 +13,11 @@ return array (
             'confirm_deletion' => 'Confirm deletion?',
         ),
     ),
-    'label' => array (
+    'label' => array(
         'select_timezone' => 'TimeZone',
     ),
     'me' => 'My',
-    'name' => 'Find a Pro',
+    'name' => 'my Healthy',
     'homepage' => 'Home',
     'about' => 'About',
     'contact' => 'Contact',
@@ -29,20 +29,20 @@ return array (
     'location' => 'Location',
     'searchbox_title' => 'Search your professional here, is FREE!',
     'searchbox_btn' => 'Search!',
-    'nav' => array (
+    'nav' => array(
         'manual' => 'User Manual',
         'login' => 'Login',
         'logout' => 'Logout',
-        'manager' => array (
-            'business' => array (
+        'manager' => array(
+            'business' => array(
                 'list' => 'List',
                 'menu' => 'My Businesses',
                 'register' => 'SignUp Business',
             ),
         ),
         'register' => 'Register',
-        'user' => array (
-            'business' => array (
+        'user' => array(
+            'business' => array(
                 'menu' => 'Businesses',
                 'my_appointments' => 'My Reservations',
                 'my_suscriptions' => 'Favourites',
@@ -53,35 +53,35 @@ return array (
         'wizard' => 'Wizard',
         'home' => 'Home',
     ),
-    'notifications' => array (
+    'notifications' => array(
         'title' => 'Recently',
     ),
     'search' => 'Search',
-    'business' => array (
-        'category' => array (
+    'business' => array(
+        'category' => array(
             'doctor' => 'Healthcare',
             'garage' => 'Car Repair',
             'photography' => 'Photography',
         ),
     ),
     'filter' => 'Filter',
-    'gender' => array (
+    'gender' => array(
         'F' => 'Female',
         'M' => 'Male',
     ),
-    'home' => array (
-        'btn' => array (
+    'home' => array(
+        'btn' => array(
             'actions' => 'Actions',
         ),
     ),
-    'welcome' => array (
-        'btn' => array (
+    'welcome' => array(
+        'btn' => array(
             'enter' => 'Enter',
         ),
         'description' => 'Login the application',
         'title' => 'Welcome!',
     ),
-    'footer' => array (
+    'footer' => array(
         'demo' => 'Remember this is a DEBUG version.',
         'local' => 'Local environment advice.',
     ),

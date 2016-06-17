@@ -19,6 +19,6 @@ class BusinessScheduleController extends Controller
         Log::info("BusinessScheduleController: getIndex: businessId:{$business->id}");
 
         $appointments = $business->bookings()->with('contact')->with('business')->with('service')->unserved()->orderBy('start_at')->get();
-        return view('manager.businesses.appointments.'.$business->strategy.'.index', compact('business', 'appointments'));
+        return view('manager.businesses.appointments.' . $business->strategy . '.index', compact('business', 'appointments'));
     }
 }

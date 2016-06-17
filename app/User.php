@@ -8,10 +8,11 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Kodeine\Acl\Traits\HasRole;
 use Fenos\Notifynder\Notifable;
+use YnievesDotNet\FourStream\Traits\FourStreamUserNodes as Nodeable;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword, HasRole, Notifable;
+    use Authenticatable, CanResetPassword, HasRole, Notifable, Nodeable;
 
     /**
      * The database table used by the model.
@@ -40,7 +41,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * owns Business
-     * 
+     *
      * @return Illuminate\Database\Query Relationship Business belongs to User query
      */
     public function businesses()
@@ -52,7 +53,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * has Contacts
      *
      *      Contacts are the different profiles for different Businesses the User may have
-     * 
+     *
      * @return Illuminate\Database\Query Relationship User has Contacts query
      */
     public function contacts()
@@ -64,7 +65,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * holds Appointments through Contacts
      *
      * The Appointments are the Contact reservations held by this User
-     * 
+     *
      * @return Illuminate\Database\Query Relationship User has Appointments through Contacts query
      */
     public function appointments()
@@ -78,9 +79,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * TODO: Rename to isOwnerOf()
-     * 
+     *
      * is Owner of Business
-     * 
+     *
      * @param  Business $business Business to inquiry against
      * @return boolean            The User is Owner of the inquired Business
      */
@@ -91,7 +92,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * has Business
-     * 
+     *
      * @return boolean The User is Owner of at least one Business
      */
     public function hasBusiness()
@@ -101,7 +102,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * has Contacts
-     * 
+     *
      * @return boolean The User has at least one Contact profile set
      */
     public function hasContacts()
@@ -115,7 +116,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * set Name
-     * 
+     *
      * @param string $string The first name of the User
      */
     public function setNameAttribute($name)
@@ -125,9 +126,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     /**
      * TODO: Rename to getContactSuscribedTo()
-     * 
+     *
      * Get Suscribed Contact to Business
-     * 
+     *
      * @param  Business $business Business of inquiry
      * @return Contact            User profile Contact suscribed to the inquired Business
      */
@@ -141,12 +142,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     /**
      * Get the first record matching the email or create it.
      *
-     * @param  array  $attributes
+     * @param  array $attributes
      * @return self
      */
     public static function firstOrCreate(array $attributes)
     {
-        if (! is_null($instance = static::where('email', $attributes['email'])->first())) {
+        if (!is_null($instance = static::where('email', $attributes['email'])->first())) {
             return $instance;
         }
 
@@ -157,9 +158,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * TODO: Review the logic of this method.
      *       The method may return true even when no Contacts were found
      *       Should return the Contact Collection that were associated
-     * 
+     *
      * Link to Contacts
-     * 
+     *
      * @return boolean The User was linked to at least one Contact
      */
     public function linkToContacts()

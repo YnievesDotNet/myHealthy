@@ -1,7 +1,7 @@
-Find a Pro
-============
+Find a Doctor
+==============
 
-Find a Pro is a web application for online reservation of services for professionals freelances.
+Find a Doctor is a web application for online reservation of services for doctors freelances.
 
 It is made under the **Laravel 5** framework for **PHP**.
 
@@ -9,7 +9,7 @@ This App have Client Apps for Android, iOS, and is under build version for Windo
 
 ## Live Demo
 
-You can try the *back stage* working [live demo](http://findapro.ynieves.net/)
+You can try the *back stage* working [live demo](http://findadoc.ynieves.net/)
 
 ## Features
 
@@ -31,7 +31,7 @@ To be available soon.
 ## How to install:
 
 * [Step 1: Get the code](#step1)
-* [Step 2: Use Composer to install dependencies](#step2)
+* [Step 2: Use Composer to install Prodependencies](#step2)
 * [Step 3: Create database](#step3)
 * [Step 4: Install](#step4)
 * [Step 5: Start Page](#step5)
@@ -39,11 +39,11 @@ To be available soon.
 <a name="step1"></a>
 ### Step 1: Get the code - Clone the repository
 
-    $ git clone https://github.com/ynievesdotnet/findapro.git
+    $ git clone https://github.com/ynievesdotnet/findadoctor.git
     
 If you want to stand on the latest version:
 
-    $ cd findapro
+    $ cd findadoctor
 
     $ git checkout tags/v1.0
 
@@ -59,7 +59,8 @@ If you want to stand on the latest version:
 
 If you finished first three steps, now you can create database on your database server(MySQL). You must create database
 with utf-8 collation(uft8_general_ci), to install and application work perfectly.
-After that, copy .env.example and rename it as .env and put connection and change default database connection name, only database connection, put name database, database username and password.
+After that, copy .env.example and rename it as .env and put connection and change default database connection name,
+only database connection, put name database, database username and password.
 
 -----
 <a name="step4"></a>
@@ -84,7 +85,7 @@ Run the server:
 Type on web browser:
 
     http://localhost:8000/
-
+Pro
 -----
 <a name="step5"></a>
 ### Step 5: Start Page
@@ -93,13 +94,13 @@ You can now register as new user and login.
 
 ## Contributing
 
-Thank you for considering contributing to Find a Pro.
+Thank you for considering contributing to Find a Doctor.
 
 Please see CONTRIBUTING doc for further details.
 You are welcome to join the core development team and enhance the development process apart from just code :)
 
 ### License
 
-Find a Pro is open-sourced software licensed under the [AGPL](http://www.gnu.org/licenses/agpl-3.0-standalone.html).
+Find a Doctor is open-sourced software licensed under the [AGPL](http://www.gnu.org/licenses/agpl-3.0-standalone.html).
 
 Based in [Timegrid](https://github.com/alariva/timegrid.git) Software for Bussines

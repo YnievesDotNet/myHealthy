@@ -56,7 +56,7 @@ class BusinessServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show(Business $business, Service $service)
@@ -68,7 +68,7 @@ class BusinessServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit(Business $business, Service $service)
@@ -80,16 +80,16 @@ class BusinessServiceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function update(Business $business, Service $service, Request $request /*, ContactFormRequest $request */)
     {
         Log::info("BusinessServiceController: update: businessId:{$business->id} serviceId:{$service->id}");
         $service->update([
-            'name'            => $request->get('name'),
-            'description'     => $request->get('description'),
-            'prerequisites'   => $request->get('prerequisites'),
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'prerequisites' => $request->get('prerequisites'),
         ]);
 
         Flash::success(trans('manager.business.service.msg.update.success'));
@@ -99,7 +99,7 @@ class BusinessServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy(Business $business, Service $service)

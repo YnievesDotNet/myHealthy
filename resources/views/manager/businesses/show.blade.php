@@ -24,7 +24,7 @@
         </span>
         <span class="btn-group">
             {!! Button::withIcon(Icon::tag())->normal()->withAttributes(['id' => 'btnServices', 'title' => trans('manager.business.btn.tooltip.services')])->asLinkTo( route('manager.business.service.index', $business) ) !!}
-            {!! Button::withIcon(Icon::time())->normal()->withAttributes(['id' => 'btnVacancies', 'title' => trans('manager.business.btn.tooltip.vacancies')])->asLinkTo( route('manager.business.vacancy.create', $business) ) !!}
+            {!! Button::withIcon(Icon::time())->normal()->withAttributes(['id' => 'btnVacancies', 'title' => trans('manager.business.btn.tooltip.vacancies')])->asLinkTo( route('manager.business.vacancy.index', $business) ) !!}
             {!! Button::withIcon(Icon::calendar())->withAttributes(['id' => 'btnSchedule', 'title' => trans('manager.business.btn.tooltip.schedule')])->normal()->asLinkTo( route('manager.business.schedule.index', $business) ) !!}
         </span>
         <span class="btn-group">
@@ -64,7 +64,8 @@
 
                                     <div class="content">
                                         <div class="title">
-                                            0{{--{{ $business->bookings()->ofDate(Carbon::now())->get()->count() }}--}}</div>
+                                            {{ $business->bookings()->ofDate(Carbon::now())->active()->get()->count() }}
+                                        </div>
                                         <div class="sub-title">{{ trans('manager.businesses.dashboard.panel.title_appointments_active') }}
                                             - {{ trans('manager.businesses.dashboard.panel.title_appointments_today') }}</div>
                                     </div>
@@ -79,7 +80,8 @@
 
                                     <div class="content">
                                         <div class="title">
-                                            0{{--{{ $business->bookings()->ofDate(Carbon::now())->annulated()->get()->count() }}--}}</div>
+                                            {{ $business->bookings()->ofDate(Carbon::now())->annulated()->get()->count() }}
+                                        </div>
                                         <div class="sub-title">{{ trans('manager.businesses.dashboard.panel.title_appointments_annulated') }}
                                             - {{ trans('manager.businesses.dashboard.panel.title_appointments_today') }}</div>
                                     </div>
@@ -94,9 +96,11 @@
 
                                     <div class="content">
                                         <div class="title">
-                                            0{{--{{ $business->bookings()->ofDate(Carbon::tomorrow())->active()->get()->count() }}--}}</div>
+                                            {{ $business->bookings()->ofDate(Carbon::tomorrow())->active()->get()->count() }}
+                                        </div>
                                         <div class="sub-title">{{ trans('manager.businesses.dashboard.panel.title_appointments_active') }}
-                                            - {{ trans('manager.businesses.dashboard.panel.title_appointments_tomorrow') }}</div>
+                                            - {{ trans('manager.businesses.dashboard.panel.title_appointments_tomorrow') }}
+                                        </div>
                                     </div>
                                     <div class="clear-both"></div>
                                 </div>

@@ -35,6 +35,7 @@ class Kernel extends HttpKernel
         'App\Http\Middleware\Language',
         'Illuminate\View\Middleware\ShareErrorsFromSession',
         'App\Http\Middleware\VerifyCsrfToken',
+        'App\Http\Middleware\MenuMiddleware'
     ];
 
     /**

@@ -22,7 +22,7 @@ class BookingController extends Controller
 {
     /**
      * post Action for booking
-     * 
+     *
      * @param  AlterAppointmentRequest $request
      * @return JSON                    Action result object
      */
@@ -58,7 +58,7 @@ class BookingController extends Controller
         /**
          * Widgets MUST be rendered before being returned on Response
          * as they need to be interpreted as HTML
-         * 
+         *
          */
         switch ($widget) {
             case 'row':
@@ -74,12 +74,12 @@ class BookingController extends Controller
         // TODO: It is probably possible to move Notifynder to a more proper place
         $date = $appointment->start_at->toDateString();
         $code = $appointmentPresenter->code();
-        Notifynder::category('appointment.'.$action)
-                   ->from('App\User', \Auth::user()->id)
-                   ->to('App\Business', $appointment->business->id)
-                   ->url('http://localhost')
-                   ->extra(compact('code', 'action', 'date'))
-                   ->send();
+        Notifynder::category('appointment.' . $action)
+            ->from('App\User', \Auth::user()->id)
+            ->to('App\Business', $appointment->business->id)
+            ->url('http://localhost')
+            ->extra(compact('code', 'action', 'date'))
+            ->send();
 
         Log::info("postAction.response:[appointment:{$appointment->toJson()}]");
         return response()->json(['code' => 'OK', 'html' => $html]); // TODO: Safe to remove .''

@@ -10,6 +10,6 @@ class ServiceUnitTest extends TestCase
     {
         $service = factory(App\Service::class)->make();
 
-          
+
     }
 }

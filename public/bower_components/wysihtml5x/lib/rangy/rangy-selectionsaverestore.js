@@ -12,7 +12,7 @@
  * Version: 1.3alpha.20140804
  * Build date: 4 August 2014
  */
-(function(factory, global) {
+(function (factory, global) {
     if (typeof define == "function" && define.amd) {
         // AMD. Register as an anonymous module with a dependency on Rangy.
         define(["rangy"], factory);
@@ -25,8 +25,8 @@
         // No AMD or CommonJS support so we use the rangy global variable
         factory(global.rangy);
     }
-})(function(rangy) {
-    rangy.createModule("SaveRestore", ["WrappedRange"], function(api, module) {
+})(function (rangy) {
+    rangy.createModule("SaveRestore", ["WrappedRange"], function (api, module) {
         var dom = api.dom;
 
         var markerTextChar = "\ufeff";
@@ -90,7 +90,7 @@
                     endMarkerId: endEl.id,
                     collapsed: false,
                     backward: backward,
-                    toString: function() {
+                    toString: function () {
                         return "original text: '" + text + "', new text: '" + range.toString() + "'";
                     }
                 };
@@ -246,5 +246,5 @@
             removeMarkers: removeMarkers
         });
     });
-    
+
 }, this);

@@ -53,6 +53,7 @@
                     });
                 });
             }
+
             prepareEvents();
         });
     </script>

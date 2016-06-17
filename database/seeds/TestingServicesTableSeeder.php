@@ -12,8 +12,8 @@ class TestingServicesTableSeeder extends Seeder
         DB::table('services')->delete();
         $business = Business::where(['slug' => 'hgnc'])->first();
 
-        Service::create(['business_id'=> $business->id, 'name' => 'Instalación', 'description' => 'Instalación de equipo GNC']);
-        Service::create(['business_id'=> $business->id, 'name' => 'Regulación', 'description' => 'Regulación']);
-        Service::create(['business_id'=> $business->id, 'name' => 'Mecánica General', 'description' => 'Mecánica General']);
+        Service::create(['business_id' => $business->id, 'name' => 'Instalación', 'description' => 'Instalación de equipo GNC']);
+        Service::create(['business_id' => $business->id, 'name' => 'Regulación', 'description' => 'Regulación']);
+        Service::create(['business_id' => $business->id, 'name' => 'Mecánica General', 'description' => 'Mecánica General']);
     }
 }

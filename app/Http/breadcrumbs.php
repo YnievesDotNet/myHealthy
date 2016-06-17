@@ -94,6 +94,12 @@ Breadcrumbs::register('manager.business.service.edit', function ($breadcrumbs, $
     $breadcrumbs->push(trans('breadcrumbs.edit'), route('manager.business.service.edit'));
 });
 
+// Home > My business > ID > Vacancy > Calendar
+Breadcrumbs::register('manager.business.vacancy.index', function ($breadcrumbs, $business) {
+    $breadcrumbs->parent('manager.business.show', $business);
+    $breadcrumbs->push(trans('breadcrumbs.vacancies'), route('manager.business.vacancy.index'));
+});
+
 // Home > My business > ID > Vacancy > Create
 Breadcrumbs::register('manager.business.vacancy.create', function ($breadcrumbs, $business) {
     $breadcrumbs->parent('manager.business.show', $business);
@@ -146,6 +152,12 @@ Breadcrumbs::register('user.businesses.home', function ($breadcrumbs, $business)
 Breadcrumbs::register('user.business.contact', function ($breadcrumbs) {
     $breadcrumbs->parent('user.business.list');
     $breadcrumbs->push(trans('breadcrumbs.businesses'), route('user.business.contact'));
+});
+
+// Home > Users > ID > Contacts
+Breadcrumbs::register('user.business.contact.create', function ($breadcrumbs, $business) {
+    $breadcrumbs->parent('user.businesses.home', $business);
+    $breadcrumbs->push(trans('breadcrumbs.create'), route('user.business.contact.create'));
 });
 
 // Home > Users > ID > Contacts

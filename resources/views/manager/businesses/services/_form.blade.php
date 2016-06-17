@@ -1,5 +1,6 @@
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ asset('bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.min.css') }}">
 @endsection
 
 <div class="row">
@@ -39,8 +40,10 @@
 </div>
 
 @section('footer_scripts')
-    <script type="text/javascript" src="{{ asset('bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bower_components/bootstrap3-wysihtml5-bower/dist/locales/bootstrap-wysihtml5.' .  str_replace('_', '-', substr(App::getLocale(), 0, 5))  . '.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.all.min.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bower_components/bootstrap3-wysihtml5-bower/dist/locales/bootstrap-wysihtml5.' .  str_replace('_', '-', substr(App::getLocale(), 0, 5))  . '.js') }}"></script>
     <script type="text/javascript">
         var locale = '{{ str_replace('_', '-', substr(App::getLocale(), 0, 5)) }}';
         $('#description').wysihtml5({locale: locale});

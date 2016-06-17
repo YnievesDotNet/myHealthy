@@ -26,7 +26,7 @@ class ConciergeStrategy
     public static function generateAvailability($vacancies, $starting = 'today', $days = 10)
     {
         $dates = [];
-        for ($i=0; $i < $days; $i++) {
+        for ($i = 0; $i < $days; $i++) {
             $dates[date('Y-m-d', strtotime("$starting +$i days"))] = [];
         }
         foreach ($vacancies as $key => $vacancy) {

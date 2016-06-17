@@ -3,3 +3,4 @@
 *.sublime-workspace
 .wakatime-project
 /.idea/
+/.project

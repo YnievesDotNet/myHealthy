@@ -11,27 +11,27 @@ class UserRegistrationTest extends TestCase
         $this->expectsEvents(App\Events\NewRegisteredUser::class);
 
         $this->visit('/')
-             ->click('Empecemos')
-             ->see('Registrame')
-             ->type('ariel', 'name')
-             ->type('test@test.com', 'email')
-             ->type('123123', 'password')
-             ->type('123123', 'password_confirmation')
-             ->press('Registrame')
-             ->see('Muy bien')
-             ->assertEquals(true, \Auth::check());
+            ->click('Empecemos')
+            ->see('Registrame')
+            ->type('ariel', 'name')
+            ->type('test@test.com', 'email')
+            ->type('123123', 'password')
+            ->type('123123', 'password_confirmation')
+            ->press('Registrame')
+            ->see('Muy bien')
+            ->assertEquals(true, \Auth::check());
     }
 
     public function testUserRegistrationWithFailure()
     {
         $this->visit('/')
-             ->click('Empecemos')
-             ->see('Registrame')
-             ->type('ariel', 'name')
-             ->type('alariva@gmail.com', 'email')
-             ->type('123123', 'password')
-             ->type('123124', 'password_confirmation')
-             ->press('Registrame')
-             ->assertEquals(false, \Auth::check());
+            ->click('Empecemos')
+            ->see('Registrame')
+            ->type('ariel', 'name')
+            ->type('alariva@gmail.com', 'email')
+            ->type('123123', 'password')
+            ->type('123124', 'password_confirmation')
+            ->press('Registrame')
+            ->assertEquals(false, \Auth::check());
     }
 }

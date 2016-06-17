@@ -26,7 +26,7 @@ class CreateNotificationsTable extends Migration
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')
-                  ->on('notification_categories');
+                ->on('notification_categories');
         });
     }
 

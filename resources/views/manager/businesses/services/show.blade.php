@@ -9,7 +9,8 @@
                 </div>
                 <div class="panel-body">
                     <div class="col-md-8">{!! $service->description !!}</div>
-                    <div class="col-md-4" style="background-color: #973634; color: white; border-radius: 5px;">{!! $service->prerequisites !!}</div>
+                    <div class="col-md-4"
+                         style="background-color: #973634; color: white; border-radius: 5px;">{!! $service->prerequisites !!}</div>
                 </div>
                 <div class="panel-footer">
                     {!! Button::primary()->withIcon(Icon::edit())->withAttributes(['type' => 'button', 'data-toggle' => 'tooltip', 'data-original-title' => trans('app.btn.edit')])->asLinkTo( route('manager.business.service.edit', [$service->business, $service]) ) !!}

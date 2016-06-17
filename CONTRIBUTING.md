@@ -1,6 +1,6 @@
-# Find A Pro Contribution Guide
+# Find A Doctor Contribution Guide
 
-Thank you for considering contributing to Timegrid.
+Thank you for considering contributing to Find A Doctor Project.
 
 For being this a new and sprouting project, there are no strict rules for 
 contribution, as long as they tend to attach to best practices.

@@ -479,7 +479,7 @@ do ($ = window.jQuery, window) ->
         window.setTimeout ->
           $form
           .find("input")
-          .filter( -> $(@).data "bootstrap-switch")
+          .filter(-> $(@).data "bootstrap-switch")
           .each -> $(@).bootstrapSwitch "state", @checked
         , 1
       .data "bootstrap-switch", true

@@ -20,7 +20,7 @@ class CountriesController extends Controller
     public function index(Request $request)
     {
         $lang = Languaje::where('code', '=', App::getLocale())->first();
-        if(isset($request->q)){
+        if (isset($request->q)) {
             $countries = Country::where('active', '=', 1)
                 ->where('languaje_id', '=', $lang->id)
                 ->whereRaw("lower(name) like '%" . $request->q . "%'")
@@ -31,7 +31,7 @@ class CountriesController extends Controller
             }
             return response()->json(['countries' => $countries]);
         };
-        if(isset($request->id)){
+        if (isset($request->id)) {
             $countries = Country::where('active', '=', 1)
                 ->where('languaje_id', '=', $lang->id)
                 ->where('id_country', '=', $request->id)

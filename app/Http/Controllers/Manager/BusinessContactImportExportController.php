@@ -20,7 +20,7 @@ class BusinessContactImportExportController extends Controller
      * get Import form
      *
      * @param  Business $business Business to import Contacts to
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response           Rendered Import form view
      */
     public function getImport(Business $business, Request $request)
@@ -33,16 +33,18 @@ class BusinessContactImportExportController extends Controller
      * post Import
      *
      * @param  Business $business Business to import Contacts to
-     * @param  Request  $request  Submitted form data
+     * @param  Request $request Submitted form data
      * @return Response           Redirect to Business addressbook
      */
     public function postImport(Business $business, Request $request)
     {
         Log::info("BusinessContactImportExportController: postImport: businessId:{$business->id}");
         $csv = $this->csvToArray(Request::get('data'));
-        
+
         foreach ($csv as $key => $import) {
-            $import = array_map(function ($item) { return $item == 'NULL' ? null : $item; }, $import);
+            $import = array_map(function ($item) {
+                return $item == 'NULL' ? null : $item;
+            }, $import);
 
             if ($import['birthdate'] !== null) {
                 $date = \DateTime::createFromFormat('Ymd', $import['birthdate']);
@@ -60,11 +62,11 @@ class BusinessContactImportExportController extends Controller
         Log::info("BusinessContactImportExportController: Imported $count contacts to businessId:{$business->id}");
 
         Notifynder::category('user.importedContacts')
-                   ->from('App\User', \Auth::user()->id)
-                   ->to('App\Business', $business->id)
-                   ->url('http://localhost')
-                   ->extra(compact('count'))
-                   ->send();
+            ->from('App\User', \Auth::user()->id)
+            ->to('App\Business', $business->id)
+            ->url('http://localhost')
+            ->extra(compact('count'))
+            ->send();
 
         Flash::success(trans('manager.contacts.msg.import.success'));
         return Redirect::route('manager.business.contact.index', [$business]);
@@ -77,11 +79,11 @@ class BusinessContactImportExportController extends Controller
      *
      *      Converts submitted CSV string data into an Array
      *
-     * @param  string $data      CSV string of Contacts
+     * @param  string $data CSV string of Contacts
      * @param  string $delimiter CSV field delimiter character
      * @return array             Converted CSV into Array
      */
-    private function csvToArray($data='', $delimiter=',')
+    private function csvToArray($data = '', $delimiter = ',')
     {
         Log::info("BusinessContactImportExportController: csvToArray");
 

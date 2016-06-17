@@ -21,14 +21,14 @@ class BusinessController extends Controller
     public function getHome(Business $business)
     {
         Log::info("BusinessController: getHome: businessId:{$business->id} businessSlug:({$business->slug})");
-        
+
         $business_name = $business->name;
         Notifynder::category('user.visitedShowroom')
-                   ->from('App\User', \Auth::user()->id)
-                   ->to('App\Business', $business->id)
-                   ->url('http://localhost')
-                   ->extra(compact('business_name'))
-                   ->send();
+            ->from('App\User', \Auth::user()->id)
+            ->to('App\Business', $business->id)
+            ->url('http://localhost')
+            ->extra(compact('business_name'))
+            ->send();
 
         return view('user.businesses.show', compact('business'));
     }

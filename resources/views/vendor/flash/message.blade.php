@@ -3,7 +3,7 @@
         @include('flash::modal', ['modalClass' => 'flash-modal', 'title' => Session::get('flash_notification.title'), 'body' => Session::get('flash_notification.message')])
     @else
         <script>
-            $.notify("{!! Session::get('flash_notification.message')  !!}",{
+            $.notify("{!! Session::get('flash_notification.message')  !!}", {
                 autoHideDelay: 6000,
                 showAnimation: 'slideDown',
                 showDuration: 500,

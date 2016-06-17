@@ -119,14 +119,14 @@ class Business extends EloquentModel
     public function getSuscriptionsCountAttribute()
     {
         // if relation is not loaded already, let's do it first
-        if (! array_key_exists('suscriptionsCount', $this->relations)) {
+        if (!array_key_exists('suscriptionsCount', $this->relations)) {
             $this->load('suscriptionsCount');
         }
 
         $related = $this->getRelation('suscriptionsCount');
 
         // then return the count directly
-        return ($related->count()>0) ? (int) $related->first()->aggregate : 0;
+        return ($related->count() > 0) ? (int)$related->first()->aggregate : 0;
     }
 
     ///////////////

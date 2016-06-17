@@ -1,5 +1,4 @@
 describe "Bootstrap Switch", ->
-
   beforeEach ->
     $.support.transition = false
     $.fx.off = true

@@ -12,7 +12,7 @@
  * Version: 1.3alpha.804
  * Build date: 8 December 2013
  */
-rangy.createModule("SaveRestore", ["WrappedRange"], function(api, module) {
+rangy.createModule("SaveRestore", ["WrappedRange"], function (api, module) {
     var dom = api.dom;
 
     var markerTextChar = "\ufeff";
@@ -77,7 +77,7 @@ rangy.createModule("SaveRestore", ["WrappedRange"], function(api, module) {
                 endMarkerId: endEl.id,
                 collapsed: false,
                 backward: backward,
-                toString: function() {
+                toString: function () {
                     return "original text: '" + text + "', new text: '" + range.toString() + "'";
                 }
             };

@@ -20,12 +20,30 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\NewBooking' => [
             'App\Handlers\Events\SendBookingNotification',
         ],
+        'YnievesDotNet\FourStream\Events\ConnectionOpen' => [
+            'YnievesDotNet\FourStream\Handlers\Events\ConnectionOpen',
+        ],
+        'YnievesDotNet\FourStream\Events\MessageReceived' => [
+            'YnievesDotNet\FourStream\Handlers\Events\MessageReceived',
+        ],
+        'YnievesDotNet\FourStream\Events\BinaryMessageReceived' => [
+            'YnievesDotNet\FourStream\Handlers\Events\BinaryMessageReceived',
+        ],
+        'YnievesDotNet\FourStream\Events\PingReceived' => [
+            'YnievesDotNet\FourStream\Handlers\Events\PingReceived',
+        ],
+        'YnievesDotNet\FourStream\Events\ErrorGenerated' => [
+            'YnievesDotNet\FourStream\Handlers\Events\ErrorGenerated',
+        ],
+        'YnievesDotNet\FourStream\Events\ConnectionClose' => [
+            'YnievesDotNet\FourStream\Handlers\Events\ConnectionClose',
+        ],
     ];
 
     /**
      * Register any other events for your application.
      *
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @param  \Illuminate\Contracts\Events\Dispatcher $events
      * @return void
      */
     public function boot(DispatcherContract $events)

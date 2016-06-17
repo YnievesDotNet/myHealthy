@@ -31,10 +31,10 @@ class Appointment extends Model implements \Robbo\Presenter\PresentableInterface
     /**
      * Appointment Hard Status Constants
      */
-    const STATUS_RESERVED  = 'R';
+    const STATUS_RESERVED = 'R';
     const STATUS_CONFIRMED = 'C';
     const STATUS_ANNULATED = 'A';
-    const STATUS_SERVED    = 'S';
+    const STATUS_SERVED = 'S';
 
     /**
      * User Profile Constants
@@ -42,7 +42,7 @@ class Appointment extends Model implements \Robbo\Presenter\PresentableInterface
      * Used to determine the detected behavior of the user depending
      * on if he acts as a user or a Business manager.
      */
-    const PROFILE_USER    = 'user';
+    const PROFILE_USER = 'user';
     const PROFILE_MANAGER = 'manager';
 
     /**
@@ -53,7 +53,7 @@ class Appointment extends Model implements \Robbo\Presenter\PresentableInterface
     {
         parent::__construct($attributes);
 
-        $this->attributes['hash'] = md5($this->start_at.'/'.$this->contact_id.'/'.$this->business_id.'/'.$this->service_id);
+        $this->attributes['hash'] = md5($this->start_at . '/' . $this->contact_id . '/' . $this->business_id . '/' . $this->service_id);
     }
 
     /**
@@ -69,7 +69,7 @@ class Appointment extends Model implements \Robbo\Presenter\PresentableInterface
     /**
      * Save the model to the database.
      *
-     * @param  array  $options
+     * @param  array $options
      * @return bool
      */
     public function save(array $options = array())
@@ -179,11 +179,11 @@ class Appointment extends Model implements \Robbo\Presenter\PresentableInterface
      */
     public function getStatusLabelAttribute()
     {
-        $labels = [ Self::STATUS_RESERVED  => 'reserved',
-                    Self::STATUS_CONFIRMED => 'confirmed',
-                    Self::STATUS_ANNULATED => 'annulated',
-                    Self::STATUS_SERVED    => 'served',
-                ];
+        $labels = [Self::STATUS_RESERVED => 'reserved',
+            Self::STATUS_CONFIRMED => 'confirmed',
+            Self::STATUS_ANNULATED => 'annulated',
+            Self::STATUS_SERVED => 'served',
+        ];
 
         return array_key_exists($this->status, $labels) ? $labels[$this->status] : '';
     }
@@ -339,7 +339,7 @@ class Appointment extends Model implements \Robbo\Presenter\PresentableInterface
     {
         return $query->whereIn('status', [Self::STATUS_RESERVED, Self::STATUS_CONFIRMED]);
     }
-    
+
     /////////////
     // Sorting //
     /////////////
@@ -358,7 +358,7 @@ class Appointment extends Model implements \Robbo\Presenter\PresentableInterface
     /**
      * Of Business
      *
-     * @param  Illuminate\Database\Query   $query
+     * @param  Illuminate\Database\Query $query
      * @param  Business $business An inquired business to validate against
      * @return Illuminate\Database\Query The appointments belonging to the inquired Business as holder
      */
@@ -371,12 +371,12 @@ class Appointment extends Model implements \Robbo\Presenter\PresentableInterface
      * Of Date
      *
      * @param  Illuminate\Database\Query $query
-     * @param  Carbon $date  An inquired date to validate against
+     * @param  Carbon $date An inquired date to validate against
      * @return Illuminate\Database\Query    The scoped appointments for the inquired date
      */
     public function scopeOfDate($query, Carbon $date)
     {
-        return $query->whereRaw('date(`start_at`) = ?', [$date->timezone('UTC')->toDateString()]);
+        return $query->whereDate('start_at', "=", $date->timezone('UTC')->toDateString());
     }
 
     /**
@@ -394,7 +394,7 @@ class Appointment extends Model implements \Robbo\Presenter\PresentableInterface
      * Scope only till date
      *
      * @param  Illuminate\Database\Query $query
-     * @param  Carbon $date  Inquired range end date
+     * @param  Carbon $date Inquired range end date
      * @return Illuminate\Database\Query Scoped appointments up to the inquired date
      */
     public function scopeTillDate($query, Carbon $date)
@@ -491,6 +491,6 @@ class Appointment extends Model implements \Robbo\Presenter\PresentableInterface
     public function needConfirmationOf($profile)
     {
         return ($this->issuer()->first() != $this->user() && $profile == self::PROFILE_USER) ||
-               ($this->issuer()->first() == $this->user() && $profile == self::PROFILE_MANAGER);
+        ($this->issuer()->first() == $this->user() && $profile == self::PROFILE_MANAGER);
     }
 }

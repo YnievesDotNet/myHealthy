@@ -35,12 +35,12 @@ class BusinessFormRequest extends Request
             case 'PUT':
             case 'POST':
                 return [
-                      'name' => 'required|min:3',
-                      'slug' => 'required|min:3',
-                      'description' => 'required|min:10',
-                      'timezone' => 'timezone',
-                      'strategy' => 'required'
-                    ];
+                    'name' => 'required|min:3',
+                    'slug' => 'required|min:3',
+                    'description' => 'required|min:10',
+                    'timezone' => 'timezone',
+                    'strategy' => 'required'
+                ];
                 break;
             default:
                 return [];

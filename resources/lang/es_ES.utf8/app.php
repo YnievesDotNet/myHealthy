@@ -1,18 +1,18 @@
 <?php
-return array (
+return array(
     'root' => 'Panel Administrativo',
     'me' => 'Mi',
-    'name' => 'Find a Pro',
+    'name' => 'myHealthy',
     'homepage' => 'Inicio',
     'about' => 'Acerca de',
     'contact' => 'Contactenos',
-    'description' => 'El cat&aacute;logo integral donde usted pueda localizar a los profesionales en las materias que usted necesite!!',
+    'description' => 'El cat&aacute;logo integral donde usted pueda localizar a los doctores en las especialidades que usted necesite!!',
     'more' => 'Leer m&aacute;s',
     'speciality' => 'Especialidad',
     'country' => 'Pa&iacute;s',
     'region' => 'Regi&oacute;n',
     'location' => 'Localidad',
-    'searchbox_title' => 'Busque a su profesional aqu&iacute;, es GRATIS!',
+    'searchbox_title' => 'Busque a su doctor aqu&iacute;, es GRATIS!',
     'searchbox_btn' => 'Buscar!',
     'btn' => array(
         'create' => 'Crear',
@@ -20,22 +20,22 @@ return array (
         'update' => 'Actualizar',
         'delete' => 'Eliminar',
     ),
-    'nav' => array (
+    'nav' => array(
         'manual' => 'Manual de usuario',
         'login' => 'Iniciar Sesión',
         'logout' => 'Salir',
-        'manager' => array (
-            'business' => array (
+        'manager' => array(
+            'business' => array(
                 'list' => 'Listar',
-                'menu' => 'Mis Negocios',
-                'register' => 'Registrar Negocio',
+                'menu' => 'Mis Consultas',
+                'register' => 'Registrar Consulta',
             ),
         ),
         'register' => 'Registrarme',
-        'user' => array (
-            'business' => array (
-                'menu' => 'Profesionales',
-                'my_appointments' => 'Mis turnos',
+        'user' => array(
+            'business' => array(
+                'menu' => 'Doctores',
+                'my_appointments' => 'Mis consultas',
                 'my_subscriptions' => 'Favoritos',
                 'selector' => 'Buscar',
                 'home' => 'Inicio',
@@ -44,28 +44,28 @@ return array (
         'wizard' => 'Asistente',
         'home' => 'Inicio',
     ),
-    'notifications' => array (
+    'notifications' => array(
         'title' => 'Recientemente',
     ),
     'search' => 'Buscar',
-    'business' => array (
-        'category' => array (
-            'doctor' => 'Medico',
-            'garage' => 'Taller de mecanica',
-            'photography' => 'Fotografia',
+    'business' => array(
+        'category' => array(
+            'internal'   => 'Medicina Interna',
+            'orthopedic' => 'Ortopedia',
+            'pediatric'  => 'Pediatria',
         ),
     ),
     'filter' => 'Filtrar',
-    'gender' => array (
+    'gender' => array(
         'F' => 'Femenino',
         'M' => 'Masculino',
     ),
-    'dateformat' => array (
+    'dateformat' => array(
         'datetimepicker' => 'DD/MM/YYYY',
         'carbon' => 'd/m/Y',
     ),
-    'general' => array (
-        'btn' => array (
+    'general' => array(
+        'btn' => array(
             'create' => 'Crear',
             'read' => 'Leer',
             'update' => 'Actualizar',
@@ -73,22 +73,22 @@ return array (
             'confirm_deletion' => '¿Eliminar?',
         ),
     ),
-    'label' => array (
+    'label' => array(
         'select_timezone' => 'Zona horaria',
     ),
-    'home' => array (
-        'btn' => array (
+    'home' => array(
+        'btn' => array(
             'actions' => 'Acciones',
         ),
     ),
-    'welcome' => array (
-        'btn' => array (
+    'welcome' => array(
+        'btn' => array(
             'enter' => 'Entrar',
         ),
         'description' => 'Entrar al sistema',
         'title' => 'Bienvenido!',
     ),
-    'footer' => array (
+    'footer' => array(
         'demo' => 'Recuerde que esta en version DEBUG.',
         'local' => 'Corriendo en ambiente local.',
     ),

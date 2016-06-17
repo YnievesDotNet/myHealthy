@@ -27,7 +27,7 @@ class OAuthController extends Controller implements AuthenticateUserListener
     {
         return Socialite::driver($provider)->redirect();
     }
-    
+
     public function handleProviderCallback($provider, AuthenticateUser $authenticateUser, Request $request)
     {
         $hasCode = $request->has('code');

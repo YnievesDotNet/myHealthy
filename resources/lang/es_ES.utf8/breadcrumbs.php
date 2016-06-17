@@ -1,8 +1,8 @@
 <?php
-return array (
+return array(
     'home' => 'Inicio',
-    'wizard'=> 'Asistente',
-    'pricing'=> 'Precios',
+    'wizard' => 'Asistente',
+    'pricing' => 'Precios',
     'businesses' => 'Negocios',
     'myBusinesses' => 'Mis negocios',
     'preferences' => 'Preferencias',
@@ -15,5 +15,5 @@ return array (
     'contact' => 'Contactos',
     'booking' => 'Reservar turno',
     'appointments' => 'Mis turnos',
-    'dashboard' => 'Panel Administrativo',
+    'dashboard healthy' => 'Panel Administrativo',
 );

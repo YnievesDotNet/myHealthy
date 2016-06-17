@@ -18,7 +18,7 @@ class AppointmentPresenter extends \Robbo\Presenter\Presenter
 
     public function status()
     {
-        return trans('appointments.status.'.$this->statusLabel);
+        return trans('appointments.status.' . $this->statusLabel);
     }
 
     public function statusToClass()

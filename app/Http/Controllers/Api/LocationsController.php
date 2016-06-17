@@ -20,7 +20,7 @@ class LocationsController extends Controller
     public function index(Request $request)
     {
         $lang = Languaje::where('code', '=', App::getLocale())->first();
-        if(isset($request->q)) {
+        if (isset($request->q)) {
             $locations = Location::where('languaje_id', '=', $lang->id)
                 ->where('id_region', '=', $request->q)
                 ->where('active', '=', 1)->get();
@@ -29,7 +29,7 @@ class LocationsController extends Controller
             }
             return compact('locations');
         };
-        if(isset($request->id)){
+        if (isset($request->id)) {
             $locations = Location::where('active', '=', 1)
                 ->where('languaje_id', '=', $lang->id)
                 ->where('id_location', '=', $request->id)

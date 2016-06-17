@@ -11,7 +11,7 @@ class RootController extends Controller
 {
     /**
      * get Index
-     * 
+     *
      * @return Response Show Root dashboard
      */
     public function getIndex()

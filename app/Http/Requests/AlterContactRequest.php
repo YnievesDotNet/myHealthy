@@ -26,13 +26,13 @@ class AlterContactRequest extends Request
      */
     public function rules()
     {
-        $rules = [  'firstname' => 'required|min:3',
-                    'lastname' => 'required|min:2',
-                    'gender' => 'required|max:1',
-                    #'mobile_country' => 'required_with:mobile|size:2',
-                    #'mobile' => 'phone',
-                    'email' => 'email'
-                ];
+        $rules = ['firstname' => 'required|min:3',
+            'lastname' => 'required|min:2',
+            'gender' => 'required|max:1',
+            #'mobile_country' => 'required_with:mobile|size:2',
+            #'mobile' => 'phone',
+            'email' => 'email'
+        ];
 
         switch ($this->method()) {
             case 'PATCH':

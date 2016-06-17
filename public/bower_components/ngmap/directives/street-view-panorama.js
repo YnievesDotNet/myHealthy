@@ -28,70 +28,70 @@
  *   </map>
  */
 /* global google, document */
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  var streetViewPanorama = function(Attr2MapOptions, NgMap) {
-    var parser = Attr2MapOptions;
+    var streetViewPanorama = function (Attr2MapOptions, NgMap) {
+        var parser = Attr2MapOptions;
 
-    var getStreetViewPanorama = function(map, options, events) {
-      var svp, container;
-      if (options.container) {
-        container = document.getElementById(options.container);
-        container = container || document.querySelector(options.container);
-      }
-      if (container) {
-        svp = new google.maps.StreetViewPanorama(container, options);
-      } else {
-        svp = map.getStreetView();
-        svp.setOptions(options);
-      }
+        var getStreetViewPanorama = function (map, options, events) {
+            var svp, container;
+            if (options.container) {
+                container = document.getElementById(options.container);
+                container = container || document.querySelector(options.container);
+            }
+            if (container) {
+                svp = new google.maps.StreetViewPanorama(container, options);
+            } else {
+                svp = map.getStreetView();
+                svp.setOptions(options);
+            }
 
-      for (var eventName in events) {
-        eventName &&
-          google.maps.event.addListener(svp, eventName, events[eventName]);
-      }
-      return svp;
+            for (var eventName in events) {
+                eventName &&
+                google.maps.event.addListener(svp, eventName, events[eventName]);
+            }
+            return svp;
+        };
+
+        var linkFunc = function (scope, element, attrs) {
+            var filtered = parser.filter(attrs);
+            var options = parser.getOptions(filtered);
+            var controlOptions = parser.getControlOptions(filtered);
+            var svpOptions = angular.extend(options, controlOptions);
+
+            var svpEvents = parser.getEvents(scope, filtered);
+            console.log('street-view-panorama',
+                'options', svpOptions, 'events', svpEvents);
+
+            NgMap.getMap().then(function (map) {
+                var svp = getStreetViewPanorama(map, svpOptions, svpEvents);
+
+                map.setStreetView(svp);
+                (!svp.getPosition()) && svp.setPosition(map.getCenter());
+                google.maps.event.addListener(svp, 'position_changed', function () {
+                    if (svp.getPosition() !== map.getCenter()) {
+                        map.setCenter(svp.getPosition());
+                    }
+                });
+                //needed for geo-callback
+                var listener =
+                    google.maps.event.addListener(map, 'center_changed', function () {
+                        svp.setPosition(map.getCenter());
+                        google.maps.event.removeListener(listener);
+                    });
+            });
+
+        }; //link
+
+        return {
+            restrict: 'E',
+            require: ['?^map', '?^ngMap'],
+            link: linkFunc
+        };
+
     };
+    streetViewPanorama.$inject = ['Attr2MapOptions', 'NgMap'];
 
-    var linkFunc = function(scope, element, attrs) {
-      var filtered = parser.filter(attrs);
-      var options = parser.getOptions(filtered);
-      var controlOptions = parser.getControlOptions(filtered);
-      var svpOptions = angular.extend(options, controlOptions);
-
-      var svpEvents = parser.getEvents(scope, filtered);
-      console.log('street-view-panorama',
-        'options', svpOptions, 'events', svpEvents);
-
-      NgMap.getMap().then(function(map) {
-        var svp = getStreetViewPanorama(map, svpOptions, svpEvents);
-
-        map.setStreetView(svp);
-        (!svp.getPosition()) && svp.setPosition(map.getCenter());
-        google.maps.event.addListener(svp, 'position_changed', function() {
-          if (svp.getPosition() !== map.getCenter()) {
-            map.setCenter(svp.getPosition());
-          }
-        });
-        //needed for geo-callback
-        var listener =
-          google.maps.event.addListener(map, 'center_changed', function() {
-            svp.setPosition(map.getCenter());
-            google.maps.event.removeListener(listener);
-          });
-      });
-
-    }; //link
-
-    return {
-      restrict: 'E',
-      require: ['?^map','?^ngMap'],
-      link: linkFunc
-    };
-
-  };
-  streetViewPanorama.$inject = ['Attr2MapOptions', 'NgMap'];
-
-  angular.module('ngMap').directive('streetViewPanorama', streetViewPanorama);
+    angular.module('ngMap').directive('streetViewPanorama', streetViewPanorama);
 })();

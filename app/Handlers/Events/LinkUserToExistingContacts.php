@@ -22,7 +22,7 @@ class LinkUserToExistingContacts
     /**
      * Handle the event.
      *
-     * @param  NewRegisteredUser  $event
+     * @param  NewRegisteredUser $event
      * @return void
      */
     public function handle(NewRegisteredUser $event)

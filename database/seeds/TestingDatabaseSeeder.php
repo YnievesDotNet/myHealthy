@@ -19,7 +19,7 @@ class TestingDatabaseSeeder extends Seeder
 
         $this->call('TestingUsersTableSeeder');
         $this->command->info('Seeded the Sample Users!');
-    
+
         $this->call('TestingBusinessesTableSeeder');
         $this->command->info('Seeded the Sample Businesses!');
 

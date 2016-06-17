@@ -1,5 +1,5 @@
-angular.module('findaproApp').controller('welcomeController', function($scope, $http) {
-    $scope.init = function() {
+angular.module('myHealthyApp').controller('welcomeController', function ($scope, $http) {
+    $scope.init = function () {
         var xhr;
         var select_category, $select_category;
         var select_country, $select_country;
@@ -9,16 +9,16 @@ angular.module('findaproApp').controller('welcomeController', function($scope, $
             valueField: 'id',
             labelField: 'name',
             searchField: ['name'],
-            load: function(query, callback) {
+            load: function (query, callback) {
                 if (!query.length) return callback();
                 $.ajax({
                     url: '/api/categories?q=' + encodeURIComponent(query),
                     type: 'GET',
                     dataType: 'json',
-                    error: function() {
+                    error: function () {
                         callback();
                     },
-                    success: function(res) {
+                    success: function (res) {
                         callback(res.categories.slice(0, 10));
                     }
                 });
@@ -31,7 +31,7 @@ angular.module('findaproApp').controller('welcomeController', function($scope, $
             options: [],
             create: false,
             render: {
-                option: function(item, escape) {
+                option: function (item, escape) {
                     return '<div>' +
                         '<span class="title">' +
                         '<span class="name">' + escape(item.name) + '</span>' +
@@ -39,38 +39,38 @@ angular.module('findaproApp').controller('welcomeController', function($scope, $
                         '</div>';
                 }
             },
-            load: function(query, callback) {
+            load: function (query, callback) {
                 if (!query.length) return callback();
                 $.ajax({
                     url: '/api/countries?q=' + encodeURIComponent(query),
                     type: 'GET',
                     dataType: 'json',
-                    error: function() {
+                    error: function () {
                         callback();
                     },
-                    success: function(res) {
+                    success: function (res) {
                         callback(res.countries.slice(0, 10));
                     }
                 });
             },
-            onChange: function(value) {
+            onChange: function (value) {
                 if (!value.length) return;
                 select_region.disable();
                 select_region.clearOptions();
                 select_location.disable();
                 select_location.clearOptions();
-                select_region.load(function(callback) {
+                select_region.load(function (callback) {
                     makeMap('countries', value);
                     xhr && xhr.abort();
                     xhr = $.ajax({
                         url: '/api/regions?q=' + value,
                         type: 'GET',
                         dataType: 'json',
-                        success: function(results) {
+                        success: function (results) {
                             select_region.enable();
                             callback(results.regions);
                         },
-                        error: function() {
+                        error: function () {
                             callback();
                         }
                     })
@@ -81,22 +81,22 @@ angular.module('findaproApp').controller('welcomeController', function($scope, $
             valueField: 'id_region',
             labelField: 'name',
             searchField: ['name'],
-            onChange: function(value) {
+            onChange: function (value) {
                 if (!value.length) return;
                 select_location.disable();
                 select_location.clearOptions();
-                select_location.load(function(callback) {
+                select_location.load(function (callback) {
                     makeMap('regions', value);
                     xhr && xhr.abort();
                     xhr = $.ajax({
                         url: '/api/locations?q=' + value,
                         type: 'GET',
                         dataType: 'json',
-                        success: function(results) {
+                        success: function (results) {
                             select_location.enable();
                             callback(results.locations);
                         },
-                        error: function() {
+                        error: function () {
                             callback();
                         }
                     })
@@ -107,14 +107,14 @@ angular.module('findaproApp').controller('welcomeController', function($scope, $
             valueField: 'id_location',
             labelField: 'name',
             searchField: ['name'],
-            onChange: function(value) {
+            onChange: function (value) {
                 makeMap('locations', value);
             }
         });
-        select_category  = $select_category[0].selectize;
-        select_country  = $select_country[0].selectize;
-        select_location  = $select_location[0].selectize;
-        select_region  = $select_region[0].selectize;
+        select_category = $select_category[0].selectize;
+        select_country = $select_country[0].selectize;
+        select_location = $select_location[0].selectize;
+        select_region = $select_region[0].selectize;
         select_category.enable();
         select_country.enable();
         select_location.disable();
@@ -123,10 +123,10 @@ angular.module('findaproApp').controller('welcomeController', function($scope, $
     $scope.init();
     makeMap = function (ent, id) {
         $.ajax({
-            url: '/api/'+ent+'?id=' + encodeURIComponent(id),
+            url: '/api/' + ent + '?id=' + encodeURIComponent(id),
             type: 'GET',
             dataType: 'json',
-            success: function(res) {
+            success: function (res) {
                 var map = new GMaps({
                     el: '#map',
                     lat: res.lat,

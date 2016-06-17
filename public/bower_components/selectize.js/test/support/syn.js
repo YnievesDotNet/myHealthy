@@ -7,78 +7,78 @@
  */
 
 /*[global-shim]*/
-(function (exports, global){
-	var origDefine = global.define;
+(function (exports, global) {
+    var origDefine = global.define;
 
-	var get = function(name){
-		var parts = name.split("."),
-			cur = global,
-			i;
-		for(i = 0 ; i < parts.length; i++){
-			cur = cur[parts[i]];
-		}
-		return cur;
-	};
-	var modules = global.define && global.define.modules || {};
-	var ourDefine = global.define = function(moduleName, deps, callback){
-		var module;
-		if(typeof deps === "function") {
-			callback = deps;
-			deps = [];
-		}
-		var args = [],
-			i;
-		for(i =0; i < deps.length; i++) {
-			args.push( exports[deps[i]] ? get(exports[deps[i]]) : modules[deps[i]]  );
-		}
-		// CJS has no dependencies but 3 callback arguments
-		if(!deps.length && callback.length) {
-			module = { exports: {} };
-			var require = function(name) {
-				return exports[name] ? get(exports[name]) : modules[name];
-			};
-			args.push(require, module.exports, module);
-		}
+    var get = function (name) {
+        var parts = name.split("."),
+            cur = global,
+            i;
+        for (i = 0; i < parts.length; i++) {
+            cur = cur[parts[i]];
+        }
+        return cur;
+    };
+    var modules = global.define && global.define.modules || {};
+    var ourDefine = global.define = function (moduleName, deps, callback) {
+        var module;
+        if (typeof deps === "function") {
+            callback = deps;
+            deps = [];
+        }
+        var args = [],
+            i;
+        for (i = 0; i < deps.length; i++) {
+            args.push(exports[deps[i]] ? get(exports[deps[i]]) : modules[deps[i]]);
+        }
+        // CJS has no dependencies but 3 callback arguments
+        if (!deps.length && callback.length) {
+            module = {exports: {}};
+            var require = function (name) {
+                return exports[name] ? get(exports[name]) : modules[name];
+            };
+            args.push(require, module.exports, module);
+        }
 
-		global.define = origDefine;
-		var result = callback ? callback.apply(null, args) : undefined;
-		global.define = ourDefine;
+        global.define = origDefine;
+        var result = callback ? callback.apply(null, args) : undefined;
+        global.define = ourDefine;
 
-		// Favor CJS module.exports over the return value
-		modules[moduleName] = module && module.exports ? module.exports : result;
-	};
-	global.define.modules = modules;
-	global.System = {
-		define: function(__name, __code){
-			global.define = origDefine;
-			eval("(function() { " + __code + " \n }).call(global);");
-			global.define = ourDefine;
-		}
-	};
-})({},window)
+        // Favor CJS module.exports over the return value
+        modules[moduleName] = module && module.exports ? module.exports : result;
+    };
+    global.define.modules = modules;
+    global.System = {
+        define: function (__name, __code) {
+            global.define = origDefine;
+            eval("(function() { " + __code + " \n }).call(global);");
+            global.define = ourDefine;
+        }
+    };
+})({}, window)
 /*syn/synthetic*/
 define('syn/synthetic', [], function () {
     var opts = window.syn ? window.syn : {};
     var extend = function (d, s) {
-            var p;
-            for (p in s) {
-                d[p] = s[p];
-            }
-            return d;
-        }, browser = {
-            msie: !!(window.attachEvent && !window.opera),
-            opera: !!window.opera,
-            webkit: navigator.userAgent.indexOf('AppleWebKit/') > -1,
-            safari: navigator.userAgent.indexOf('AppleWebKit/') > -1 && navigator.userAgent.indexOf('Chrome/') === -1,
-            gecko: navigator.userAgent.indexOf('Gecko') > -1,
-            mobilesafari: !!navigator.userAgent.match(/Apple.*Mobile.*Safari/),
-            rhino: navigator.userAgent.match(/Rhino/) && true
-        }, createEventObject = function (type, options, element) {
-            var event = element.ownerDocument.createEventObject();
-            return extend(event, options);
-        }, data = {}, id = 1, expando = '_synthetic' + new Date().getTime(), bind, unbind, schedule, key = /keypress|keyup|keydown/, page = /load|unload|abort|error|select|change|submit|reset|focus|blur|resize|scroll/, activeElement, syn = function (type, element, options, callback) {
-            return new syn.init(type, element, options, callback);
-        };
+        var p;
+        for (p in s) {
+            d[p] = s[p];
+        }
+        return d;
+    }, browser = {
+        msie: !!(window.attachEvent && !window.opera),
+        opera: !!window.opera,
+        webkit: navigator.userAgent.indexOf('AppleWebKit/') > -1,
+        safari: navigator.userAgent.indexOf('AppleWebKit/') > -1 && navigator.userAgent.indexOf('Chrome/') === -1,
+        gecko: navigator.userAgent.indexOf('Gecko') > -1,
+        mobilesafari: !!navigator.userAgent.match(/Apple.*Mobile.*Safari/),
+        rhino: navigator.userAgent.match(/Rhino/) && true
+    }, createEventObject = function (type, options, element) {
+        var event = element.ownerDocument.createEventObject();
+        return extend(event, options);
+    }, data = {}, id = 1, expando = '_synthetic' + new Date().getTime(), bind, unbind, schedule, key = /keypress|keyup|keydown/, page = /load|unload|abort|error|select|change|submit|reset|focus|blur|resize|scroll/, activeElement, syn = function (type, element, options, callback) {
+        return new syn.init(type, element, options, callback);
+    };
     syn.config = opts;
     syn.__tryFocus = function tryFocus(element) {
         try {
@@ -93,8 +93,8 @@ define('syn/synthetic', [], function () {
         return el.addEventListener ? el.removeEventListener(ev, f, false) : el.detachEvent('on' + ev, f);
     };
     schedule = syn.config.schedule || function (fn, ms) {
-        setTimeout(fn, ms);
-    };
+            setTimeout(fn, ms);
+        };
     extend(syn, {
         init: function (type, element, options, callback) {
             var args = syn.args(options, element, callback), self = this;
@@ -501,21 +501,21 @@ define('syn/synthetic', [], function () {
         }
     });
     var actions = [
-            'click',
-            'dblclick',
-            'move',
-            'drag',
-            'key',
-            'type',
-            'rightClick'
-        ], makeAction = function (name) {
-            syn[name] = function (element, options, callback) {
-                return syn('_' + name, element, options, callback);
-            };
-            syn.init.prototype[name] = function (element, options, callback) {
-                return this.then('_' + name, element, options, callback);
-            };
-        }, i = 0;
+        'click',
+        'dblclick',
+        'move',
+        'drag',
+        'key',
+        'type',
+        'rightClick'
+    ], makeAction = function (name) {
+        syn[name] = function (element, options, callback) {
+            return syn('_' + name, element, options, callback);
+        };
+        syn.init.prototype[name] = function (element, options, callback) {
+            return this.then('_' + name, element, options, callback);
+        };
+    }, i = 0;
     for (; i < actions.length; i++) {
         makeAction(actions[i]);
     }
@@ -580,9 +580,9 @@ define('syn/mouse', ['syn/synthetic'], function (syn) {
         mouse: {
             options: function (type, options, element) {
                 var doc = document.documentElement, body = document.body, center = [
-                        options.pageX || 0,
-                        options.pageY || 0
-                    ], left = syn.mouse.browser && syn.mouse.browser.left[type], right = syn.mouse.browser && syn.mouse.browser.right[type];
+                    options.pageX || 0,
+                    options.pageY || 0
+                ], left = syn.mouse.browser && syn.mouse.browser.left[type], right = syn.mouse.browser && syn.mouse.browser.right[type];
                 return h.extend({
                     bubbles: true,
                     cancelable: true,
@@ -1410,14 +1410,14 @@ define('syn/browsers', [
         },
         msie: {
             'right': {
-                'mousedown': { 'button': 2 },
-                'mouseup': { 'button': 2 },
-                'contextmenu': { 'button': 0 }
+                'mousedown': {'button': 2},
+                'mouseup': {'button': 2},
+                'contextmenu': {'button': 0}
             },
             'left': {
-                'mousedown': { 'button': 1 },
-                'mouseup': { 'button': 1 },
-                'click': { 'button': 0 }
+                'mousedown': {'button': 1},
+                'mouseup': {'button': 1},
+                'click': {'button': 0}
             }
         },
         chrome: {
@@ -1536,9 +1536,9 @@ define('syn/typeable', ['syn/synthetic'], function (syn) {
     });
     type(function (el) {
         return __indexOf.call([
-            '',
-            'true'
-        ], el.getAttribute('contenteditable')) !== -1;
+                '',
+                'true'
+            ], el.getAttribute('contenteditable')) !== -1;
     });
     return syn;
 });
@@ -1549,84 +1549,84 @@ define('syn/key', [
     'syn/browsers'
 ], function (syn) {
     var h = syn.helpers, getSelection = function (el) {
-            var real, r, start;
-            if (el.selectionStart !== undefined) {
-                if (document.activeElement && document.activeElement !== el && el.selectionStart === el.selectionEnd && el.selectionStart === 0) {
-                    return {
-                        start: el.value.length,
-                        end: el.value.length
-                    };
-                }
+        var real, r, start;
+        if (el.selectionStart !== undefined) {
+            if (document.activeElement && document.activeElement !== el && el.selectionStart === el.selectionEnd && el.selectionStart === 0) {
                 return {
-                    start: el.selectionStart,
-                    end: el.selectionEnd
+                    start: el.value.length,
+                    end: el.value.length
                 };
-            } else {
-                try {
-                    if (el.nodeName.toLowerCase() === 'input') {
-                        real = h.getWindow(el).document.selection.createRange();
-                        r = el.createTextRange();
-                        r.setEndPoint('EndToStart', real);
-                        start = r.text.length;
-                        return {
-                            start: start,
-                            end: start + real.text.length
-                        };
-                    } else {
-                        real = h.getWindow(el).document.selection.createRange();
-                        r = real.duplicate();
-                        var r2 = real.duplicate(), r3 = real.duplicate();
-                        r2.collapse();
-                        r3.collapse(false);
-                        r2.moveStart('character', -1);
-                        r3.moveStart('character', -1);
-                        r.moveToElementText(el);
-                        r.setEndPoint('EndToEnd', real);
-                        start = r.text.length - real.text.length;
-                        var end = r.text.length;
-                        if (start !== 0 && r2.text === '') {
-                            start += 2;
-                        }
-                        if (end !== 0 && r3.text === '') {
-                            end += 2;
-                        }
-                        return {
-                            start: start,
-                            end: end
-                        };
-                    }
-                } catch (e) {
-                    var prop = formElExp.test(el.nodeName) ? 'value' : 'textContent';
+            }
+            return {
+                start: el.selectionStart,
+                end: el.selectionEnd
+            };
+        } else {
+            try {
+                if (el.nodeName.toLowerCase() === 'input') {
+                    real = h.getWindow(el).document.selection.createRange();
+                    r = el.createTextRange();
+                    r.setEndPoint('EndToStart', real);
+                    start = r.text.length;
                     return {
-                        start: el[prop].length,
-                        end: el[prop].length
+                        start: start,
+                        end: start + real.text.length
+                    };
+                } else {
+                    real = h.getWindow(el).document.selection.createRange();
+                    r = real.duplicate();
+                    var r2 = real.duplicate(), r3 = real.duplicate();
+                    r2.collapse();
+                    r3.collapse(false);
+                    r2.moveStart('character', -1);
+                    r3.moveStart('character', -1);
+                    r.moveToElementText(el);
+                    r.setEndPoint('EndToEnd', real);
+                    start = r.text.length - real.text.length;
+                    var end = r.text.length;
+                    if (start !== 0 && r2.text === '') {
+                        start += 2;
+                    }
+                    if (end !== 0 && r3.text === '') {
+                        end += 2;
+                    }
+                    return {
+                        start: start,
+                        end: end
                     };
                 }
+            } catch (e) {
+                var prop = formElExp.test(el.nodeName) ? 'value' : 'textContent';
+                return {
+                    start: el[prop].length,
+                    end: el[prop].length
+                };
             }
-        }, getFocusable = function (el) {
-            var document = h.getWindow(el).document, res = [];
-            var els = document.getElementsByTagName('*'), len = els.length;
-            for (var i = 0; i < len; i++) {
-                if (syn.isFocusable(els[i]) && els[i] !== document.documentElement) {
-                    res.push(els[i]);
-                }
+        }
+    }, getFocusable = function (el) {
+        var document = h.getWindow(el).document, res = [];
+        var els = document.getElementsByTagName('*'), len = els.length;
+        for (var i = 0; i < len; i++) {
+            if (syn.isFocusable(els[i]) && els[i] !== document.documentElement) {
+                res.push(els[i]);
             }
-            return res;
-        }, formElExp = /input|textarea/i, textProperty = function () {
-            var el = document.createElement('span');
-            return el.textContent != null ? 'textContent' : 'innerText';
-        }(), getText = function (el) {
-            if (formElExp.test(el.nodeName)) {
-                return el.value;
-            }
-            return el[textProperty];
-        }, setText = function (el, value) {
-            if (formElExp.test(el.nodeName)) {
-                el.value = value;
-            } else {
-                el[textProperty] = value;
-            }
-        };
+        }
+        return res;
+    }, formElExp = /input|textarea/i, textProperty = function () {
+        var el = document.createElement('span');
+        return el.textContent != null ? 'textContent' : 'innerText';
+    }(), getText = function (el) {
+        if (formElExp.test(el.nodeName)) {
+            return el.value;
+        }
+        return el[textProperty];
+    }, setText = function (el, value) {
+        if (formElExp.test(el.nodeName)) {
+            el.value = value;
+        } else {
+            el[textProperty] = value;
+        }
+    };
     h.extend(syn, {
         keycodes: {
             '\b': 8,
@@ -2072,7 +2072,7 @@ define('syn/key', [
         },
         key: {
             options: function (type, options, element) {
-                options = typeof options !== 'object' ? { character: options } : options;
+                options = typeof options !== 'object' ? {character: options} : options;
                 options = h.extend({}, options);
                 if (options.character) {
                     h.extend(options, syn.key.options(options.character, type));
@@ -2109,11 +2109,11 @@ define('syn/key', [
         }
     });
     var convert = {
-            'enter': '\r',
-            'backspace': '\b',
-            'tab': '\t',
-            'space': ' '
-        };
+        'enter': '\r',
+        'backspace': '\b',
+        'tab': '\t',
+        'space': ' '
+    };
     h.extend(syn.init.prototype, {
         _key: function (element, options, callback) {
             if (/-up$/.test(options) && h.inArray(options.replace('-up', ''), syn.key.kinds.special) !== -1) {
@@ -2159,17 +2159,17 @@ define('syn/key', [
         },
         _type: function (element, options, callback) {
             var parts = (options + '').match(/(\[[^\]]+\])|([^\[])/g), self = this, runNextPart = function (runDefaults, el) {
-                    var part = parts.shift();
-                    if (!part) {
-                        callback(runDefaults, el);
-                        return;
-                    }
-                    el = el || element;
-                    if (part.length > 1) {
-                        part = part.substr(1, part.length - 2);
-                    }
-                    self._key(el, part, runNextPart);
-                };
+                var part = parts.shift();
+                if (!part) {
+                    callback(runDefaults, el);
+                    return;
+                }
+                el = el || element;
+                if (part.length > 1) {
+                    part = part.substr(1, part.length - 2);
+                }
+                self._key(el, part, runNextPart);
+            };
             runNextPart();
         }
     });
@@ -2270,131 +2270,131 @@ define('syn/drag/drag', ['syn/synthetic'], function (syn) {
         document.body.scrollTop = 0;
     }());
     var elementFromPoint = function (point, element) {
-            var clientX = point.clientX, clientY = point.clientY, win = syn.helpers.getWindow(element), el;
-            if (syn.support.elementFromPage) {
-                var off = syn.helpers.scrollOffset(win);
-                clientX = clientX + off.left;
-                clientY = clientY + off.top;
-            }
-            el = win.document.elementFromPoint ? win.document.elementFromPoint(clientX, clientY) : element;
-            if (el === win.document.documentElement && (point.clientY < 0 || point.clientX < 0)) {
-                return element;
-            } else {
-                return el;
-            }
-        }, createEventAtPoint = function (event, point, element) {
-            var el = elementFromPoint(point, element);
-            syn.trigger(el || element, event, point);
+        var clientX = point.clientX, clientY = point.clientY, win = syn.helpers.getWindow(element), el;
+        if (syn.support.elementFromPage) {
+            var off = syn.helpers.scrollOffset(win);
+            clientX = clientX + off.left;
+            clientY = clientY + off.top;
+        }
+        el = win.document.elementFromPoint ? win.document.elementFromPoint(clientX, clientY) : element;
+        if (el === win.document.documentElement && (point.clientY < 0 || point.clientX < 0)) {
+            return element;
+        } else {
             return el;
-        }, mouseMove = function (point, element, last) {
-            var el = elementFromPoint(point, element);
-            if (last !== el && el && last) {
-                var options = syn.helpers.extend({}, point);
-                options.relatedTarget = el;
-                syn.trigger(last, 'mouseout', options);
-                options.relatedTarget = last;
-                syn.trigger(el, 'mouseover', options);
-            }
-            syn.trigger(el || element, 'mousemove', point);
-            return el;
-        }, startMove = function (start, end, duration, element, callback) {
-            var startTime = new Date(), distX = end.clientX - start.clientX, distY = end.clientY - start.clientY, win = syn.helpers.getWindow(element), current = elementFromPoint(start, element), cursor = win.document.createElement('div'), calls = 0, move;
-            move = function onmove() {
-                var now = new Date(), scrollOffset = syn.helpers.scrollOffset(win), fraction = (calls === 0 ? 0 : now - startTime) / duration, options = {
-                        clientX: distX * fraction + start.clientX,
-                        clientY: distY * fraction + start.clientY
-                    };
-                calls++;
-                if (fraction < 1) {
-                    syn.helpers.extend(cursor.style, {
-                        left: options.clientX + scrollOffset.left + 2 + 'px',
-                        top: options.clientY + scrollOffset.top + 2 + 'px'
-                    });
-                    current = mouseMove(options, element, current);
-                    syn.schedule(onmove, 15);
-                } else {
-                    current = mouseMove(end, element, current);
-                    win.document.body.removeChild(cursor);
-                    callback();
-                }
+        }
+    }, createEventAtPoint = function (event, point, element) {
+        var el = elementFromPoint(point, element);
+        syn.trigger(el || element, event, point);
+        return el;
+    }, mouseMove = function (point, element, last) {
+        var el = elementFromPoint(point, element);
+        if (last !== el && el && last) {
+            var options = syn.helpers.extend({}, point);
+            options.relatedTarget = el;
+            syn.trigger(last, 'mouseout', options);
+            options.relatedTarget = last;
+            syn.trigger(el, 'mouseover', options);
+        }
+        syn.trigger(el || element, 'mousemove', point);
+        return el;
+    }, startMove = function (start, end, duration, element, callback) {
+        var startTime = new Date(), distX = end.clientX - start.clientX, distY = end.clientY - start.clientY, win = syn.helpers.getWindow(element), current = elementFromPoint(start, element), cursor = win.document.createElement('div'), calls = 0, move;
+        move = function onmove() {
+            var now = new Date(), scrollOffset = syn.helpers.scrollOffset(win), fraction = (calls === 0 ? 0 : now - startTime) / duration, options = {
+                clientX: distX * fraction + start.clientX,
+                clientY: distY * fraction + start.clientY
             };
-            syn.helpers.extend(cursor.style, {
-                height: '5px',
-                width: '5px',
-                backgroundColor: 'red',
-                position: 'absolute',
-                zIndex: 19999,
-                fontSize: '1px'
-            });
-            win.document.body.appendChild(cursor);
-            move();
-        }, startDrag = function (start, end, duration, element, callback) {
-            createEventAtPoint('mousedown', start, element);
-            startMove(start, end, duration, element, function () {
-                createEventAtPoint('mouseup', end, element);
-                callback();
-            });
-        }, center = function (el) {
-            var j = syn.jquery()(el), o = j.offset();
-            return {
-                pageX: o.left + j.outerWidth() / 2,
-                pageY: o.top + j.outerHeight() / 2
-            };
-        }, convertOption = function (option, win, from) {
-            var page = /(\d+)[x ](\d+)/, client = /(\d+)X(\d+)/, relative = /([+-]\d+)[xX ]([+-]\d+)/, parts;
-            if (typeof option === 'string' && relative.test(option) && from) {
-                var cent = center(from);
-                parts = option.match(relative);
-                option = {
-                    pageX: cent.pageX + parseInt(parts[1]),
-                    pageY: cent.pageY + parseInt(parts[2])
-                };
-            }
-            if (typeof option === 'string' && page.test(option)) {
-                parts = option.match(page);
-                option = {
-                    pageX: parseInt(parts[1]),
-                    pageY: parseInt(parts[2])
-                };
-            }
-            if (typeof option === 'string' && client.test(option)) {
-                parts = option.match(client);
-                option = {
-                    clientX: parseInt(parts[1]),
-                    clientY: parseInt(parts[2])
-                };
-            }
-            if (typeof option === 'string') {
-                option = syn.jquery()(option, win.document)[0];
-            }
-            if (option.nodeName) {
-                option = center(option);
-            }
-            if (option.pageX) {
-                var off = syn.helpers.scrollOffset(win);
-                option = {
-                    clientX: option.pageX - off.left,
-                    clientY: option.pageY - off.top
-                };
-            }
-            return option;
-        }, adjust = function (from, to, win) {
-            if (from.clientY < 0) {
-                var off = syn.helpers.scrollOffset(win);
-                var top = off.top + from.clientY - 100, diff = top - off.top;
-                if (top > 0) {
-                } else {
-                    top = 0;
-                    diff = -off.top;
-                }
-                from.clientY = from.clientY - diff;
-                to.clientY = to.clientY - diff;
-                syn.helpers.scrollOffset(win, {
-                    top: top,
-                    left: off.left
+            calls++;
+            if (fraction < 1) {
+                syn.helpers.extend(cursor.style, {
+                    left: options.clientX + scrollOffset.left + 2 + 'px',
+                    top: options.clientY + scrollOffset.top + 2 + 'px'
                 });
+                current = mouseMove(options, element, current);
+                syn.schedule(onmove, 15);
+            } else {
+                current = mouseMove(end, element, current);
+                win.document.body.removeChild(cursor);
+                callback();
             }
         };
+        syn.helpers.extend(cursor.style, {
+            height: '5px',
+            width: '5px',
+            backgroundColor: 'red',
+            position: 'absolute',
+            zIndex: 19999,
+            fontSize: '1px'
+        });
+        win.document.body.appendChild(cursor);
+        move();
+    }, startDrag = function (start, end, duration, element, callback) {
+        createEventAtPoint('mousedown', start, element);
+        startMove(start, end, duration, element, function () {
+            createEventAtPoint('mouseup', end, element);
+            callback();
+        });
+    }, center = function (el) {
+        var j = syn.jquery()(el), o = j.offset();
+        return {
+            pageX: o.left + j.outerWidth() / 2,
+            pageY: o.top + j.outerHeight() / 2
+        };
+    }, convertOption = function (option, win, from) {
+        var page = /(\d+)[x ](\d+)/, client = /(\d+)X(\d+)/, relative = /([+-]\d+)[xX ]([+-]\d+)/, parts;
+        if (typeof option === 'string' && relative.test(option) && from) {
+            var cent = center(from);
+            parts = option.match(relative);
+            option = {
+                pageX: cent.pageX + parseInt(parts[1]),
+                pageY: cent.pageY + parseInt(parts[2])
+            };
+        }
+        if (typeof option === 'string' && page.test(option)) {
+            parts = option.match(page);
+            option = {
+                pageX: parseInt(parts[1]),
+                pageY: parseInt(parts[2])
+            };
+        }
+        if (typeof option === 'string' && client.test(option)) {
+            parts = option.match(client);
+            option = {
+                clientX: parseInt(parts[1]),
+                clientY: parseInt(parts[2])
+            };
+        }
+        if (typeof option === 'string') {
+            option = syn.jquery()(option, win.document)[0];
+        }
+        if (option.nodeName) {
+            option = center(option);
+        }
+        if (option.pageX) {
+            var off = syn.helpers.scrollOffset(win);
+            option = {
+                clientX: option.pageX - off.left,
+                clientY: option.pageY - off.top
+            };
+        }
+        return option;
+    }, adjust = function (from, to, win) {
+        if (from.clientY < 0) {
+            var off = syn.helpers.scrollOffset(win);
+            var top = off.top + from.clientY - 100, diff = top - off.top;
+            if (top > 0) {
+            } else {
+                top = 0;
+                diff = -off.top;
+            }
+            from.clientY = from.clientY - diff;
+            to.clientY = to.clientY - diff;
+            syn.helpers.scrollOffset(win, {
+                top: top,
+                left: off.left
+            });
+        }
+    };
     syn.helpers.extend(syn.init.prototype, {
         _move: function (from, options, callback) {
             var win = syn.helpers.getWindow(from), fro = convertOption(options.from || from, win, from), to = convertOption(options.to || options, win, from);

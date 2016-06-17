@@ -26,7 +26,7 @@ class Contact extends Model
      *
      * Save the model to the database.
      *
-     * @param  array  $options
+     * @param  array $options
      * @return bool
      */
     public function save(array $options = array())
@@ -129,14 +129,14 @@ class Contact extends Model
     public function getAppointmentsCountAttribute()
     {
         // if relation is not loaded already, let's do it first
-        if (! array_key_exists('appointmentsCount', $this->relations)) {
+        if (!array_key_exists('appointmentsCount', $this->relations)) {
             $this->load('appointmentsCount');
         }
-     
+
         $related = $this->getRelation('appointmentsCount');
 
         // then return the count directly
-        return ($related->count()>0) ? (int) $related->first()->aggregate : 0;
+        return ($related->count() > 0) ? (int)$related->first()->aggregate : 0;
     }
 
     ///////////////
@@ -176,7 +176,7 @@ class Contact extends Model
         if ($this->birthdate == null) {
             return null;
         }
-        
+
         $reference = new \DateTime;
         $born = new \DateTime($this->birthdate);
 
@@ -310,7 +310,7 @@ class Contact extends Model
      */
     public function getQualityAttribute()
     {
-        $quality  = 0;
+        $quality = 0;
         $quality += $this->firstname ? 1 : 0;
         $quality += $this->lastname ? 1 : 0;
         $quality += $this->nin ? 5 : 0;
@@ -318,7 +318,7 @@ class Contact extends Model
         $quality += $this->mobile ? 4 : 0;
         $quality += $this->email ? 4 : 0;
         $quality += $this->postal_address ? 3 : 0;
-        $total    = 20;
-        return $quality/$total*100;
+        $total = 20;
+        return $quality / $total * 100;
     }
 }

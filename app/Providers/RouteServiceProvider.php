@@ -18,16 +18,16 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     public function boot(Router $router)
     {
         parent::boot($router);
 
-        $router->model('contact',     'App\Contact');
-        $router->model('business',    'App\Business');
-        $router->model('service',     'App\Service');
+        $router->model('contact', 'App\Contact');
+        $router->model('business', 'App\Business');
+        $router->model('service', 'App\Service');
         $router->model('appointment', 'App\Appointment');
         $router->bind('business_slug', function ($business_slug) {
             return Business::where('slug', $business_slug)->get();
@@ -37,7 +37,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     public function map(Router $router)

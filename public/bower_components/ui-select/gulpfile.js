@@ -16,91 +16,90 @@ var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');//To prevent pipe breaking caused by errors at 'watch'
 
 var config = {
-  pkg : JSON.parse(fs.readFileSync('./package.json')),
-  banner:
-      '/*!\n' +
-      ' * <%= pkg.name %>\n' +
-      ' * <%= pkg.homepage %>\n' +
-      ' * Version: <%= pkg.version %> - <%= timestamp %>\n' +
-      ' * License: <%= pkg.license %>\n' +
-      ' */\n\n\n'
+    pkg: JSON.parse(fs.readFileSync('./package.json')),
+    banner: '/*!\n' +
+    ' * <%= pkg.name %>\n' +
+    ' * <%= pkg.homepage %>\n' +
+    ' * Version: <%= pkg.version %> - <%= timestamp %>\n' +
+    ' * License: <%= pkg.license %>\n' +
+    ' */\n\n\n'
 };
 
-gulp.task('default', ['build','test']);
+gulp.task('default', ['build', 'test']);
 gulp.task('build', ['scripts', 'styles']);
 gulp.task('test', ['build', 'karma']);
 
-gulp.task('watch', ['build','karma-watch'], function() {
-  gulp.watch(['src/**/*.{js,html}'], ['build']);
+gulp.task('watch', ['build', 'karma-watch'], function () {
+    gulp.watch(['src/**/*.{js,html}'], ['build']);
 });
 
-gulp.task('clean', function(cb) {
-  del(['dist'], cb);
+gulp.task('clean', function (cb) {
+    del(['dist'], cb);
 });
 
-gulp.task('scripts', ['clean'], function() {
+gulp.task('scripts', ['clean'], function () {
 
-  var buildTemplates = function () {
-    return gulp.src('src/**/*.html')
-      .pipe(minifyHtml({
-             empty: true,
-             spare: true,
-             quotes: true
+    var buildTemplates = function () {
+        return gulp.src('src/**/*.html')
+            .pipe(minifyHtml({
+                empty: true,
+                spare: true,
+                quotes: true
             }))
-      .pipe(templateCache({module: 'ui.select'}));
-  };
+            .pipe(templateCache({module: 'ui.select'}));
+    };
 
-  var buildLib = function(){
-    return gulp.src(['src/common.js','src/*.js'])
-      .pipe(plumber({
-        errorHandler: handleError
-      }))
-      .pipe(concat('select_without_templates.js'))
-      .pipe(header('(function () { \n"use strict";\n'))
-      .pipe(footer('\n}());'))
-      .pipe(jshint())
-      .pipe(jshint.reporter('jshint-stylish'))
-      .pipe(jshint.reporter('fail'));
-  };
+    var buildLib = function () {
+        return gulp.src(['src/common.js', 'src/*.js'])
+            .pipe(plumber({
+                errorHandler: handleError
+            }))
+            .pipe(concat('select_without_templates.js'))
+            .pipe(header('(function () { \n"use strict";\n'))
+            .pipe(footer('\n}());'))
+            .pipe(jshint())
+            .pipe(jshint.reporter('jshint-stylish'))
+            .pipe(jshint.reporter('fail'));
+    };
 
-  return es.merge(buildLib(), buildTemplates())
-    .pipe(plumber({
-      errorHandler: handleError
-    }))
-    .pipe(concat('select.js'))
-    .pipe(header(config.banner, {
-      timestamp: (new Date()).toISOString(), pkg: config.pkg
-    }))
-    .pipe(gulp.dest('dist'))
-    .pipe(uglify({preserveComments: 'some'}))
-    .pipe(rename({ext:'.min.js'}))
-    .pipe(gulp.dest('dist'));
-
-});
-
-gulp.task('styles', ['clean'], function() {
-
-  return gulp.src('src/common.css')
-    .pipe(header(config.banner, {
-      timestamp: (new Date()).toISOString(), pkg: config.pkg
-    }))
-    .pipe(rename('select.css'))
-    .pipe(gulp.dest('dist'))
-    .pipe(minifyCSS())
-    .pipe(rename({ext:'.min.css'}))
-    .pipe(gulp.dest('dist'));
+    return es.merge(buildLib(), buildTemplates())
+        .pipe(plumber({
+            errorHandler: handleError
+        }))
+        .pipe(concat('select.js'))
+        .pipe(header(config.banner, {
+            timestamp: (new Date()).toISOString(), pkg: config.pkg
+        }))
+        .pipe(gulp.dest('dist'))
+        .pipe(uglify({preserveComments: 'some'}))
+        .pipe(rename({ext: '.min.js'}))
+        .pipe(gulp.dest('dist'));
 
 });
 
-gulp.task('karma', ['build'], function() {
-  karma.start({configFile : __dirname +'/karma.conf.js', singleRun: true});
+gulp.task('styles', ['clean'], function () {
+
+    return gulp.src('src/common.css')
+        .pipe(header(config.banner, {
+            timestamp: (new Date()).toISOString(), pkg: config.pkg
+        }))
+        .pipe(rename('select.css'))
+        .pipe(gulp.dest('dist'))
+        .pipe(minifyCSS())
+        .pipe(rename({ext: '.min.css'}))
+        .pipe(gulp.dest('dist'));
+
 });
 
-gulp.task('karma-watch', ['build'], function() {
-  karma.start({configFile :  __dirname +'/karma.conf.js', singleRun: false});
+gulp.task('karma', ['build'], function () {
+    karma.start({configFile: __dirname + '/karma.conf.js', singleRun: true});
+});
+
+gulp.task('karma-watch', ['build'], function () {
+    karma.start({configFile: __dirname + '/karma.conf.js', singleRun: false});
 });
 
 var handleError = function (err) {
-  console.log(err.toString());
-  this.emit('end');
+    console.log(err.toString());
+    this.emit('end');
 };

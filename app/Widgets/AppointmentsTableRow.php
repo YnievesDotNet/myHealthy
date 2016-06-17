@@ -43,7 +43,7 @@ class AppointmentsTableRow extends Widget
 
     public function actionButtons($appointment)
     {
-        $method = $this->profile.'ActionButtons';
+        $method = $this->profile . 'ActionButtons';
         return $this->$method($appointment);
     }
 

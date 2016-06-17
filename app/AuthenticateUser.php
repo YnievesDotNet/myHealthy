@@ -42,7 +42,7 @@ class AuthenticateUser
      */
     public function execute($provider, $hasCode, AuthenticateUserListener $listener)
     {
-        if (! $hasCode) {
+        if (!$hasCode) {
             return $this->getAuthorizationFirst($provider);
         }
 

@@ -41,62 +41,59 @@ class AppointmentPanel extends Widget
     {
         $header = $appointment->status();
 
-        $footer = Icon::barcode() . '&nbsp;<code>' . $appointment->code() .'</code>';
+        $footer = Icon::barcode() . '&nbsp;<code>' . $appointment->code() . '</code>';
 
         $panel = $this->getPanelWithStatus();
-        $body  = $this->buildBody($appointment);
+        $body = $this->buildBody($appointment);
 
         return $panel->withAttributes(['id' => $appointment->code()])->withHeader($header)->withBody($body)->withFooter($footer);
     }
 
     public function getPanelWithStatus()
     {
-        return Panel::setType('panel-'.$this->statusToClass());
+        return Panel::setType('panel-' . $this->statusToClass());
     }
 
     public function buildBody($appointment)
     {
         $class = $this->statusToClass();
-        $body  = "<ul class=\"list-group appointmentinfo $class\">";
+        $body = "<ul class=\"list-group appointmentinfo $class\">";
         $body .= '<li class="list-group-item">';
-        $body .= Icon::home(). '&nbsp;' . $appointment->business->name;
+        $body .= Icon::home() . '&nbsp;' . $appointment->business->name;
         $body .= '</li>';
-        if($appointment->business->postal_address)
-        {
+        if ($appointment->business->postal_address) {
             $body .= '<li class="list-group-item">';
-            $body .= Icon::map_marker(). '&nbsp;' . $appointment->business->postal_address;
+            $body .= Icon::map_marker() . '&nbsp;' . $appointment->business->postal_address;
             $body .= '</li>';
         }
-        if($appointment->business->phone)
-        {
+        if ($appointment->business->phone) {
             $body .= '<li class="list-group-item">';
-            $body .= Icon::phone(). '&nbsp;' . $appointment->business->phone;
+            $body .= Icon::phone() . '&nbsp;' . $appointment->business->phone;
             $body .= '</li>';
         }
         $body .= '<li class="list-group-item">';
         $body .= Icon::calendar() . '&nbsp;' . $appointment->date() . '&nbsp;&nbsp;' . '<span class="text-muted"><small>' . $appointment->start_at->diffForHumans() . '</small></span>';
         $body .= '</li>';
         $body .= '<li class="list-group-item">';
-        $body .= '<span title="'.$appointment->tz.'">';
+        $body .= '<span title="' . $appointment->tz . '">';
         $body .= Icon::time() . '&nbsp;' . $appointment->start_at->timezone($appointment->tz)->toTimeString();
         $body .= '</span>';
         $body .= '<li class="list-group-item">';
-        $body .= Icon::tag(). '&nbsp;' . $appointment->service->name;
+        $body .= Icon::tag() . '&nbsp;' . $appointment->service->name;
         $body .= '</li>';
-        if($appointment->service->prerequisites)
-        {
+        if ($appointment->service->prerequisites) {
             $body .= '<li class="list-group-item">';
-            $body .= Icon::alert(). '&nbsp;' . $appointment->service->prerequisites;
+            $body .= Icon::alert() . '&nbsp;' . $appointment->service->prerequisites;
             $body .= '</li>';
         }
         $body .= '</li>';
-        
+
         $body .= '</ul>';
 
         $body .= $this->actionButtons($appointment);
-        
+
         if ($appointment->comments) {
-            $body .= '<p>'. $appointment->comments .'</p>';
+            $body .= '<p>' . $appointment->comments . '</p>';
         }
 
         return $body;
@@ -123,7 +120,7 @@ class AppointmentPanel extends Widget
 
     public function actionButtons($appointment)
     {
-        $method = $this->profile.'ActionButtons';
+        $method = $this->profile . 'ActionButtons';
         return $this->$method($appointment);
     }
 

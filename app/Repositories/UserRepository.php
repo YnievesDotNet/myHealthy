@@ -18,8 +18,8 @@ class UserRepository
         }
 
         return User::create([
-            'name'     => $userData->nickname,
-            'email'    => $userData->email,
+            'name' => $userData->nickname,
+            'email' => $userData->email,
         ]);
     }
 }

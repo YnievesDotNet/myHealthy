@@ -25,7 +25,7 @@ class SendBookingNotification
     /**
      * Handle the event.
      *
-     * @param  NewBooking  $event
+     * @param  NewBooking $event
      * @return void
      */
     public function handle(NewBooking $event)
@@ -36,11 +36,11 @@ class SendBookingNotification
         $date = $event->appointment->start_at->toDateString();
         $business_name = $event->appointment->business->name;
         Notifynder::category('appointment.reserve')
-                   ->from('App\User', $event->user->id)
-                   ->to('App\Business', $event->appointment->business->id)
-                   ->url('http://localhost')
-                   ->extra(compact('business_name', 'code', 'date'))
-                   ->send();
+            ->from('App\User', $event->user->id)
+            ->to('App\Business', $event->appointment->business->id)
+            ->url('http://localhost')
+            ->extra(compact('business_name', 'code', 'date'))
+            ->send();
 
         $locale = App::getLocale();
         Mail::send("emails.{$locale}.appointments.user._new", ['user' => $event->user, 'appointment' => $event->appointment->getPresenter()], function ($m) use ($event) {
