@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8bdeff66bf6c089ba0f0be1e5f00e727",
-    "content-hash": "b9836741d6fd3dd214abbe323ea2ad21",
+    "hash": "4e5c20655cfe42287cd74dc9e844863d",
+    "content-hash": "9bd2d8b031487c49587da0f9c3d1f562",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -280,47 +280,6 @@
             "description": "Helps manage timezones in Laravel. Includes <select> form builder for timezones.",
             "homepage": "http://www.camroncade.com/managing-timezones-with-laravel/",
             "time": "2015-05-20 20:32:03"
-        },
-        {
-            "name": "caouecs/laravel4-lang",
-            "version": "2.0.43",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/caouecs/Laravel-lang.git",
-                "reference": "1f1a7d5d6b63636b5842cd667a162d12589604df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/1f1a7d5d6b63636b5842cd667a162d12589604df",
-                "reference": "1f1a7d5d6b63636b5842cd667a162d12589604df",
-                "shasum": ""
-            },
-            "require-dev": {
-                "fabpot/php-cs-fixer": "^1.10"
-            },
-            "suggest": {
-                "overtrue/laravel-lang": "Command to add languages in your project"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "caouecs",
-                    "email": "caouecs@caouecs.net"
-                }
-            ],
-            "description": "Languages for Laravel",
-            "keywords": [
-                "lang",
-                "languages",
-                "laravel",
-                "lpm"
-            ],
-            "abandoned": "caouecs/laravel-lang",
-            "time": "2016-04-20 13:26:08"
         },
         {
             "name": "classpreloader/classpreloader",
