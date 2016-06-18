@@ -1,7 +1,7 @@
-@servers(['demo' => 'findapro'])
+@servers(['demo' => 'myhealthy'])
 
 @task('check', ['on' => 'demo'])
-cd /var/www/findapro/dev/htdocs
+cd /var/www/myhealthy/dev/htdocs
 phpunit
 @endtask
 
@@ -11,14 +11,14 @@ sudo /usr/local/bin/deploy.sh development
 
 @task('seed', ['on' => 'demo'])
 {{-- Target the project directory --}}
-cd /var/www/findapro/demo/htdocs
+cd /var/www/myhealthy/demo/htdocs
 {{-- If there is anything to migrate, migrate it --}}
 php artisan db:seed --class="CategoriesSeeder"
 @endtask
 
 @task('refresh', ['on' => 'demo'])
 {{-- Target the project directory --}}
-cd /var/www/findapro/dev/htdocs
+cd /var/www/myhealthy/dev/htdocs
 {{-- If there is anything to migrate, migrate it --}}
 php artisan migrate:refresh --seed
 @endtask
