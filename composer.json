@@ -17,6 +17,8 @@
         "lavary/laravel-menu": "dev-master",
         "laravelcollective/html": "~5.0",
 
+        "fzaninotto/faker": "~1.0",
+
         "intervention/image": "^2.2",
         "intervention/imagecache": "^2.2",
         "patricktalmadge/bootstrapper": "~5",
