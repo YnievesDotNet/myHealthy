@@ -1,8 +1,9 @@
-<?php namespace App\Providers;
+<?php
+
+namespace App\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use App\Business;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -18,26 +19,20 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router $router
+     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
     public function boot(Router $router)
     {
-        parent::boot($router);
+        //
 
-        $router->model('contact', 'App\Contact');
-        $router->model('business', 'App\Business');
-        $router->model('service', 'App\Service');
-        $router->model('appointment', 'App\Appointment');
-        $router->bind('business_slug', function ($business_slug) {
-            return Business::where('slug', $business_slug)->get();
-        });
+        parent::boot($router);
     }
 
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router $router
+     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
     public function map(Router $router)

@@ -15,41 +15,24 @@ return [
     */
 
     'mailgun' => [
-        'domain' => getenv('MAILGUN_DOMAIN'),
-        'secret' => getenv('MAILGUN_SECRET'),
+        'domain' => env('MAILGUN_DOMAIN'),
+        'secret' => env('MAILGUN_SECRET'),
     ],
 
     'mandrill' => [
-        'secret' => '',
+        'secret' => env('MANDRILL_SECRET'),
     ],
 
     'ses' => [
-        'key' => '',
-        'secret' => '',
+        'key'    => env('SES_KEY'),
+        'secret' => env('SES_SECRET'),
         'region' => 'us-east-1',
     ],
 
     'stripe' => [
-        'model' => 'App\User',
-        'secret' => '',
+        'model'  => App\User::class,
+        'key'    => env('STRIPE_KEY'),
+        'secret' => env('STRIPE_SECRET'),
     ],
-
-    'github' => [
-        'client_id' => getenv('GITHUB_CLIENT_ID'),
-        'client_secret' => getenv('GITHUB_CLIENT_SECRET'),
-        'redirect' => 'http://demo.timegrid.io/social/login/github'
-    ],
-
-    'facebook' => [
-        'client_id' => getenv('FACEBOOK_CLIENT_ID'),
-        'client_secret' => getenv('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => 'http://demo.timegrid.io/social/login/facebook'
-    ],
-
-    'google' => [
-        'client_id' => getenv('GOOGLE_CLIENT_ID'),
-        'client_secret' => getenv('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'http://demo.timegrid.io/social/login/google'
-    ]
 
 ];

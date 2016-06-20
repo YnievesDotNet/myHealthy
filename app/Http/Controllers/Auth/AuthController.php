@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Illuminate\Validation\ValidationServiceProvider;
-use App\Http\Controllers\Controller;
-use App\Events\NewRegisteredUser;
 use App\User;
 use Validator;
-use Event;
-use Log;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
@@ -24,13 +21,11 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers;
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
      * Create a new authentication controller instance.
      *
-     * @param  \Illuminate\Contracts\Auth\Guard $auth
-     * @param  \Illuminate\Contracts\Auth\Registrar $registrar
      * @return void
      */
     public function __construct()
@@ -41,12 +36,13 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array $data
+     * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    public function validator(array $data)
+    protected function validator(array $data)
     {
         return Validator::make($data, [
+            'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
@@ -55,18 +51,15 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array $data
+     * @param  array  $data
      * @return User
      */
-    public function create(array $data)
+    protected function create(array $data)
     {
-        Log::info("AuthController: create: email:<{$data['email']}> name:<{$data['name']}>");
-        $user = User::create([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        Event::fire(new NewRegisteredUser($user));
-        return $user;
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "ynievesdotnet/findadoctor",
+    "name": "ynievesdotnet/myhealthy",
     "description": "The booking agenda for successful doctors.",
     "keywords": [
         "appointments",
@@ -14,9 +14,11 @@
         "ext-intl": "*",
         "laravel/framework": "5.1.*",
         "barryvdh/laravel-debugbar": "^2.0",
+        "lavary/laravel-menu": "dev-master",
+        "laravelcollective/html": "~5.0",
+
         "intervention/image": "^2.2",
         "intervention/imagecache": "^2.2",
-        "laravelcollective/html": "~5.0",
         "patricktalmadge/bootstrapper": "~5",
         "barryvdh/laravel-snappy": "0.2.x",
         "laracasts/flash": "~1.3",
@@ -39,7 +41,6 @@
         "caffeinated/widgets": "~2.0",
         "watson/rememberable": "^1.0",
         "ipunkt/laravel-analytics": "~1.1",
-        "lavary/laravel-menu": "dev-master",
         "laravel/socialite": "^2.0",
         "cornford/googlmapper": "2.*",
         "genealabs/phpgmaps": "~0.3.0",

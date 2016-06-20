@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myHealthyApp', ['ngResource', 'ngSanitize', 'ui.select'], function ($interpolateProvider) {
+angular.module('myHealthyApp', ['ngResource', 'ngSanitize'], function ($interpolateProvider) {
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');
 }).filter('propsFilter', function () {

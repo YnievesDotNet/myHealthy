@@ -11,11 +11,11 @@ return [
     | sending of e-mail. You may specify which one you're using throughout
     | your application here. By default, Laravel is setup for SMTP mail.
     |
-    | Supported: "smtp", "mail", "sendmail", "mailgun", "mandrill", "log"
+    | Supported: "smtp", "mail", "sendmail", "mailgun", "mandrill", "ses", "log"
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'mailgun'),
+    'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => env('MAIL_FROM_ADDRESS', ''), 'name' => env('MAIL_FROM_NAME', '')],
+    'from' => ['address' => null, 'name' => null],
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'encryption' => 'tls',
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 
     /*
     |--------------------------------------------------------------------------
@@ -119,6 +119,6 @@ return [
     |
     */
 
-    'pretend' => env('MAIL_PRETEND', true),
+    'pretend' => env('MAIL_PRETEND', false),
 
 ];

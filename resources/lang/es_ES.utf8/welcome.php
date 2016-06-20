@@ -1,60 +1,26 @@
 <?php
-/*************************************************************************
- * Generated via "php artisan localization:missing" at 2015/07/21 13:28:55
- *************************************************************************/
-
 return array(
-    //============================== New strings to translate ==============================//
-    // Defined in file /home/alariva/xb3/xbooking/resources/views/welcome.blade.php
-    'jumbotron' => array(
-        'btn' => ['begin' => 'Empecemos', 'login' => 'Iniciar Sesión'],
-        'description' => 'Encuentre a los profesionales en las ramas que usted necesite, aqui le mostramos, es GRATIS!.',
-        'title' => 'Encuentra un Pro',
-    ),
-    // Defined in file /home/alariva/xb3/xbooking/resources/views/welcome.blade.php
-    //==================================== Translations ====================================//
     'feature' =>
         array(
-            1 =>
+            "optimize" =>
                 array(
-                    'btn' =>
-                        array(
-                            'action' => 'Ver cómo',
-                            'info' => 'Más info',
-                        ),
-                    'content' => 'Asigna los turnos por tí para que puedas dedicarte a lo que importa. Tu tiempo vale.',
+                    'subtitle' => 'Asigna los turnos por tí para que puedas dedicarte a lo que importa. Tu tiempo vale.',
                     'title' => 'Optimiza',
                 ),
-            2 =>
+            "contact" =>
                 array(
-                    'btn' =>
-                        array(
-                            'action' => 'Ver cómo',
-                            'info' => 'Más info',
-                        ),
-                    'content' => 'Mantiene a todos tus contactos organizados para que tu cartera de clientes esté siempre vigente.',
+                    'subtitle' => 'Mantiene a todos tus contactos organizados para que tu cartera de clientes esté siempre vigente.',
                     'title' => 'Fideliza',
                 ),
-            3 =>
+            "do" =>
                 array(
-                    'btn' =>
-                        array(
-                            'action' => 'Ver cómo',
-                            'info' => 'Más info',
-                        ),
-                    'content' => 'Le da a tus clientes el servicio que merecen, porque realmente lo merecen.',
+                    'subtitle' => 'Le da a tus clientes el servicio que merecen, porque realmente lo merecen.',
                     'title' => 'Profesionaliza',
                 ),
-            4 =>
+            "love" =>
                 array(
-                    'btn' =>
-                        array(
-                            'action' => 'Ver cómo',
-                            'info' => 'Más info',
-                        ),
-                    'content' => 'Es hora de aprovechar el tiempo ahorrado y tomar unas buenas vacaciones.',
+                    'subtitle' => 'Es hora de aprovechar el tiempo ahorrado y tomar unas buenas vacaciones.',
                     'title' => 'Libera',
                 ),
         ),
-    //================================== Obsolete strings ==================================//
 );

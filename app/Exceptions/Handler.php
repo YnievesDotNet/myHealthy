@@ -3,8 +3,10 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Mail;
 
 class Handler extends ExceptionHandler
 {
@@ -14,7 +16,8 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        'Symfony\Component\HttpKernel\Exception\HttpException'
+        HttpException::class,
+        ModelNotFoundException::class,
     ];
 
     /**
@@ -22,30 +25,27 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception $e
+     * @param  \Exception  $e
      * @return void
      */
     public function report(Exception $e)
     {
-        if (env('APP_ENV', 'local') != 'local') {
-            Mail::raw($e, function ($message) {
-                $message->subject('[ROOT] Exception Report');
-                $message->from(env('MAIL_FROM_ADDRESS', 'root@localhost'), env('SYSLOG_APPNAME', ''));
-                $message->to(env('ROOT_REPORT_MAIL', 'root@localhost'));
-            });
-        }
         return parent::report($e);
     }
 
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Exception $e
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Exception  $e
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $e)
     {
+        if ($e instanceof ModelNotFoundException) {
+            $e = new NotFoundHttpException($e->getMessage(), $e);
+        }
+
         return parent::render($request, $e);
     }
 }

@@ -8,6 +8,6 @@
             <span>{!! Label::danger('DEMO') !!} <span
                         class="text-danger">&nbsp;{{ trans('app.footer.demo') }}</span></span>
         @endif
-        &nbsp; .:myHealthy:. v1.0 - Copyright &copy; YnievesDotNet 2007-<?php echo date('Y');?>
+        &nbsp; .:{{trans('app.name')}}:. v{{env('APP_VERSION')}} - Copyright &copy; YnievesDotNet 2007-<?php echo date('Y');?>
     </span>
 </div>

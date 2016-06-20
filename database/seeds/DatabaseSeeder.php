@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,20 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        ini_set('max_execution_time', 600);
-        $notifynder = new NotifynderCategoriesSeeder;
-        $notifynder->run();
-        $languajes = new LanguajesTableSeeder;
-        $languajes->run();
-        $categories = new CategoriesSeeder;
-        $categories->run();
-        $countries = new CountriesTableSeeder;
-        $countries->run();
-        $region = new RegionTableSeeder;
-        $region->run();
-        $location = new LocationTableSeeder;
-        $location->run();
-        $roles = new RolesTableSeeder;
-        $roles->run();
+        Model::unguard();
+
+        // $this->call(UserTableSeeder::class);
+
+        Model::reguard();
     }
 }

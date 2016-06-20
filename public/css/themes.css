@@ -1042,18 +1042,18 @@ img:hover {
     transition: color .2s ease-out, background 1s ease-in;
 }
 
-#optimize:hover {
+#optimize {
     background-color: #FFD8CC;
 }
 
-#contact:hover {
+#contact {
     background-color: #FFF0CC;
 }
 
-#do:hover {
+#do {
     background-color: #E4FFCC;
 }
 
-#love:hover {
+#love {
     background-color: #FFCCEE;
 }

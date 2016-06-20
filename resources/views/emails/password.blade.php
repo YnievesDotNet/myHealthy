@@ -1,1 +1,0 @@
-@include('emails.'.App::getLocale() . '._password')

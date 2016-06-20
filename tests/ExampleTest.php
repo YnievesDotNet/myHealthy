@@ -1,22 +1,19 @@
 <?php
 
-use Laracasts\Integrated\Extensions\Selenium as IntegrationTest;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends IntegrationTest
+class ExampleTest extends TestCase
 {
-
-    protected $baseUrl = 'http://localhost:8000';
-
-    public function testRegistration()
+    /**
+     * A basic functional test example.
+     *
+     * @return void
+     */
+    public function testBasicExample()
     {
         $this->visit('/')
-            ->click('Empecemos')
-            ->see('Registrame')
-            ->type('ariel', 'name')
-            ->type('test@maildrop.cc', 'email')
-            ->type('123123', 'password')
-            ->type('123123', 'password_confirmation')
-            ->press('Registrame')
-            ->see('Muy bien');
+             ->see('Laravel 5');
     }
 }

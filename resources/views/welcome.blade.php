@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('bower_components/ui-select/dist/select.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/css/dataTables.bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('bower_components/selectize.js/dist/css/selectize.bootstrap3.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/owl.carousel/owl-carousel/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/owl.carousel/owl-carousel/owl.theme.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/themes.css') }}">
 </head>
@@ -53,76 +55,7 @@
     </div>
 </div>
 <div class="container" style="margin-top: 10px;">
-    <div class="row">
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail panel" id="optimize">
-                <img src="{{asset('img/jumbo/optimize.png')}}" alt="">
-
-                <div class="caption">
-                    <h3>{{trans('welcome.feature.1.title')}}</h3>
-
-                    <p>{{trans('welcome.feature.1.content')}}</p>
-
-                    <p>
-                        <a href="#" class="btn btn-primary">{{trans('welcome.feature.1.btn.action')}}</a>
-                        <a href="#" class="btn btn-default">{{trans('welcome.feature.1.btn.info')}}</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail panel" id="contact">
-                <img src="{{asset('img/jumbo/contact.png')}}" alt="">
-
-                <div class="caption">
-                    <h3>{{trans('welcome.feature.2.title')}}</h3>
-
-                    <p>{{trans('welcome.feature.2.content')}}</p>
-
-                    <p>
-                        <a href="#" class="btn btn-primary">{{trans('welcome.feature.2.btn.action')}}</a>
-                        <a href="#" class="btn btn-default">{{trans('welcome.feature.2.btn.info')}}</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail panel" id="do">
-                <img src="{{asset('img/jumbo/do.png')}}" alt="">
-
-                <div class="caption">
-                    <h3>{{trans('welcome.feature.3.title')}}</h3>
-
-                    <p>{{trans('welcome.feature.3.content')}}</p>
-
-                    <p>
-                        <a href="#" class="btn btn-primary">{{trans('welcome.feature.3.btn.action')}}</a>
-                        <a href="#" class="btn btn-default">{{trans('welcome.feature.3.btn.info')}}</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail panel" id="love">
-                <img src="{{asset('img/jumbo/love.png')}}" alt="">
-
-                <div class="caption">
-                    <h3>{{trans('welcome.feature.4.title')}}</h3>
-
-                    <p>{{trans('welcome.feature.4.content')}}</p>
-
-                    <p>
-                        <a href="#" class="btn btn-primary">{{trans('welcome.feature.4.btn.action')}}</a>
-                        <a href="#" class="btn btn-default">{{trans('welcome.feature.4.btn.info')}}</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('content.slides')
     @include('partials._footer')
 </div>
 <!-- /.row -->
@@ -153,7 +86,8 @@
         src="{{ asset('bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bower_components/iCheck/icheck.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bower_components/matchHeight/jquery.matchHeight-min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('vendor/js/owl.carousel.min.js') }}"></script>
+<script type="text/javascript"
+        src="{{ asset('bower_components/owl.carousel/owl-carousel/owl.carousel.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/js/mousescroll.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/js/smoothscroll.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/js/jquery.prettyPhoto.js') }}"></script>
