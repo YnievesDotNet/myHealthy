@@ -6,7 +6,9 @@
                     <div class="col-sm-8">
                         <h1>{{trans('welcome.feature.optimize.title')}}</h1>
                         <h2>{{trans('welcome.feature.optimize.subtitle')}}</h2>
-                        <p>{{$faker->text(200)}}</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta.</p>
                     </div>
                     <div class="col-sm-4 text-right">
                         <div class="thumbnail panel">
@@ -24,7 +26,9 @@
                     <div class="col-sm-8">
                         <h1>{{trans('welcome.feature.contact.title')}}</h1>
                         <h2>{{trans('welcome.feature.contact.subtitle')}}</h2>
-                        <p>{{$faker->text(200)}}</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta.</p>
                     </div>
                     <div class="col-sm-4 text-right">
                         <div class="thumbnail panel">
@@ -42,7 +46,9 @@
                     <div class="col-sm-8">
                         <h1>{{trans('welcome.feature.do.title')}}</h1>
                         <h2>{{trans('welcome.feature.do.subtitle')}}</h2>
-                        <p>{{$faker->text(200)}}</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta.</p>
                     </div>
                     <div class="col-sm-4 text-right">
                         <div class="thumbnail panel">
@@ -60,7 +66,9 @@
                     <div class="col-sm-8">
                         <h1>{{trans('welcome.feature.love.title')}}</h1>
                         <h2>{{trans('welcome.feature.love.subtitle')}}</h2>
-                        <p>{{$faker->text(200)}}</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                            laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                            architecto beatae vitae dicta.</p>
                     </div>
                     <div class="col-sm-4 text-right">
                         <div class="thumbnail panel">

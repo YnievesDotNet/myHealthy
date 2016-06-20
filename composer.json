@@ -17,8 +17,6 @@
         "lavary/laravel-menu": "dev-master",
         "laravelcollective/html": "~5.0",
 
-        "fzaninotto/faker": "~1.0",
-
         "intervention/image": "^2.2",
         "intervention/imagecache": "^2.2",
         "patricktalmadge/bootstrapper": "~5",
@@ -54,6 +52,7 @@
         "phpunit/phpunit": "~4.0",
         "scrutinizer/ocular": "~1.1",
         "phpunit/phpunit-selenium": ">=1.2",
+        "fzaninotto/faker": "~1.0",
         "mockery/mockery": "0.9.*",
         "phpspec/phpspec": "~2.1",
         "laracasts/generators": "^1.1",

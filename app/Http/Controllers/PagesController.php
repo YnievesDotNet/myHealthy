@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Faker\Factory;
 use Log;
 
 class PagesController extends Controller
@@ -34,8 +33,7 @@ class PagesController extends Controller
     public function index()
     {
         Log::info('Welcome hit');
-        $faker = Factory::create();
-        return view('welcome', compact('faker'));
+        return view('welcome');
     }
 
     /**
